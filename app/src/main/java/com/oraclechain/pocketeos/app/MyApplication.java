@@ -179,7 +179,7 @@ public class MyApplication extends MultiDexApplication {
         builder.cookieJar(new CookieJarImpl(mSPCookieStore));            //使用sp保持cookie，如果cookie不过期，则一直有效
 
 
-        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(getAssets().open("server.cer"));
+        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(getAssets().open("server1.cer"));
         builder.sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
 //        //配置https的域名匹配规则，使用不当会导致https握手失败
         builder.hostnameVerifier(HttpsUtils.UnSafeHostnameVerifier);

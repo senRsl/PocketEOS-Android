@@ -18,6 +18,8 @@ android {
                 includeCompileClasspath = true
             }
         }
+
+        buildConfigField('String', 'URL_DOMAIN_CHAIN', URL_DOMAIN_CHAIN)
     }
 
     dexOptions {
