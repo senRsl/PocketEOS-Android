@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.swiperecycle;
 
+import com.oraclechain.pocketeos.R;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,8 +12,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.oraclechain.pocketeos.R;
 
 /**
  * Created by pocketEos on 2017/12/11.
@@ -237,6 +237,57 @@ public class SwipeLayout extends ViewGroup {
         return GravityCompat.getAbsoluteGravity(gravity, ViewCompat.getLayoutDirection(this));
     }
 
+    @Override
+    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+    }
+
+
+    // ===============  layoutParams =========================
+
+    @Override
+    public LayoutParams generateLayoutParams(AttributeSet attrs) {
+        return new LayoutParams(getContext(), attrs);
+    }
+
+    @Override
+    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
+        if (lp instanceof LayoutParams) {
+            return new LayoutParams(((LayoutParams) lp));
+        }
+        return new LayoutParams(lp);
+    }
+
+    @Override
+    protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
+        return super.checkLayoutParams(p);
+    }
+
+    public static class LayoutParams extends ViewGroup.LayoutParams {
+
+        public int gravity = Gravity.NO_GRAVITY;
+
+        public LayoutParams(Context c, AttributeSet attrs) {
+            super(c, attrs);
+            final TypedArray a = c.obtainStyledAttributes(attrs, LAYOUT_ATTRS);
+            gravity = a.getInt(0, Gravity.NO_GRAVITY);
+            a.recycle();
+        }
+
+        public LayoutParams(int width, int height) {
+            super(width, height);
+        }
+
+        public LayoutParams(ViewGroup.LayoutParams source) {
+            super(source);
+        }
+
+        public LayoutParams(LayoutParams source) {
+            super(source);
+            this.gravity = source.gravity;
+        }
+    }
+
     // ===============  DragCallBack =========================
     class DragCallBack extends ViewDragHelper.Callback {
 
@@ -319,58 +370,6 @@ public class SwipeLayout extends ViewGroup {
                 target = xvel <= 0 && left < -menuWidth / 2 ? -menuWidth : 0;
             }
             mDragger.smoothSlideViewTo(mContentView, target, mContentView.getTop());
-        }
-    }
-
-
-    // ===============  layoutParams =========================
-
-    @Override
-    protected ViewGroup.LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-    }
-
-    @Override
-    public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new LayoutParams(getContext(), attrs);
-    }
-
-    @Override
-    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams lp) {
-        if (lp instanceof LayoutParams) {
-            return new LayoutParams(((LayoutParams) lp));
-        }
-        return new LayoutParams(lp);
-    }
-
-    @Override
-    protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return super.checkLayoutParams(p);
-    }
-
-
-    public static class LayoutParams extends ViewGroup.LayoutParams {
-
-        public int gravity = Gravity.NO_GRAVITY;
-
-        public LayoutParams(Context c, AttributeSet attrs) {
-            super(c, attrs);
-            final TypedArray a = c.obtainStyledAttributes(attrs, LAYOUT_ATTRS);
-            gravity = a.getInt(0, Gravity.NO_GRAVITY);
-            a.recycle();
-        }
-
-        public LayoutParams(int width, int height) {
-            super(width, height);
-        }
-
-        public LayoutParams(ViewGroup.LayoutParams source) {
-            super(source);
-        }
-
-        public LayoutParams(LayoutParams source) {
-            super(source);
-            this.gravity = source.gravity;
         }
     }
 }

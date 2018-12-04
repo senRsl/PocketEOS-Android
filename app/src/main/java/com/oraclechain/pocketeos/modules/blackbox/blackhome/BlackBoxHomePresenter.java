@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.modules.blackbox.blackhome;
 
-import android.content.Context;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.base.BasePresent;
@@ -12,9 +14,7 @@ import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2018/1/18.
@@ -26,7 +26,8 @@ public class BlackBoxHomePresenter extends BasePresent<BlackBoxHomeView> {
     public BlackBoxHomePresenter(Context context) {
         this.mContext = context;
     }
-    public void getAccountDetailsData(final String name ) {
+
+    public void getAccountDetailsData(final String name) {
 
         HashMap<String, String> hashMap = new HashMap<String, String>();
         hashMap.put("name", name);
@@ -36,7 +37,7 @@ public class BlackBoxHomePresenter extends BasePresent<BlackBoxHomeView> {
                 if (response.body().code == 0) {
                     if (response.body().data.getAccount_name().equals(name)) {
                         List<AccountWithCoinBean> accountWithCoinBeens = new ArrayList<>();
-                        AccountWithCoinBean  eos = new AccountWithCoinBean();
+                        AccountWithCoinBean eos = new AccountWithCoinBean();
                         eos.setCoinName("EOS");
                         eos.setCoinForCny(RegexUtil.subZeroAndDot(response.body().data.getEos_balance_cny()));
                         eos.setCoinNumber(RegexUtil.subZeroAndDot(response.body().data.getEos_balance()));
@@ -61,7 +62,7 @@ public class BlackBoxHomePresenter extends BasePresent<BlackBoxHomeView> {
                         if (response.body().data.getOct_price_change_in_24h().contains("-")) {
                             oct.setCoinUpsAndDowns(response.body().data.getOct_price_change_in_24h() + "%");
                         } else {
-                            oct.setCoinUpsAndDowns("+" +response.body().data.getOct_price_change_in_24h() + "%");
+                            oct.setCoinUpsAndDowns("+" + response.body().data.getOct_price_change_in_24h() + "%");
                         }
                         accountWithCoinBeens.add(oct);
                         view.getAccountDetailsDataHttp(accountWithCoinBeens);

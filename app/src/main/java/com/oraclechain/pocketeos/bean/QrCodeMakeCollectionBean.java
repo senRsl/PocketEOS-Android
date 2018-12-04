@@ -9,10 +9,31 @@ import android.os.Parcelable;
  */
 
 public class QrCodeMakeCollectionBean implements Parcelable {
+    public static final Parcelable.Creator<QrCodeMakeCollectionBean> CREATOR = new Parcelable.Creator<QrCodeMakeCollectionBean>() {
+        @Override
+        public QrCodeMakeCollectionBean createFromParcel(Parcel source) {
+            return new QrCodeMakeCollectionBean(source);
+        }
+
+        @Override
+        public QrCodeMakeCollectionBean[] newArray(int size) {
+            return new QrCodeMakeCollectionBean[size];
+        }
+    };
     private String account_name = null;
     private String coin = null;
     private String money = null;
     private String type = null;
+
+    public QrCodeMakeCollectionBean() {
+    }
+
+    protected QrCodeMakeCollectionBean(Parcel in) {
+        this.account_name = in.readString();
+        this.coin = in.readString();
+        this.money = in.readString();
+        this.type = in.readString();
+    }
 
     public String getAccount_name() {
         return account_name == null ? "" : account_name;
@@ -58,26 +79,4 @@ public class QrCodeMakeCollectionBean implements Parcelable {
         dest.writeString(this.money);
         dest.writeString(this.type);
     }
-
-    public QrCodeMakeCollectionBean() {
-    }
-
-    protected QrCodeMakeCollectionBean(Parcel in) {
-        this.account_name = in.readString();
-        this.coin = in.readString();
-        this.money = in.readString();
-        this.type = in.readString();
-    }
-
-    public static final Parcelable.Creator<QrCodeMakeCollectionBean> CREATOR = new Parcelable.Creator<QrCodeMakeCollectionBean>() {
-        @Override
-        public QrCodeMakeCollectionBean createFromParcel(Parcel source) {
-            return new QrCodeMakeCollectionBean(source);
-        }
-
-        @Override
-        public QrCodeMakeCollectionBean[] newArray(int size) {
-            return new QrCodeMakeCollectionBean[size];
-        }
-    };
 }

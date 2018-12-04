@@ -1,8 +1,5 @@
 package com.oraclechain.pocketeos.modules.dapp.dappdetails;
 
-import android.content.Context;
-import android.webkit.JavascriptInterface;
-
 import com.lzy.okgo.utils.OkLogger;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -13,6 +10,9 @@ import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 import com.oraclechain.pocketeos.view.webview.BaseWebView;
+
+import android.content.Context;
+import android.webkit.JavascriptInterface;
 
 import static com.lzy.okgo.utils.HttpUtils.runOnUiThread;
 

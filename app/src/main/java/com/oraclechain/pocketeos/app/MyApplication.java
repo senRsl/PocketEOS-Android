@@ -1,10 +1,8 @@
 package com.oraclechain.pocketeos.app;
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.multidex.MultiDexApplication;
-import android.widget.ImageView;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -29,10 +27,11 @@ import com.oraclechain.pocketeos.utils.Utils;
 import com.tencent.tauth.Tencent;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-
+import android.content.Context;
+import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
+import android.support.multidex.MultiDexApplication;
+import android.widget.ImageView;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 
@@ -50,6 +49,10 @@ public class MyApplication extends MultiDexApplication {
 
     public static MyApplication getInstance() {
         return mInstance;
+    }
+
+    public static DaoSession getDaoInstant() {
+        return daoSession;
     }
 
     public SPCookieStore getSPCookieStore() {
@@ -123,6 +126,7 @@ public class MyApplication extends MultiDexApplication {
         //保存系统选择语言
         LocalManageUtil.onConfigurationChanged(getApplicationContext());
     }
+
     /**
      * 重新配置okhttp
      */
@@ -133,6 +137,7 @@ public class MyApplication extends MultiDexApplication {
             e.printStackTrace();
         }
     }
+
     /**
      * 配置数据库
      */
@@ -149,7 +154,7 @@ public class MyApplication extends MultiDexApplication {
     }
 
     public void initOkGo() throws IOException {
-        HttpHeaders  headers  = new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders();
         if (new SPCookieStore(this).getAllCookie().size() != 0) {
             headers.put("Set-Cookie", String.valueOf(mSPCookieStore.getCookie(HttpUrl.parse(BaseUrl.HTTP_Get_code_auth))));
         }
@@ -188,10 +193,6 @@ public class MyApplication extends MultiDexApplication {
                 .addCommonHeaders(headers);              //全局公共头
 //                .addCommonParams(httpParams);                       //全局公共参数
 
-    }
-
-    public static DaoSession getDaoInstant() {
-        return daoSession;
     }
 
     public void showImage(String url, final ImageView image) {

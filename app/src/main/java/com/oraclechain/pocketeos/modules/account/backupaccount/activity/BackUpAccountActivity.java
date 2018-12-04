@@ -1,9 +1,7 @@
 package com.oraclechain.pocketeos.modules.account.backupaccount.activity;
 
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.view.WindowManager;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.baseadapter.BackUpAccount_tab_Adapter;
@@ -13,9 +11,10 @@ import com.oraclechain.pocketeos.modules.account.backupaccount.fragment.BackUpAc
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.view.WindowManager;
 import butterknife.BindView;
 
 /**
@@ -45,7 +44,7 @@ public class BackUpAccountActivity extends BaseAcitvity<NormalView, NormalPresen
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
         setCenterTitle(getString(R.string.back_up_account));
     }
 
@@ -61,7 +60,7 @@ public class BackUpAccountActivity extends BaseAcitvity<NormalView, NormalPresen
         mFragments = new ArrayList<>();
         for (int i = 0; i < mTitles.size(); i++) {
             Bundle bundle = new Bundle();
-            bundle.putInt("i",i);
+            bundle.putInt("i", i);
             bundle.putParcelable("account", account);//选择的账号
             BackUpAccountFragment backUpAccountFragment = new BackUpAccountFragment();
             backUpAccountFragment.setArguments(bundle);

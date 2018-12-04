@@ -1,7 +1,7 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.messagecenter;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -11,9 +11,8 @@ import com.oraclechain.pocketeos.adapter.baseadapter.wrapper.EmptyWrapper;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.MessageCenterBean;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import butterknife.BindView;
 
 public class MessageCenterActivity extends BaseAcitvity<MessageCenterView, MessageCenterPresenter> implements MessageCenterView {

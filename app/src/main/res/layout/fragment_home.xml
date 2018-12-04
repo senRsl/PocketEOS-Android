@@ -1,5 +1,4 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_400"
         android:scaleType="fitXY"
-        android:src="@mipmap/person_bg"/>
+        android:src="@mipmap/person_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +36,21 @@
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title1"/>
+                    android:src="@mipmap/home_title1" />
 
                 <ImageView
                     android:id="@+id/home_title2"
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title2"/>
+                    android:src="@mipmap/home_title2" />
 
                 <ImageView
                     android:id="@+id/home_title3"
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title3"/>
+                    android:src="@mipmap/home_title3" />
             </LinearLayout>
 
             <ImageView
@@ -60,7 +59,7 @@
                 android:layout_height="@dimen/dimens_50"
                 android:layout_centerVertical="true"
                 android:scaleType="center"
-                android:src="@mipmap/home_seting"/>
+                android:src="@mipmap/home_seting" />
 
             <TextView
                 android:id="@+id/name"
@@ -70,7 +69,7 @@
                 android:text="@string/pocket_eos"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_19"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_message"
@@ -80,7 +79,7 @@
                 android:layout_toLeftOf="@+id/iv_scan"
                 android:scaleType="center"
                 android:src="@mipmap/home_message"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/iv_scan"
@@ -89,7 +88,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:scaleType="center"
-                android:src="@mipmap/home_scan"/>
+                android:src="@mipmap/home_scan" />
         </RelativeLayout>
 
         <com.oraclechain.pocketeos.view.ScrollText
@@ -108,7 +107,7 @@
             android:text="@string/home_notice"
             android:textColor="@color/sandybrown"
             android:textSize="@dimen/dimens_12"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <com.liaoinstan.springview.widget.SpringView
             android:id="@+id/spring"
@@ -144,7 +143,7 @@
                             android:layout_marginTop="@dimen/dimens_15"
                             android:scaleType="centerCrop"
                             android:src="@mipmap/ic_launcher_round"
-                            app:shape_type="round"/>
+                            app:shape_type="round" />
 
                         <TextView
                             android:id="@+id/user_name"
@@ -158,7 +157,7 @@
                             android:singleLine="true"
                             android:text="@string/app_name"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_16"/>
+                            android:textSize="@dimen/dimens_16" />
 
                         <TextView
                             android:id="@+id/user_account_number"
@@ -175,7 +174,7 @@
                             android:singleLine="true"
                             android:text="@string/app_name"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_13"/>
+                            android:textSize="@dimen/dimens_13" />
 
                         <TextView
                             android:id="@+id/switch_number"
@@ -190,7 +189,7 @@
                             android:gravity="center"
                             android:text="@string/switch_number"
                             android:textColor="#FF436DFB"
-                            android:textSize="13px"/>
+                            android:textSize="13px" />
 
                         <TextView
                             android:id="@+id/all_money"
@@ -204,7 +203,7 @@
                             android:drawableRight="@mipmap/open_eye"
                             android:text="@string/all_money"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_15"/>
+                            android:textSize="@dimen/dimens_15" />
 
                         <TextView
                             android:id="@+id/user_all_property"
@@ -220,7 +219,7 @@
                             android:gravity="bottom"
                             android:singleLine="true"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_36"/>
+                            android:textSize="@dimen/dimens_36" />
 
                         <TextView
                             android:id="@+id/property_tendency"
@@ -236,7 +235,7 @@
                             android:text="@string/_35"
                             android:textColor="@color/white"
                             android:textSize="@dimen/dimens_18"
-                            android:visibility="gone"/>
+                            android:visibility="gone" />
 
                     </RelativeLayout>
 
@@ -250,7 +249,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimens_50"
                             android:layout_gravity="bottom"
-                            android:background="@color/white"/>
+                            android:background="@color/white" />
 
 
                         <android.support.v7.widget.CardView
@@ -281,7 +280,7 @@
                                     android:gravity="center"
                                     android:text="@string/transfer_accounts"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
 
                                 <TextView
                                     android:id="@+id/make_collections"
@@ -293,7 +292,7 @@
                                     android:gravity="center"
                                     android:text="@string/make_collections"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
 
                                 <TextView
                                     android:id="@+id/red_packet"
@@ -305,7 +304,7 @@
                                     android:gravity="center"
                                     android:text="@string/red_packet"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
                     </FrameLayout>
@@ -323,7 +322,7 @@
                             android:background="@color/white"
                             android:paddingLeft="@dimen/dimens_15"
                             android:paddingRight="@dimen/dimens_15"
-                            android:scrollbars="none"/>
+                            android:scrollbars="none" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -335,7 +334,7 @@
                             android:gravity="center"
                             android:text="@string/no_more"
                             android:textColor="@color/gray_color"
-                            android:textSize="@dimen/dimens_12"/>
+                            android:textSize="@dimen/dimens_12" />
                     </RelativeLayout>
                 </LinearLayout>
             </com.oraclechain.pocketeos.view.MyScrollview>
@@ -354,5 +353,5 @@
         app:borderWidth="@dimen/dimens_5"
         app:elevation="@dimen/dimens_5"
         app:fabSize="auto"
-        app:pressedTranslationZ="@dimen/dimens_5"/>
+        app:pressedTranslationZ="@dimen/dimens_5" />
 </FrameLayout>

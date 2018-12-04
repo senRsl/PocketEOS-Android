@@ -46,8 +46,8 @@ public class EstimateRsc {
 
     public SignedTransaction estimate(final SignedTransaction txn, PackedTransaction.CompressType compressType, int keyCount) {
         // TODO 2018-04-06
-        txn.putKcpuUsage( 0 );
-        txn.putNetUsageWords( 0 );
+        txn.putKcpuUsage(0);
+        txn.putNetUsageWords(0);
 
 //        txn.putKcpuUsage( estimateTrxCtxFreeKiloCpuUsage( txn, DEFAULT_EXTRA_KCPU ) );
 //        txn.putNetUsageWords( estimateTrxNetUsageWords( txn, compressType, keyCount) );

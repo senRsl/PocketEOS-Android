@@ -1,16 +1,5 @@
 package com.oraclechain.pocketeos.modules.blackbox;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.AppManager;
@@ -21,10 +10,10 @@ import com.oraclechain.pocketeos.modules.blackbox.blackhome.BlackHomeFragment;
 import com.oraclechain.pocketeos.modules.dapp.DappFragment;
 import com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.messagecenter.MessageCenterActivity;
-import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.SystemSettingActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.transactionhistory.TransactionHistoryActivity;
 import com.oraclechain.pocketeos.modules.news.NewsFragment;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.modules.wallet.createwallet.login.LoginActivity;
@@ -33,6 +22,16 @@ import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.UpdateUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -217,7 +216,9 @@ public class BlackBoxMainActivity extends BaseAcitvity<NormalView, NormalPresent
     @Override
     public void open(int tag) {
         mDrawer.openDrawer(Gravity.START);
-    }    @Override
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_home:

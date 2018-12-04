@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +25,7 @@
                 android:layout_alignParentLeft="true"
                 android:text="@string/reference_price_cny_share"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/coin_one_price"
@@ -35,7 +34,7 @@
                 android:layout_alignParentRight="true"
                 android:text="@string/app_name"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -49,7 +48,7 @@
                 android:layout_alignParentLeft="true"
                 android:text="@string/toast_down_up"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/coin_ups_and_downs"
@@ -58,7 +57,7 @@
                 android:layout_alignParentRight="true"
                 android:text="@string/app_name"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -72,7 +71,7 @@
                 android:layout_alignParentLeft="true"
                 android:text="@string/all_market_price_share"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/coin_maket_total_price"
@@ -81,7 +80,7 @@
                 android:layout_alignParentRight="true"
                 android:text="@string/app_name"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </RelativeLayout>
 
         <TextView
@@ -93,14 +92,14 @@
             android:gravity="center"
             android:text="@string/from_pocketeos"
             android:textColor="@color/gray_color"
-            android:textSize="@dimen/dimens_13"/>
+            android:textSize="@dimen/dimens_13" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimens_1"
             android:layout_marginBottom="@dimen/dimens_10"
             android:layout_marginTop="@dimen/dimens_10"
-            android:background="@color/line"/>
+            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -119,7 +118,7 @@
                 android:gravity="center"
                 android:text="@string/go_weixin_friend"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_12"/>
+                android:textSize="@dimen/dimens_12" />
 
             <TextView
                 android:id="@+id/go_weixin_circle"
@@ -131,7 +130,7 @@
                 android:gravity="center"
                 android:text="@string/go_weixin_circle"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_12"/>
+                android:textSize="@dimen/dimens_12" />
 
             <TextView
                 android:id="@+id/go_qq_friend"
@@ -143,7 +142,7 @@
                 android:gravity="center"
                 android:text="@string/go_qq_friend"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_12"/>
+                android:textSize="@dimen/dimens_12" />
 
             <TextView
                 android:id="@+id/go_qzone"
@@ -155,7 +154,7 @@
                 android:gravity="center"
                 android:text="@string/go_qzone"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_12"/>
+                android:textSize="@dimen/dimens_12" />
         </LinearLayout>
 
         <Button
@@ -165,7 +164,7 @@
             android:layout_marginTop="@dimen/dimens_20"
             android:background="@null"
             android:text="@string/seach_cancel"
-            android:textSize="@dimen/dimens_16"/>
+            android:textSize="@dimen/dimens_16" />
     </LinearLayout>
 </LinearLayout>
 

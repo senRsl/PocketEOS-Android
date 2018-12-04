@@ -1,8 +1,7 @@
 package com.oraclechain.pocketeos.modules.otherloginorshare;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -13,13 +12,12 @@ import com.tencent.connect.auth.QQToken;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 
 //qq登陆管理类
 public class BaseUIListener implements IUiListener {
-    private Context mContext;
-    private boolean mIsCaneled;
     private static final int ON_COMPLETE = 0;
     private static final int ON_ERROR = 1;
     private static final int ON_CANCEL = 2;
@@ -27,7 +25,8 @@ public class BaseUIListener implements IUiListener {
     OtherLoginCallBack mOtherLoginCallBack;
     String openid = null;
     Boolean isShare = false;
-
+    private Context mContext;
+    private boolean mIsCaneled;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

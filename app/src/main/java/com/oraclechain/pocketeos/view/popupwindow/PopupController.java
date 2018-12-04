@@ -15,10 +15,10 @@ import android.widget.PopupWindow;
  */
 
 public class PopupController {
+    View mPopupView;//弹窗布局View
     private int layoutResId;//布局id
     private Context context;
     private PopupWindow popupWindow;
-    View mPopupView;//弹窗布局View
     private View mView;
     private Window mWindow;
 

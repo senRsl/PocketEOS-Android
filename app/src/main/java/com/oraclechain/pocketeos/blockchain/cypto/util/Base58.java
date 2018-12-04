@@ -2,13 +2,13 @@ package com.oraclechain.pocketeos.blockchain.cypto.util;
 
 /**
  * Copyright 2011 Google Inc.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -46,6 +46,7 @@ public class Base58 {
     public static final char[] ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".toCharArray();
 
     private static final int[] INDEXES = new int[128];
+
     static {
         for (int i = 0; i < INDEXES.length; i++) {
             INDEXES[i] = -1;
@@ -117,7 +118,7 @@ public class Base58 {
         // since Java does not automatically discard them when reading a stream. Only remove it, if at the beginning
         // of the string. Otherwise, something is probably seriously wrong.
         int inputLen = input.length;
-        int startIndex= 0;
+        int startIndex = 0;
         if (input[0] == '\uFEFF') {
             //input = input.substring(1);
             inputLen--;

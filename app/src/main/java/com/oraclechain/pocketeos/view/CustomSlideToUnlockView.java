@@ -1,5 +1,11 @@
 package com.oraclechain.pocketeos.view;
 
+import com.github.florent37.viewanimator.AnimationListener;
+import com.github.florent37.viewanimator.ViewAnimator;
+import com.nineoldandroids.view.ViewHelper;
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.utils.DensityUtil;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
@@ -11,12 +17,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.github.florent37.viewanimator.AnimationListener;
-import com.github.florent37.viewanimator.ViewAnimator;
-import com.nineoldandroids.view.ViewHelper;
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.utils.DensityUtil;
 
 /**
  * Created by pocketEos on 2017/12/14.'
@@ -43,9 +43,9 @@ public class CustomSlideToUnlockView extends RelativeLayout {
     private int slideImageViewResIdAfter;//滑动到右边时,滑块资源id
     private int viewBackgroundResId;//root 背景
     private String textHint;//文本
-//    private int textSize = 50;//单位是px,只拿数值
+    //    private int textSize = 50;//单位是px,只拿数值
     private int textColorResId;//颜色,@color
-
+    private int mActionDownX, mLastX, mSlidedDistance;
 
     public CustomSlideToUnlockView(Context mContext) {
         super(mContext);
@@ -92,10 +92,6 @@ public class CustomSlideToUnlockView extends RelativeLayout {
 
         mTypedArray.recycle();
     }
-
-
-    private int mActionDownX, mLastX, mSlidedDistance;
-
 
     /**
      * 初始化界面布局
@@ -307,20 +303,19 @@ public class CustomSlideToUnlockView extends RelativeLayout {
         }
     }
 
-    public interface CallBack {
-        void onSlide(int distance, int imgwidth, int rootwidth);//右滑距离回调
-
-        void onUnlocked();//滑动到了边,事件回调
-
-        void onlocked();//滑动到了左边,事件回调
-    }
-
-
     public CallBack getmCallBack() {
         return mCallBack;
     }
 
     public void setmCallBack(CallBack mCallBack) {
         this.mCallBack = mCallBack;
+    }
+
+    public interface CallBack {
+        void onSlide(int distance, int imgwidth, int rootwidth);//右滑距离回调
+
+        void onUnlocked();//滑动到了边,事件回调
+
+        void onlocked();//滑动到了左边,事件回调
     }
 }

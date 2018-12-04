@@ -1,21 +1,9 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.usercenter;
 
-import android.Manifest;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -41,11 +29,22 @@ import com.oraclechain.pocketeos.view.dialog.gophotodialog.GoPhotoDialog;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import android.Manifest;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.ljp.permission.PermissionItem;
@@ -326,7 +325,7 @@ public class UserCenterActivity extends BaseAcitvity<UserCenterView, UserCenterP
     //裁剪图片
     public void cutImage(Uri uri) {
         if (uri == null) {
-           toast(getString(R.string.uri_no_exist));
+            toast(getString(R.string.uri_no_exist));
         }
         Intent intent = new Intent("com.android.camera.action.CROP");
         tempUri = uri;

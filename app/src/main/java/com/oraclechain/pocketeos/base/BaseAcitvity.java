@@ -1,14 +1,5 @@
 package com.oraclechain.pocketeos.base;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.gyf.barlibrary.ImmersionBar;
 import com.gyf.barlibrary.KeyboardPatch;
 import com.lzy.okgo.OkGo;
@@ -23,6 +14,14 @@ import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.zhy.autolayout.AutoLayoutActivity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.ButterKnife;
 
 /**
@@ -99,7 +98,7 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
                     mImmersionBar.statusBarDarkFont(true, 0.2f);
                 }
             }
-        }else {
+        } else {
             mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.black);
             mImmersionBar.statusBarDarkFont(false, 0.2f);
         }

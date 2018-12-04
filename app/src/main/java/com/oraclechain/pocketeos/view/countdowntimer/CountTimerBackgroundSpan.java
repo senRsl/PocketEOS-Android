@@ -17,10 +17,11 @@ public class CountTimerBackgroundSpan extends ImageSpan {
     private int maxWidth = 0;
     private int mPaddingLeft = 20;
     private int mPaddingRight = 20;
-    private int mPaddingTop =  20;
+    private int mPaddingTop = 20;
     private int mPaddingBottom = 20;
     private int mTextColor = Color.GREEN;
     private int mTextSize = 50;
+
     public CountTimerBackgroundSpan(Drawable d, int verticalAlignment) {
         super(d, verticalAlignment);
         mTextBound = new Rect();
@@ -30,17 +31,20 @@ public class CountTimerBackgroundSpan extends ImageSpan {
         this.mTextColor = mTextColor;
         return this;
     }
-    public CountTimerBackgroundSpan setTimerTextSize(int textSize){
+
+    public CountTimerBackgroundSpan setTimerTextSize(int textSize) {
         this.mTextSize = textSize;
         return this;
     }
-    public CountTimerBackgroundSpan setTimerPadding(int left,int top,int right,int bottom){
+
+    public CountTimerBackgroundSpan setTimerPadding(int left, int top, int right, int bottom) {
         this.mPaddingLeft = left;
         this.mPaddingRight = right;
         this.mPaddingBottom = bottom;
         this.mPaddingTop = top;
         return this;
     }
+
     @Override
     public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) {
         //绘制文本的内容的背景
@@ -52,15 +56,16 @@ public class CountTimerBackgroundSpan extends ImageSpan {
         maxHeight = maxHeight < mTextBound.height() ? mTextBound.height() : maxHeight;
         //设置最大宽度和最大高度是为了防止在倒计时在数字切换的过程中会重绘，会导致倒计时边框的宽度和高度会抖动，
         // 所以每次取得最大的高度和宽度而不是每次都去取测量的高度和宽度
-        getDrawable().setBounds(0,0, maxWidth+mPaddingLeft+mPaddingRight,mPaddingTop+mPaddingBottom+maxHeight);
+        getDrawable().setBounds(0, 0, maxWidth + mPaddingLeft + mPaddingRight, mPaddingTop + mPaddingBottom + maxHeight);
         //绘制文本背景
         super.draw(canvas, text, start, end, x, top, y, bottom, paint);
         //设置文本的颜色
         paint.setColor(mTextColor);
         //设置字体的大小
         paint.setTextSize(mTextSize);
-        int mGapX = (getDrawable().getBounds().width() - maxWidth)/2;
-        int mGapY= (getDrawable().getBounds().height() - maxHeight)/2;
+        int mGapX = (getDrawable().getBounds().width() - maxWidth) / 2;
+        int mGapY = (getDrawable().getBounds().height() - maxHeight) / 2;
         //绘制文本内容
-        canvas.drawText(text.subSequence(start, end).toString(), x + mGapX , y - mGapY + maxHeight/3, paint);    }
+        canvas.drawText(text.subSequence(start, end).toString(), x + mGapX, y - mGapY + maxHeight / 3, paint);
+    }
 }

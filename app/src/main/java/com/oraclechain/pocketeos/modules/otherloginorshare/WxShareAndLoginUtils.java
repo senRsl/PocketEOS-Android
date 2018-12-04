@@ -1,9 +1,10 @@
 package com.oraclechain.pocketeos.modules.otherloginorshare;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.widget.Toast;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.base.Constants;
@@ -18,11 +19,10 @@ import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.Toast;
 
 /**
  * Created by pocketEos on 2018/3/23.
@@ -55,7 +55,7 @@ public class WxShareAndLoginUtils {
         if (!iwxapi.isWXAppInstalled()) {
             Toast.makeText(context, R.string.install_weixin, Toast.LENGTH_SHORT).show();
             return false;
-        } else if (!iwxapi.isWXAppSupportAPI()) {
+        } else if (!iwxapi.isWXAppInstalled()) {
             Toast.makeText(context, R.string.updata_weixin, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -65,9 +65,9 @@ public class WxShareAndLoginUtils {
     public static IWXAPI getWXAPI(Context context) {
         if (iwxapi == null) {
             //通过WXAPIFactory创建IWAPI实例
-            iwxapi = WXAPIFactory.createWXAPI(context,  Constants.WX_AppID, false);
+            iwxapi = WXAPIFactory.createWXAPI(context, Constants.WX_AppID, false);
             //将应用的appid注册到微信
-            iwxapi.registerApp( Constants.WX_AppID);
+            iwxapi.registerApp(Constants.WX_AppID);
         }
         return iwxapi;
     }

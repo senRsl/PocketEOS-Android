@@ -25,7 +25,7 @@ package com.oraclechain.pocketeos.blockchain.util;
 
 
 public class StringUtils {
-   public static boolean isEmpty( CharSequence data ) {
-      return ( null == data ) || ( data.length() <= 0);
-   }
+    public static boolean isEmpty(CharSequence data) {
+        return (null == data) || (data.length() <= 0);
+    }
 }

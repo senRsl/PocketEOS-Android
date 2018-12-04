@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/answer_option"
+        style="?attr/text_two_style"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dimens_50"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:text="A."
-        style="?attr/text_two_style"
-        android:textSize="@dimen/dimens_13"/>
+        android:textSize="@dimen/dimens_13" />
 
     <com.oraclechain.pocketeos.view.ClearEditText
         android:id="@+id/answer_details"
@@ -29,7 +28,7 @@
         android:textColor="@color/txt_color"
         android:textColorHint="@color/gray_color"
         android:textCursorDrawable="@drawable/edittext_cursor"
-        android:textSize="@dimen/dimens_13"/>
+        android:textSize="@dimen/dimens_13" />
 
     <ImageView
         android:id="@+id/delet"
@@ -37,5 +36,5 @@
         android:layout_height="@dimen/dimens_50"
         android:layout_alignParentRight="true"
         android:scaleType="center"
-        android:src="@mipmap/delet"/>
+        android:src="@mipmap/delet" />
 </RelativeLayout>

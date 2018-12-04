@@ -1,12 +1,12 @@
 package com.oraclechain.pocketeos.blockchain.api;
 
-import com.google.gson.annotations.Expose;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * Created by swapnibble on 2017-09-12.
@@ -63,16 +63,16 @@ public class EosChainInfo {
         return last_irreversible_block_num;
     }
 
+    public void setLastIrreversibleBlockNum(Integer lastIrreversibleBlockNum) {
+        this.last_irreversible_block_num = lastIrreversibleBlockNum;
+    }
+
     public String getLast_irreversible_block_id() {
         return last_irreversible_block_id == null ? "" : last_irreversible_block_id;
     }
 
     public void setLast_irreversible_block_id(String last_irreversible_block_id) {
         this.last_irreversible_block_id = last_irreversible_block_id;
-    }
-
-    public void setLastIrreversibleBlockNum(Integer lastIrreversibleBlockNum) {
-        this.last_irreversible_block_num = lastIrreversibleBlockNum;
     }
 
     public String getHeadBlockId() {
@@ -94,11 +94,11 @@ public class EosChainInfo {
     public String getTimeAfterHeadBlockTime(int diffInMilSec) {
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         try {
-            Date date = sdf.parse( this.head_block_time);
+            Date date = sdf.parse(this.head_block_time);
 
             Calendar c = Calendar.getInstance();
             c.setTime(date);
-            c.add( Calendar.MILLISECOND, diffInMilSec);
+            c.add(Calendar.MILLISECOND, diffInMilSec);
             date = c.getTime();
 
             return sdf.format(date);
@@ -118,12 +118,12 @@ public class EosChainInfo {
     }
 
 
-    public String getBrief(){
-        return    "server_version: "  + server_version
+    public String getBrief() {
+        return "server_version: " + server_version
                 + "\nhead block num: " + head_block_num
                 + "\nlast irreversible block: " + last_irreversible_block_num
                 + "\nhead block time: " + head_block_time
-                + "\nhead block producer: " + head_block_producer ;
+                + "\nhead block producer: " + head_block_producer;
     }
 
     public String getChain_id() {

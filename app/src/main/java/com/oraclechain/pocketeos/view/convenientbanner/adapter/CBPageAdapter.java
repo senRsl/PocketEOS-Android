@@ -1,25 +1,31 @@
 package com.oraclechain.pocketeos.view.convenientbanner.adapter;
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.List;
+
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.view.convenientbanner.holder.CBViewHolderCreator;
 import com.oraclechain.pocketeos.view.convenientbanner.holder.Holder;
 import com.oraclechain.pocketeos.view.convenientbanner.view.CBLoopViewPager;
 
-import java.util.List;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * Created by pocketEos on 2017/12/7.
  */
 public class CBPageAdapter<T> extends PagerAdapter {
+    private final int MULTIPLE_COUNT = 300;
     protected List<T> mDatas;
     protected CBViewHolderCreator holderCreator;
-//    private View.OnClickListener onItemClickListener;
+    //    private View.OnClickListener onItemClickListener;
     private boolean canLoop = true;
     private CBLoopViewPager viewPager;
-    private final int MULTIPLE_COUNT = 300;
+
+    public CBPageAdapter(CBViewHolderCreator holderCreator, List<T> datas) {
+        this.holderCreator = holderCreator;
+        this.mDatas = datas;
+    }
 
     public int toRealPosition(int position) {
         int realCount = getRealCount();
@@ -31,7 +37,7 @@ public class CBPageAdapter<T> extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return canLoop ? getRealCount()*MULTIPLE_COUNT : getRealCount();
+        return canLoop ? getRealCount() * MULTIPLE_COUNT : getRealCount();
     }
 
     public int getRealCount() {
@@ -64,7 +70,8 @@ public class CBPageAdapter<T> extends PagerAdapter {
         }
         try {
             viewPager.setCurrentItem(position, false);
-        }catch (IllegalStateException e){}
+        } catch (IllegalStateException e) {
+        }
     }
 
     @Override
@@ -78,11 +85,6 @@ public class CBPageAdapter<T> extends PagerAdapter {
 
     public void setViewPager(CBLoopViewPager viewPager) {
         this.viewPager = viewPager;
-    }
-
-    public CBPageAdapter(CBViewHolderCreator holderCreator, List<T> datas) {
-        this.holderCreator = holderCreator;
-        this.mDatas = datas;
     }
 
     public View getView(int position, View view, ViewGroup container) {

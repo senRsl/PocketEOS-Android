@@ -1,8 +1,8 @@
 package com.oraclechain.pocketeos.modules.account.mapaccount;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.Button;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -25,10 +25,9 @@ import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
 import butterknife.BindView;
 import butterknife.OnClick;
 

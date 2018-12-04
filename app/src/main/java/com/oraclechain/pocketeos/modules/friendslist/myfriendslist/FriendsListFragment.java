@@ -1,12 +1,7 @@
 package com.oraclechain.pocketeos.modules.friendslist.myfriendslist;
 
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -16,8 +11,12 @@ import com.oraclechain.pocketeos.modules.seach.SeachActivity;
 import com.oraclechain.pocketeos.view.contact.SideBarView;
 import com.oraclechain.pocketeos.view.contact.UserAdapter;
 
-import java.util.ArrayList;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 
 /**
@@ -32,7 +31,6 @@ public class FriendsListFragment extends BaseFragment<FriendsListView, FriendsLi
     TextView mTip;
     @BindView(R.id.go_seach)
     RelativeLayout mGoSeach;
-
 
 
     private UserAdapter mAdapter;

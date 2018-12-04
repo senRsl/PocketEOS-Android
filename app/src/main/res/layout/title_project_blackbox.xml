@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/title"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimens_50"
@@ -15,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:scaleType="centerInside"
-        android:src="@mipmap/white_back"/>
+        android:src="@mipmap/white_back" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -28,7 +27,7 @@
         android:singleLine="true"
         android:text="@string/i_am_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/dimens_17"/>
+        android:textSize="@dimen/dimens_17" />
 
     <TextView
         android:id="@+id/tv_right_text"
@@ -39,7 +38,7 @@
         android:gravity="center"
         android:textColor="@color/title_color"
         android:textSize="@dimen/text_14"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/img_right"
@@ -48,6 +47,6 @@
         android:layout_alignParentRight="true"
         android:scaleType="centerInside"
         android:src="@mipmap/share"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

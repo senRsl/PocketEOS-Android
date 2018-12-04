@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -19,6 +18,7 @@
 
             <TextView
                 android:id="@+id/news_title"
+                style="?attr/text_one_style"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/news_desc"
@@ -26,8 +26,7 @@
                 android:gravity="top"
                 android:maxLines="2"
                 android:text="@string/app_name"
-                style="?attr/text_one_style"
-                android:textSize="@dimen/dimens_16"/>
+                android:textSize="@dimen/dimens_16" />
 
             <TextView
                 android:id="@+id/news_desc"
@@ -37,13 +36,15 @@
                 android:layout_marginTop="@dimen/dimens_10"
                 android:ellipsize="end"
                 android:gravity="bottom"
-                android:visibility="gone"
                 android:singleLine="true"
                 android:text="@string/app_name"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_14"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/news_time"
+                style="?attr/text_two_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -52,8 +53,7 @@
                 android:drawablePadding="@dimen/dimens_10"
                 android:gravity="bottom"
                 android:text="@string/app_name"
-                style="?attr/text_two_style"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </RelativeLayout>
 
 
@@ -64,7 +64,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/dimens_10"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher" />
 
 
     </RelativeLayout>

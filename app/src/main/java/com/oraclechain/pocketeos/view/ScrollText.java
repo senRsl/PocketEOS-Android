@@ -13,12 +13,15 @@ public class ScrollText extends TextView {
     public ScrollText(Context context) {
         super(context);
     }
+
     public ScrollText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public ScrollText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
     //返回textview是否处在选中的状态
     //而只有选中的textview才能够实现滚动效果
     @Override

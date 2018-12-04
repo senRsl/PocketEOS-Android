@@ -34,7 +34,7 @@ public class BaseWebChromeClient extends WebChromeClient {
         super.onProgressChanged(view, newProgress);
         if (newProgress == 100) {
             mProgressBar.setVisibility(View.GONE);
-        }else {
+        } else {
             mProgressBar.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
             mProgressBar.setProgress(newProgress);//设置进度值
         }

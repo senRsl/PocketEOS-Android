@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.blockchain.bean;
 
-import com.google.gson.annotations.Expose;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * Created by swapnibble on 2017-09-12.

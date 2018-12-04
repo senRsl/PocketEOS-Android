@@ -34,6 +34,82 @@ public class KeyboardPatch {
     private int actionBarHeight;
     private int navigationBarHeight;
     private boolean navigationAtBottom;
+    private ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            //如果布局根节点使用了android:fitsSystemWindows="true"属性或者导航栏不在底部，无需处理
+            if (!navigationAtBottom)
+                return;
+            Rect r = new Rect();
+            mDecorView.getWindowVisibleDisplayFrame(r); //获取当前窗口可视区域大小
+            int diff;
+            int keyboardHeight;
+            boolean isPopup = false;
+            if (mBarParams.systemWindows) {
+                keyboardHeight = mContentView.getHeight() - r.bottom - navigationBarHeight;
+                if (mBarParams.onKeyboardListener != null) {
+                    if (keyboardHeight > navigationBarHeight)
+                        isPopup = true;
+                    mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
+                }
+                return;
+            }
+            if (mChildView != null) {
+                if (mBarParams.isSupportActionBar)
+                    diff = mContentView.getHeight() + statusBarHeight + actionBarHeight - r.bottom;
+                else if (mBarParams.fits)
+                    diff = mContentView.getHeight() + statusBarHeight - r.bottom;
+                else
+                    diff = mContentView.getHeight() - r.bottom;
+                if (mBarParams.fullScreen)
+                    keyboardHeight = diff - navigationBarHeight;
+                else
+                    keyboardHeight = diff;
+                if (mBarParams.fullScreen && diff == navigationBarHeight) {
+                    diff -= navigationBarHeight;
+                }
+                if (keyboardHeight != keyboardHeightPrevious) {
+                    mContentView.setPadding(paddingLeft, paddingTop, paddingRight, diff + paddingBottom);
+                    keyboardHeightPrevious = keyboardHeight;
+                    if (mBarParams.onKeyboardListener != null) {
+                        if (keyboardHeight > navigationBarHeight)
+                            isPopup = true;
+                        mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
+                    }
+                }
+            } else {
+                diff = mContentView.getHeight() - r.bottom;
+
+                if (mBarParams.navigationBarEnable && mBarParams.navigationBarWithKitkatEnable) {
+                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT || OSUtils.isEMUI3_1()) {
+                        keyboardHeight = diff - navigationBarHeight;
+                    } else {
+                        if (!mBarParams.fullScreen)
+                            keyboardHeight = diff;
+                        else
+                            keyboardHeight = diff - navigationBarHeight;
+                    }
+                    if (mBarParams.fullScreen && diff == navigationBarHeight)
+                        diff -= navigationBarHeight;
+                } else
+                    keyboardHeight = diff;
+                if (keyboardHeight != keyboardHeightPrevious) {
+                    if (mBarParams.isSupportActionBar) {
+                        mContentView.setPadding(0, statusBarHeight + actionBarHeight, 0, diff);
+                    } else if (mBarParams.fits) {
+                        mContentView.setPadding(0, statusBarHeight, 0, diff);
+                    } else
+                        mContentView.setPadding(0, 0, 0, diff);
+                    keyboardHeightPrevious = keyboardHeight;
+                    if (mBarParams.onKeyboardListener != null) {
+                        if (keyboardHeight > navigationBarHeight)
+                            isPopup = true;
+                        mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
+                    }
+                }
+            }
+        }
+    };
 
     private KeyboardPatch(Activity activity) {
         this(activity, ((FrameLayout) activity.getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0));
@@ -133,82 +209,5 @@ public class KeyboardPatch {
             mDecorView.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
-
-    private ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-        @Override
-        public void onGlobalLayout() {
-            //如果布局根节点使用了android:fitsSystemWindows="true"属性或者导航栏不在底部，无需处理
-            if (!navigationAtBottom)
-                return;
-            Rect r = new Rect();
-            mDecorView.getWindowVisibleDisplayFrame(r); //获取当前窗口可视区域大小
-            int diff;
-            int keyboardHeight;
-            boolean isPopup = false;
-            if (mBarParams.systemWindows) {
-                keyboardHeight = mContentView.getHeight() - r.bottom - navigationBarHeight;
-                if (mBarParams.onKeyboardListener != null) {
-                    if (keyboardHeight > navigationBarHeight)
-                        isPopup = true;
-                    mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
-                }
-                return;
-            }
-            if (mChildView != null) {
-                if (mBarParams.isSupportActionBar)
-                    diff = mContentView.getHeight() + statusBarHeight + actionBarHeight - r.bottom;
-                else if (mBarParams.fits)
-                    diff = mContentView.getHeight() + statusBarHeight - r.bottom;
-                else
-                    diff = mContentView.getHeight() - r.bottom;
-                if (mBarParams.fullScreen)
-                    keyboardHeight = diff - navigationBarHeight;
-                else
-                    keyboardHeight = diff;
-                if (mBarParams.fullScreen && diff == navigationBarHeight) {
-                    diff -= navigationBarHeight;
-                }
-                if (keyboardHeight != keyboardHeightPrevious) {
-                    mContentView.setPadding(paddingLeft, paddingTop, paddingRight, diff + paddingBottom);
-                    keyboardHeightPrevious = keyboardHeight;
-                    if (mBarParams.onKeyboardListener != null) {
-                        if (keyboardHeight > navigationBarHeight)
-                            isPopup = true;
-                        mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
-                    }
-                }
-            } else {
-                diff = mContentView.getHeight() - r.bottom;
-
-                if (mBarParams.navigationBarEnable && mBarParams.navigationBarWithKitkatEnable) {
-                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT || OSUtils.isEMUI3_1()) {
-                        keyboardHeight = diff - navigationBarHeight;
-                    } else {
-                        if (!mBarParams.fullScreen)
-                            keyboardHeight = diff;
-                        else
-                            keyboardHeight = diff - navigationBarHeight;
-                    }
-                    if (mBarParams.fullScreen && diff == navigationBarHeight)
-                        diff -= navigationBarHeight;
-                } else
-                    keyboardHeight = diff;
-                if (keyboardHeight != keyboardHeightPrevious) {
-                    if (mBarParams.isSupportActionBar) {
-                        mContentView.setPadding(0, statusBarHeight + actionBarHeight, 0, diff);
-                    } else if (mBarParams.fits) {
-                        mContentView.setPadding(0, statusBarHeight, 0, diff);
-                    } else
-                        mContentView.setPadding(0, 0, 0, diff);
-                    keyboardHeightPrevious = keyboardHeight;
-                    if (mBarParams.onKeyboardListener != null) {
-                        if (keyboardHeight > navigationBarHeight)
-                            isPopup = true;
-                        mBarParams.onKeyboardListener.onKeyboardChange(isPopup, keyboardHeight);
-                    }
-                }
-            }
-        }
-    };
 
 }

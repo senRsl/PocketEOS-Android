@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.dialog.gophotodialog;
 
+import com.oraclechain.pocketeos.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Display;
@@ -9,8 +11,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
 
 /**
  * Created by pocketEos on 2017/12/11.

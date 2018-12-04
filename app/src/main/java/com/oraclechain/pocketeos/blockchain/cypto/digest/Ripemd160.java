@@ -7,23 +7,23 @@ package com.oraclechain.pocketeos.blockchain.cypto.digest;
 public class Ripemd160 {
     final private byte[] mDigestBytes;
 
-    public Ripemd160( byte[] digest ) {
+    public Ripemd160(byte[] digest) {
         mDigestBytes = digest;
     }
 
-    public static Ripemd160 from( byte[] data ) {
+    public static Ripemd160 from(byte[] data) {
 
-        return Ripemd160.from( data, 0, ( data != null) ? data.length : 0 );
+        return Ripemd160.from(data, 0, (data != null) ? data.length : 0);
     }
 
-    public static Ripemd160 from(byte[] data, int startOffset, int length ) {
+    public static Ripemd160 from(byte[] data, int startOffset, int length) {
         Ripemd160.Digest digest = new Ripemd160.Digest();
-        digest.update( data, startOffset, length );
+        digest.update(data, startOffset, length);
 
-        byte[] result = new byte[ Ripemd160.Digest.DIGEST_LENGTH ];
-        digest.doFinal( result, 0);
+        byte[] result = new byte[Ripemd160.Digest.DIGEST_LENGTH];
+        digest.doFinal(result, 0);
 
-        return new Ripemd160( result );
+        return new Ripemd160(result);
     }
 
 
@@ -112,9 +112,9 @@ public class Ripemd160 {
             return (x << n) | (x >>> (32 - n));
         }
 
-   /*
-    * f1,f2,f3,f4,f5 are the basic Digest functions.
-    */
+        /*
+         * f1,f2,f3,f4,f5 are the basic Digest functions.
+         */
 
         /*
          * rounds 0-15

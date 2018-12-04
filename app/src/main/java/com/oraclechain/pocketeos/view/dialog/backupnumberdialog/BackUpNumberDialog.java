@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.dialog.backupnumberdialog;
 
+import com.oraclechain.pocketeos.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Display;
@@ -7,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
 
 /**
  * Created by pocketEos on 2017/12/5.

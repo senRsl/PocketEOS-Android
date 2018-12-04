@@ -1,12 +1,7 @@
 package com.oraclechain.pocketeos.modules.account.backupaccount;
 
-import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.TextView;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -24,9 +19,13 @@ import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

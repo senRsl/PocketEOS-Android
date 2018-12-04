@@ -1,6 +1,12 @@
 package com.oraclechain.pocketeos.base;
 
 
+import com.gyf.barlibrary.ImmersionBar;
+import com.lzy.okgo.OkGo;
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.utils.ToastUtils;
+import com.oraclechain.pocketeos.utils.Utils;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,13 +15,6 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.gyf.barlibrary.ImmersionBar;
-import com.lzy.okgo.OkGo;
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.utils.ToastUtils;
-import com.oraclechain.pocketeos.utils.Utils;
-
 import butterknife.ButterKnife;
 
 /**

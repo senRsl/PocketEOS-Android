@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by pocketEos on 2018/2/6.
@@ -47,6 +47,17 @@ public class BlockChainAccountInfoBean {
     }
 
     public static class DataBean implements Parcelable {
+        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
         /**
          * head_block_num : 1850653
          * refund_request : null
@@ -84,6 +95,30 @@ public class BlockChainAccountInfoBean {
         private CpuLimitBean cpu_limit;
         private VoterInfoBean voter_info;
         private List<PermissionsBean> permissions;
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.head_block_num = in.readString();
+            this.refund_request = in.readParcelable(Object.class.getClassLoader());
+            this.total_resources = in.readParcelable(TotalResourcesBean.class.getClassLoader());
+            this.head_block_time = in.readString();
+            this.created = in.readString();
+            this.ram_quota = in.readString();
+            this.net_limit = in.readParcelable(NetLimitBean.class.getClassLoader());
+            this.self_delegated_bandwidth = in.readParcelable(Object.class.getClassLoader());
+            this.net_weight = in.readString();
+            this.cpu_weight = in.readString();
+            this.privileged = in.readByte() != 0;
+            this.ram_usage = in.readString();
+            this.account_name = in.readString();
+            this.last_code_update = in.readString();
+            this.cpu_limit = in.readParcelable(CpuLimitBean.class.getClassLoader());
+            this.voter_info = in.readParcelable(VoterInfoBean.class.getClassLoader());
+            this.permissions = new ArrayList<PermissionsBean>();
+            in.readList(this.permissions, PermissionsBean.class.getClassLoader());
+        }
 
         public String getHead_block_num() {
             return head_block_num;
@@ -221,7 +256,42 @@ public class BlockChainAccountInfoBean {
             this.permissions = permissions;
         }
 
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(this.head_block_num);
+            dest.writeParcelable(this.total_resources, flags);
+            dest.writeString(this.head_block_time);
+            dest.writeString(this.created);
+            dest.writeString(this.ram_quota);
+            dest.writeParcelable(this.net_limit, flags);
+            dest.writeString(this.net_weight);
+            dest.writeString(this.cpu_weight);
+            dest.writeByte(this.privileged ? (byte) 1 : (byte) 0);
+            dest.writeString(this.ram_usage);
+            dest.writeString(this.account_name);
+            dest.writeString(this.last_code_update);
+            dest.writeParcelable(this.cpu_limit, flags);
+            dest.writeParcelable(this.voter_info, flags);
+            dest.writeList(this.permissions);
+        }
+
         public static class TotalResourcesBean implements Parcelable {
+            public static final Creator<TotalResourcesBean> CREATOR = new Creator<TotalResourcesBean>() {
+                @Override
+                public TotalResourcesBean createFromParcel(Parcel source) {
+                    return new TotalResourcesBean(source);
+                }
+
+                @Override
+                public TotalResourcesBean[] newArray(int size) {
+                    return new TotalResourcesBean[size];
+                }
+            };
             /**
              * owner : oraclechain4
              * ram_bytes : 7920
@@ -233,6 +303,16 @@ public class BlockChainAccountInfoBean {
             private String ram_bytes;
             private String net_weight;
             private String cpu_weight;
+
+            public TotalResourcesBean() {
+            }
+
+            protected TotalResourcesBean(Parcel in) {
+                this.owner = in.readString();
+                this.ram_bytes = in.readString();
+                this.net_weight = in.readString();
+                this.cpu_weight = in.readString();
+            }
 
             public String getOwner() {
                 return owner;
@@ -278,86 +358,9 @@ public class BlockChainAccountInfoBean {
                 dest.writeString(this.net_weight);
                 dest.writeString(this.cpu_weight);
             }
-
-            public TotalResourcesBean() {
-            }
-
-            protected TotalResourcesBean(Parcel in) {
-                this.owner = in.readString();
-                this.ram_bytes = in.readString();
-                this.net_weight = in.readString();
-                this.cpu_weight = in.readString();
-            }
-
-            public static final Creator<TotalResourcesBean> CREATOR = new Creator<TotalResourcesBean>() {
-                @Override
-                public TotalResourcesBean createFromParcel(Parcel source) {
-                    return new TotalResourcesBean(source);
-                }
-
-                @Override
-                public TotalResourcesBean[] newArray(int size) {
-                    return new TotalResourcesBean[size];
-                }
-            };
         }
 
         public static class NetLimitBean implements Parcelable {
-            /**
-             * max : 153653
-             * available : 152415
-             * used : 1238
-             */
-
-            private String max;
-            private String available;
-            private String used;
-
-            public String getMax() {
-                return max;
-            }
-
-            public void setMax(String max) {
-                this.max = max;
-            }
-
-            public String getAvailable() {
-                return available;
-            }
-
-            public void setAvailable(String available) {
-                this.available = available;
-            }
-
-            public String getUsed() {
-                return used;
-            }
-
-            public void setUsed(String used) {
-                this.used = used;
-            }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeString(this.max);
-                dest.writeString(this.available);
-                dest.writeString(this.used);
-            }
-
-            public NetLimitBean() {
-            }
-
-            protected NetLimitBean(Parcel in) {
-                this.max = in.readString();
-                this.available = in.readString();
-                this.used = in.readString();
-            }
-
             public static final Creator<NetLimitBean> CREATOR = new Creator<NetLimitBean>() {
                 @Override
                 public NetLimitBean createFromParcel(Parcel source) {
@@ -369,18 +372,24 @@ public class BlockChainAccountInfoBean {
                     return new NetLimitBean[size];
                 }
             };
-        }
-
-        public static class CpuLimitBean implements Parcelable {
             /**
-             * max : 29424
-             * available : 19518
-             * used : 9906
+             * max : 153653
+             * available : 152415
+             * used : 1238
              */
 
             private String max;
             private String available;
             private String used;
+
+            public NetLimitBean() {
+            }
+
+            protected NetLimitBean(Parcel in) {
+                this.max = in.readString();
+                this.available = in.readString();
+                this.used = in.readString();
+            }
 
             public String getMax() {
                 return max;
@@ -417,16 +426,9 @@ public class BlockChainAccountInfoBean {
                 dest.writeString(this.available);
                 dest.writeString(this.used);
             }
+        }
 
-            public CpuLimitBean() {
-            }
-
-            protected CpuLimitBean(Parcel in) {
-                this.max = in.readString();
-                this.available = in.readString();
-                this.used = in.readString();
-            }
-
+        public static class CpuLimitBean implements Parcelable {
             public static final Creator<CpuLimitBean> CREATOR = new Creator<CpuLimitBean>() {
                 @Override
                 public CpuLimitBean createFromParcel(Parcel source) {
@@ -438,9 +440,74 @@ public class BlockChainAccountInfoBean {
                     return new CpuLimitBean[size];
                 }
             };
+            /**
+             * max : 29424
+             * available : 19518
+             * used : 9906
+             */
+
+            private String max;
+            private String available;
+            private String used;
+
+            public CpuLimitBean() {
+            }
+
+            protected CpuLimitBean(Parcel in) {
+                this.max = in.readString();
+                this.available = in.readString();
+                this.used = in.readString();
+            }
+
+            public String getMax() {
+                return max;
+            }
+
+            public void setMax(String max) {
+                this.max = max;
+            }
+
+            public String getAvailable() {
+                return available;
+            }
+
+            public void setAvailable(String available) {
+                this.available = available;
+            }
+
+            public String getUsed() {
+                return used;
+            }
+
+            public void setUsed(String used) {
+                this.used = used;
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.max);
+                dest.writeString(this.available);
+                dest.writeString(this.used);
+            }
         }
 
         public static class VoterInfoBean implements Parcelable {
+            public static final Creator<VoterInfoBean> CREATOR = new Creator<VoterInfoBean>() {
+                @Override
+                public VoterInfoBean createFromParcel(Parcel source) {
+                    return new VoterInfoBean(source);
+                }
+
+                @Override
+                public VoterInfoBean[] newArray(int size) {
+                    return new VoterInfoBean[size];
+                }
+            };
             /**
              * owner : oraclechain4
              * proxy :
@@ -458,6 +525,19 @@ public class BlockChainAccountInfoBean {
             private String staked;
             private String is_proxy;
             private List<String> producers;
+
+            public VoterInfoBean() {
+            }
+
+            protected VoterInfoBean(Parcel in) {
+                this.owner = in.readString();
+                this.proxy = in.readString();
+                this.last_vote_weight = in.readString();
+                this.proxied_vote_weight = in.readString();
+                this.staked = in.readString();
+                this.is_proxy = in.readString();
+                this.producers = in.createStringArrayList();
+            }
 
             public String getOwner() {
                 return owner;
@@ -530,34 +610,20 @@ public class BlockChainAccountInfoBean {
                 dest.writeString(this.is_proxy);
                 dest.writeStringList(this.producers);
             }
-
-            public VoterInfoBean() {
-            }
-
-            protected VoterInfoBean(Parcel in) {
-                this.owner = in.readString();
-                this.proxy = in.readString();
-                this.last_vote_weight = in.readString();
-                this.proxied_vote_weight = in.readString();
-                this.staked = in.readString();
-                this.is_proxy = in.readString();
-                this.producers = in.createStringArrayList();
-            }
-
-            public static final Creator<VoterInfoBean> CREATOR = new Creator<VoterInfoBean>() {
-                @Override
-                public VoterInfoBean createFromParcel(Parcel source) {
-                    return new VoterInfoBean(source);
-                }
-
-                @Override
-                public VoterInfoBean[] newArray(int size) {
-                    return new VoterInfoBean[size];
-                }
-            };
         }
 
         public static class PermissionsBean implements Parcelable {
+            public static final Creator<PermissionsBean> CREATOR = new Creator<PermissionsBean>() {
+                @Override
+                public PermissionsBean createFromParcel(Parcel source) {
+                    return new PermissionsBean(source);
+                }
+
+                @Override
+                public PermissionsBean[] newArray(int size) {
+                    return new PermissionsBean[size];
+                }
+            };
             /**
              * parent : owner
              * required_auth : {"waits":[],"keys":[{"weight":1,"key":"EOS67pa5ex64cECp2esLp6km78QfZDyEY8mAPieBHkD7JvfxiFzTG"}],"threshold":1,"accounts":[]}
@@ -567,6 +633,15 @@ public class BlockChainAccountInfoBean {
             private String parent;
             private RequiredAuthBean required_auth;
             private String perm_name;
+
+            public PermissionsBean() {
+            }
+
+            protected PermissionsBean(Parcel in) {
+                this.parent = in.readString();
+                this.required_auth = in.readParcelable(RequiredAuthBean.class.getClassLoader());
+                this.perm_name = in.readString();
+            }
 
             public String getParent() {
                 return parent;
@@ -592,7 +667,30 @@ public class BlockChainAccountInfoBean {
                 this.perm_name = perm_name;
             }
 
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.parent);
+                dest.writeParcelable(this.required_auth, flags);
+                dest.writeString(this.perm_name);
+            }
+
             public static class RequiredAuthBean implements Parcelable {
+                public static final Creator<RequiredAuthBean> CREATOR = new Creator<RequiredAuthBean>() {
+                    @Override
+                    public RequiredAuthBean createFromParcel(Parcel source) {
+                        return new RequiredAuthBean(source);
+                    }
+
+                    @Override
+                    public RequiredAuthBean[] newArray(int size) {
+                        return new RequiredAuthBean[size];
+                    }
+                };
                 /**
                  * waits : []
                  * keys : [{"weight":1,"key":"EOS67pa5ex64cECp2esLp6km78QfZDyEY8mAPieBHkD7JvfxiFzTG"}]
@@ -604,6 +702,15 @@ public class BlockChainAccountInfoBean {
                 private List<?> waits;
                 private List<KeysBean> keys;
                 private List<?> accounts;
+
+                public RequiredAuthBean() {
+                }
+
+                protected RequiredAuthBean(Parcel in) {
+                    this.threshold = in.readString();
+                    this.keys = new ArrayList<KeysBean>();
+                    in.readList(this.keys, KeysBean.class.getClassLoader());
+                }
 
                 public String getThreshold() {
                     return threshold;
@@ -637,7 +744,31 @@ public class BlockChainAccountInfoBean {
                     this.accounts = accounts;
                 }
 
+                @Override
+                public int describeContents() {
+                    return 0;
+                }
+
+                @Override
+                public void writeToParcel(Parcel dest, int flags) {
+                    dest.writeString(this.threshold);
+                    dest.writeList(this.waits);
+                    dest.writeList(this.keys);
+                    dest.writeList(this.accounts);
+                }
+
                 public static class KeysBean implements Parcelable {
+                    public static final Creator<KeysBean> CREATOR = new Creator<KeysBean>() {
+                        @Override
+                        public KeysBean createFromParcel(Parcel source) {
+                            return new KeysBean(source);
+                        }
+
+                        @Override
+                        public KeysBean[] newArray(int size) {
+                            return new KeysBean[size];
+                        }
+                    };
                     /**
                      * weight : 1
                      * key : EOS67pa5ex64cECp2esLp6km78QfZDyEY8mAPieBHkD7JvfxiFzTG
@@ -645,6 +776,14 @@ public class BlockChainAccountInfoBean {
 
                     private int weight;
                     private String key;
+
+                    public KeysBean() {
+                    }
+
+                    protected KeysBean(Parcel in) {
+                        this.weight = in.readInt();
+                        this.key = in.readString();
+                    }
 
                     public int getWeight() {
                         return weight;
@@ -672,155 +811,8 @@ public class BlockChainAccountInfoBean {
                         dest.writeInt(this.weight);
                         dest.writeString(this.key);
                     }
-
-                    public KeysBean() {
-                    }
-
-                    protected KeysBean(Parcel in) {
-                        this.weight = in.readInt();
-                        this.key = in.readString();
-                    }
-
-                    public static final Creator<KeysBean> CREATOR = new Creator<KeysBean>() {
-                        @Override
-                        public KeysBean createFromParcel(Parcel source) {
-                            return new KeysBean(source);
-                        }
-
-                        @Override
-                        public KeysBean[] newArray(int size) {
-                            return new KeysBean[size];
-                        }
-                    };
                 }
-
-                @Override
-                public int describeContents() {
-                    return 0;
-                }
-
-                @Override
-                public void writeToParcel(Parcel dest, int flags) {
-                    dest.writeString(this.threshold);
-                    dest.writeList(this.waits);
-                    dest.writeList(this.keys);
-                    dest.writeList(this.accounts);
-                }
-
-                public RequiredAuthBean() {
-                }
-
-                protected RequiredAuthBean(Parcel in) {
-                    this.threshold = in.readString();
-                    this.keys = new ArrayList<KeysBean>();
-                    in.readList(this.keys, KeysBean.class.getClassLoader());
-                }
-
-                public static final Creator<RequiredAuthBean> CREATOR = new Creator<RequiredAuthBean>() {
-                    @Override
-                    public RequiredAuthBean createFromParcel(Parcel source) {
-                        return new RequiredAuthBean(source);
-                    }
-
-                    @Override
-                    public RequiredAuthBean[] newArray(int size) {
-                        return new RequiredAuthBean[size];
-                    }
-                };
             }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeString(this.parent);
-                dest.writeParcelable(this.required_auth, flags);
-                dest.writeString(this.perm_name);
-            }
-
-            public PermissionsBean() {
-            }
-
-            protected PermissionsBean(Parcel in) {
-                this.parent = in.readString();
-                this.required_auth = in.readParcelable(RequiredAuthBean.class.getClassLoader());
-                this.perm_name = in.readString();
-            }
-
-            public static final Creator<PermissionsBean> CREATOR = new Creator<PermissionsBean>() {
-                @Override
-                public PermissionsBean createFromParcel(Parcel source) {
-                    return new PermissionsBean(source);
-                }
-
-                @Override
-                public PermissionsBean[] newArray(int size) {
-                    return new PermissionsBean[size];
-                }
-            };
         }
-
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(this.head_block_num);
-            dest.writeParcelable(this.total_resources, flags);
-            dest.writeString(this.head_block_time);
-            dest.writeString(this.created);
-            dest.writeString(this.ram_quota);
-            dest.writeParcelable(this.net_limit, flags);
-            dest.writeString(this.net_weight);
-            dest.writeString(this.cpu_weight);
-            dest.writeByte(this.privileged ? (byte) 1 : (byte) 0);
-            dest.writeString(this.ram_usage);
-            dest.writeString(this.account_name);
-            dest.writeString(this.last_code_update);
-            dest.writeParcelable(this.cpu_limit, flags);
-            dest.writeParcelable(this.voter_info, flags);
-            dest.writeList(this.permissions);
-        }
-
-        public DataBean() {
-        }
-
-        protected DataBean(Parcel in) {
-            this.head_block_num = in.readString();
-            this.refund_request = in.readParcelable(Object.class.getClassLoader());
-            this.total_resources = in.readParcelable(TotalResourcesBean.class.getClassLoader());
-            this.head_block_time = in.readString();
-            this.created = in.readString();
-            this.ram_quota = in.readString();
-            this.net_limit = in.readParcelable(NetLimitBean.class.getClassLoader());
-            this.self_delegated_bandwidth = in.readParcelable(Object.class.getClassLoader());
-            this.net_weight = in.readString();
-            this.cpu_weight = in.readString();
-            this.privileged = in.readByte() != 0;
-            this.ram_usage = in.readString();
-            this.account_name = in.readString();
-            this.last_code_update = in.readString();
-            this.cpu_limit = in.readParcelable(CpuLimitBean.class.getClassLoader());
-            this.voter_info = in.readParcelable(VoterInfoBean.class.getClassLoader());
-            this.permissions = new ArrayList<PermissionsBean>();
-            in.readList(this.permissions, PermissionsBean.class.getClassLoader());
-        }
-
-        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
-            @Override
-            public DataBean createFromParcel(Parcel source) {
-                return new DataBean(source);
-            }
-
-            @Override
-            public DataBean[] newArray(int size) {
-                return new DataBean[size];
-            }
-        };
     }
 }

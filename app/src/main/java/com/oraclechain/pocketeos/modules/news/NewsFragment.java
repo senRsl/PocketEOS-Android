@@ -1,15 +1,8 @@
 package com.oraclechain.pocketeos.modules.news;
 
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -32,9 +25,15 @@ import com.oraclechain.pocketeos.view.convenientbanner.holder.CBViewHolderCreato
 import com.oraclechain.pocketeos.view.convenientbanner.listener.OnItemClickListener;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 
 /**
@@ -75,9 +74,9 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleNews.setLayoutManager(layoutManager);
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mRecycleNews.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycleNews.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
         mRecycleNews.setRefreshProgressStyle(ProgressStyle.LineSpinFadeLoader);
@@ -165,7 +164,7 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
         if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
             mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         } else {
-            mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
+            mImmersionBar.statusBarDarkFont(false, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
         }
     }
 
@@ -181,10 +180,10 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
             if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
                 mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
             } else {
-                mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
+                mImmersionBar.statusBarDarkFont(false, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
             }
         }
-        if (basePopupWindow!=null){
+        if (basePopupWindow != null) {
             basePopupWindow.dismiss();
         }
     }

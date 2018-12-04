@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.dialog.confimdialog;
 
+import com.oraclechain.pocketeos.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.text.SpannableString;
@@ -11,11 +13,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.oraclechain.pocketeos.R;
-
 
 /**
- *币答消费提示弹窗
+ * 币答消费提示弹窗
  */
 
 public class ConfirmDialog extends Dialog implements View.OnClickListener {

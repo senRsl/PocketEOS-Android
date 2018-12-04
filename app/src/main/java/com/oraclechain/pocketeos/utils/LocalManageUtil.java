@@ -1,15 +1,15 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.util.Locale;
+
+import com.oraclechain.pocketeos.R;
+
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
 import android.util.DisplayMetrics;
-
-import com.oraclechain.pocketeos.R;
-
-import java.util.Locale;
 
 /**
  * Created by pocketEos on 2018/5/22.
@@ -113,7 +113,7 @@ public class LocalManageUtil {
         SPUtil.getInstance(context).setSystemCurrentLocal(locale);
     }
 
-    public static void onConfigurationChanged(Context context){
+    public static void onConfigurationChanged(Context context) {
         saveSystemCurrentLanguage(context);
         setLocal(context);
         setApplicationLanguage(context);

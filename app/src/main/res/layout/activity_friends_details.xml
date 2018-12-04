@@ -1,5 +1,4 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_400"
         android:scaleType="fitXY"
-        android:src="@mipmap/friend_bg"/>
+        android:src="@mipmap/friend_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +36,21 @@
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title1"/>
+                    android:src="@mipmap/home_title1" />
 
                 <ImageView
                     android:id="@+id/home_title2"
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title2"/>
+                    android:src="@mipmap/home_title2" />
 
                 <ImageView
                     android:id="@+id/home_title3"
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="@dimen/dimens_50"
                     android:scaleType="center"
-                    android:src="@mipmap/home_title3"/>
+                    android:src="@mipmap/home_title3" />
             </LinearLayout>
 
             <ImageView
@@ -60,7 +59,7 @@
                 android:layout_height="@dimen/dimens_50"
                 android:layout_centerVertical="true"
                 android:scaleType="center"
-                android:src="@mipmap/white_back"/>
+                android:src="@mipmap/white_back" />
 
             <TextView
                 android:id="@+id/name"
@@ -70,7 +69,7 @@
                 android:text="@string/pocket_eos"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_19"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_message"
@@ -80,7 +79,7 @@
                 android:layout_toLeftOf="@+id/iv_scan"
                 android:scaleType="center"
                 android:src="@mipmap/home_message"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/add_friend"
@@ -89,7 +88,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:scaleType="center"
-                android:src="@mipmap/add_friend"/>
+                android:src="@mipmap/add_friend" />
         </RelativeLayout>
 
         <com.liaoinstan.springview.widget.SpringView
@@ -124,8 +123,8 @@
                             android:layout_marginRight="@dimen/dimens_10"
                             android:layout_marginTop="@dimen/dimens_40"
                             android:scaleType="centerCrop"
-                            app:shape_type="round"
-                            android:src="@mipmap/ic_launcher_round"/>
+                            android:src="@mipmap/ic_launcher_round"
+                            app:shape_type="round" />
 
                         <TextView
                             android:id="@+id/friends_name"
@@ -139,7 +138,7 @@
                             android:singleLine="true"
                             android:text="@string/app_name"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_16"/>
+                            android:textSize="@dimen/dimens_16" />
 
                         <TextView
                             android:id="@+id/friends_account_number"
@@ -153,7 +152,7 @@
                             android:singleLine="true"
                             android:text="@string/app_name"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_13"/>
+                            android:textSize="@dimen/dimens_13" />
 
                         <TextView
                             android:id="@+id/switch_number"
@@ -168,7 +167,7 @@
                             android:gravity="center"
                             android:text="@string/switch_number"
                             android:textColor="#FF3C3C3C"
-                            android:textSize="13px"/>
+                            android:textSize="13px" />
 
                         <TextView
                             android:id="@+id/all_money"
@@ -179,7 +178,7 @@
                             android:layout_marginTop="@dimen/dimens_30"
                             android:text="@string/all_money"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_15"/>
+                            android:textSize="@dimen/dimens_15" />
 
                         <TextView
                             android:id="@+id/friends_all_property"
@@ -194,7 +193,7 @@
                             android:gravity="bottom"
                             android:singleLine="true"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/dimens_36"/>
+                            android:textSize="@dimen/dimens_36" />
 
                         <TextView
                             android:id="@+id/property_tendency"
@@ -210,7 +209,7 @@
                             android:text="@string/_35"
                             android:textColor="@color/white"
                             android:textSize="@dimen/dimens_18"
-                            android:visibility="gone"/>
+                            android:visibility="gone" />
 
                     </RelativeLayout>
 
@@ -223,7 +222,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimens_50"
                             android:layout_gravity="bottom"
-                            android:background="@color/white"/>
+                            android:background="@color/white" />
 
                         <android.support.v7.widget.CardView
                             android:id="@+id/cardview"
@@ -253,7 +252,7 @@
                                     android:paddingTop="@dimen/dimens_20"
                                     android:text="@string/transfer_accounts"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
 
                                 <TextView
                                     android:id="@+id/make_collections"
@@ -265,7 +264,7 @@
                                     android:paddingTop="@dimen/dimens_20"
                                     android:text="@string/make_collections"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
 
                                 <TextView
                                     android:id="@+id/red_packet"
@@ -277,7 +276,7 @@
                                     android:paddingTop="@dimen/dimens_20"
                                     android:text="@string/red_packet"
                                     android:textColor="@color/title_color"
-                                    android:textSize="@dimen/dimens_14"/>
+                                    android:textSize="@dimen/dimens_14" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
                     </FrameLayout>
@@ -296,7 +295,7 @@
                             android:paddingLeft="@dimen/dimens_15"
                             android:paddingRight="@dimen/dimens_15"
 
-                            android:scrollbars="none"/>
+                            android:scrollbars="none" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -308,7 +307,7 @@
                             android:gravity="center"
                             android:text="@string/no_more"
                             android:textColor="@color/gray_color"
-                            android:textSize="@dimen/dimens_10"/>
+                            android:textSize="@dimen/dimens_10" />
                     </RelativeLayout>
                 </LinearLayout>
             </com.oraclechain.pocketeos.view.MyScrollview>

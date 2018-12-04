@@ -1,5 +1,10 @@
 package com.oraclechain.pocketeos.view.contact;
 
+import java.util.Arrays;
+
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.utils.DensityUtil;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -10,11 +15,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.utils.DensityUtil;
-
-import java.util.Arrays;
-
 
 /**
  * Created by pocketEos on 2017/11/30.
@@ -23,31 +23,31 @@ public class SideBarView extends View {
     public static String[] b = {"@", "A", "B", "C", "D", "E", "F", "G", "H", "I",
             "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
             "W", "X", "Y", "Z", "#"};
-    private int selectPos = -1;
-
     private final int defaultNormalColor = Color.TRANSPARENT;
     private final int defaultPressColor = Color.TRANSPARENT;
     private final int defaultTextSize = (int) DensityUtil.sp2px(getContext(), 10);
     private final int defaultNorTextColor = getContext().getResources().getColor(R.color.gray_color);
     private final int defaultPressTextColor = getContext().getResources().getColor(R.color.theme_color);
-
-
+    Paint paint;
+    Paint paintSelect;
+    int height;
+    int width;
+    int perHeight;
+    private int selectPos = -1;
     private int sideBarBgNorColor;
     private int sideBarBgPressColor;
     private int sideBarTextSize;
     private int sideBarNorTextColor;
     private int sideBarPressTextColor;
-
+    private LetterSelectListener listener;
 
     public SideBarView(Context context) {
         this(context, null);
     }
-
     public SideBarView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         init();
     }
-
     public SideBarView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
@@ -63,9 +63,6 @@ public class SideBarView extends View {
         init();
     }
 
-    Paint paint;
-    Paint paintSelect;
-
     private void init() {
         paint = new Paint();
         paint.setAntiAlias(true);
@@ -80,10 +77,6 @@ public class SideBarView extends View {
 
 
     }
-
-    int height;
-    int width;
-    int perHeight;
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -195,7 +188,6 @@ public class SideBarView extends View {
         return result;
     }
 
-
     public float dp2px(float dp) {
         final float scale = getResources().getDisplayMetrics().density;
         return dp * scale + 0.5f;
@@ -213,18 +205,16 @@ public class SideBarView extends View {
         }
     }
 
+    public void setOnLetterSelectListen(LetterSelectListener listen) {
+        this.listener = listen;
+    }
+
     public interface LetterSelectListener {
         void onLetterSelected(String letter);
 
         void onLetterChanged(String letter);
 
         void onLetterReleased(String letter);
-    }
-
-    private LetterSelectListener listener;
-
-    public void setOnLetterSelectListen(LetterSelectListener listen) {
-        this.listener = listen;
     }
 
 

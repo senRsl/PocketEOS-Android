@@ -1,5 +1,4 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/be_stake_eos"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <TextView
                 android:id="@+id/total_stake"
@@ -31,13 +30,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_32"/>
+                android:textSize="@dimen/dimens_32" />
         </LinearLayout>
 
         <View
             style="?attr/item_bg"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimens_10"/>
+            android:layout_height="@dimen/dimens_10" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cpu"
-                    android:textSize="@dimen/dimens_14"/>
+                    android:textSize="@dimen/dimens_14" />
 
                 <TextView
                     android:id="@+id/cpu_change_limit"
@@ -68,7 +67,7 @@
                     android:drawableRight="@mipmap/more"
                     android:gravity="right"
                     android:text="@string/change_limit"
-                    android:textSize="@dimen/dimens_13"/>
+                    android:textSize="@dimen/dimens_13" />
             </LinearLayout>
 
             <TextView
@@ -78,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/cpu_quota_staked"
@@ -87,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/cpu_now_take_up"
@@ -96,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/cpu_now_usable"
@@ -104,13 +103,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </LinearLayout>
 
         <View
             style="?attr/item_bg"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimens_10"/>
+            android:layout_height="@dimen/dimens_10" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,7 +128,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/net"
-                    android:textSize="@dimen/dimens_14"/>
+                    android:textSize="@dimen/dimens_14" />
 
                 <TextView
                     android:id="@+id/net_change_limit"
@@ -141,7 +140,7 @@
                     android:drawableRight="@mipmap/more"
                     android:gravity="right"
                     android:text="@string/change_limit"
-                    android:textSize="@dimen/dimens_13"/>
+                    android:textSize="@dimen/dimens_13" />
             </LinearLayout>
 
             <TextView
@@ -151,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/net_quota_staked"
@@ -160,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/net_now_take_up"
@@ -169,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimens_10"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <TextView
                 android:id="@+id/net_now_usable"
@@ -177,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pocket_eos"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </LinearLayout>
 
 

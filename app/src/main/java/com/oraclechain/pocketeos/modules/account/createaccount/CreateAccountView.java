@@ -10,6 +10,8 @@ public interface CreateAccountView extends BaseView {
 
 
     void postEosAccountDataHttp();
+
     void getDataHttpFail(String msg);
+
     void setMainAccountHttp();
 }

@@ -1,5 +1,8 @@
 package com.oraclechain.pocketeos.view.dialog.importprivatekeydialog;
 
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.view.ScrollText;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,9 +13,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.view.ScrollText;
 
 /**
  * Created by pocketEos on 2017/12/5.

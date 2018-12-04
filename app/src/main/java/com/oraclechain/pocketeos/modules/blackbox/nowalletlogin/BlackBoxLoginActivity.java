@@ -1,12 +1,5 @@
 package com.oraclechain.pocketeos.modules.blackbox.nowalletlogin;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.AppManager;
@@ -26,6 +19,12 @@ import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

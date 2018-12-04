@@ -1,11 +1,11 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.util.Map;
+import java.util.Set;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
-
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by pocketEos on 2017/11/23.

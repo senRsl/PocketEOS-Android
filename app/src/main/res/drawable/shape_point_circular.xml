@@ -3,12 +3,12 @@
 
     <!-- 蓝色圆点-->
 
-    <solid android:color="@color/blue_button"/>
+    <solid android:color="@color/blue_button" />
 
-    <corners android:radius="8dp"/>
+    <corners android:radius="8dp" />
 
     <size
         android:width="15dp"
-        android:height="15dp"/>
+        android:height="15dp" />
 
 </shape>

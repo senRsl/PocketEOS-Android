@@ -1,12 +1,5 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.usercenter.otherlogintype;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
@@ -18,6 +11,12 @@ import com.oraclechain.pocketeos.modules.otherloginorshare.QQUserInfoBean;
 import com.oraclechain.pocketeos.modules.otherloginorshare.WxShareAndLoginUtils;
 import com.tencent.tauth.Tencent;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

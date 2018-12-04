@@ -1,5 +1,14 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -16,15 +25,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.media.ExifInterface;
 import android.net.Uri;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
 
 /**
  * Created by pocketEos on 2017/11/23.
@@ -405,14 +405,15 @@ public class FilesUtils {
 
     /**
      * 读取assets下的txt文件，返回utf-8 String
+     *
      * @param context
      * @param fileName 不包括后缀
      * @return
      */
-    public static String readAssetsTxt(Context context,String fileName){
+    public static String readAssetsTxt(Context context, String fileName) {
         try {
             //Return an AssetManager instance for your application's package
-            InputStream is = context.getAssets().open(fileName+".txt");
+            InputStream is = context.getAssets().open(fileName + ".txt");
             int size = is.available();
             // Read the entire asset into a local byte buffer.
             byte[] buffer = new byte[size];

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:paddingRight="@dimen/dimens_20"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingRight="@dimen/dimens_20">
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="@dimen/dimens_103"
         android:layout_height="@dimen/dimens_80"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:id="@+id/equities_name"
@@ -24,6 +23,6 @@
         android:singleLine="true"
         android:text="@string/oct"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/dimens_13"/>
+        android:textSize="@dimen/dimens_13" />
 </LinearLayout>
 

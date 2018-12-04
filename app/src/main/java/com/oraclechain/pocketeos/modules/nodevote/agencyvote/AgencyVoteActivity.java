@@ -1,11 +1,11 @@
 package com.oraclechain.pocketeos.modules.nodevote.agencyvote;
 
-import android.os.Bundle;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
+
+import android.os.Bundle;
 
 /**
  * 代理投票

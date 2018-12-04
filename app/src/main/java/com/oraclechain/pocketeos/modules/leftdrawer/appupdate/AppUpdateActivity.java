@@ -1,10 +1,6 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.appupdate;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.HashMap;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.lzy.okgo.model.Response;
@@ -22,8 +18,11 @@ import com.oraclechain.pocketeos.utils.TextDrawUtil;
 import com.oraclechain.pocketeos.utils.UpdateUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 
-import java.util.HashMap;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -1,5 +1,11 @@
 package com.oraclechain.pocketeos.blockchain.util;
 
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
@@ -12,12 +18,6 @@ import com.oraclechain.pocketeos.blockchain.types.TypeActionName;
 import com.oraclechain.pocketeos.blockchain.types.TypeName;
 import com.oraclechain.pocketeos.blockchain.types.TypePermissionName;
 
-import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * Created by swapnibble on 2017-09-12.
  */
@@ -27,10 +27,10 @@ public class GsonEosTypeAdapterFactory implements TypeAdapterFactory {
     private Map<Class<?>, TypeAdapter<?>> adapters = new LinkedHashMap<>();
 
     {
-        adapters.put(TypeName.class, new TypeNameAdapter<>( TypeName.class));
-        adapters.put(TypeAccountName.class, new TypeNameAdapter<>( TypeAccountName.class));
-        adapters.put(TypeActionName.class, new TypeNameAdapter<>( TypeActionName.class));
-        adapters.put(TypePermissionName.class, new TypeNameAdapter<>( TypePermissionName.class));
+        adapters.put(TypeName.class, new TypeNameAdapter<>(TypeName.class));
+        adapters.put(TypeAccountName.class, new TypeNameAdapter<>(TypeAccountName.class));
+        adapters.put(TypeActionName.class, new TypeNameAdapter<>(TypeActionName.class));
+        adapters.put(TypePermissionName.class, new TypeNameAdapter<>(TypePermissionName.class));
 
 //        adapters.put( TypeAsset.class, new TypeNameAdapter<>(TypeAsset.class));
     }
@@ -43,7 +43,7 @@ public class GsonEosTypeAdapterFactory implements TypeAdapterFactory {
             if (type.isAssignableFrom(typeToken.getRawType())) {
                 if (currentType.isAssignableFrom(type)) {
                     currentType = type;
-                    typeAdapter = (TypeAdapter<T>)adapters.get(type);
+                    typeAdapter = (TypeAdapter<T>) adapters.get(type);
                 }
             }
         }
@@ -54,7 +54,7 @@ public class GsonEosTypeAdapterFactory implements TypeAdapterFactory {
 
         private Class<C> clazz;
 
-        public TypeNameAdapter(Class<C> clazz){
+        public TypeNameAdapter(Class<C> clazz) {
             this.clazz = clazz;
         }
 
@@ -66,8 +66,8 @@ public class GsonEosTypeAdapterFactory implements TypeAdapterFactory {
             }
 
             try {
-                Constructor<C> constructor = clazz.getConstructor( String.class );
-                return constructor.newInstance( in.nextString());
+                Constructor<C> constructor = clazz.getConstructor(String.class);
+                return constructor.newInstance(in.nextString());
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {

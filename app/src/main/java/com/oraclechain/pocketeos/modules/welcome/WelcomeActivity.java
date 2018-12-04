@@ -1,10 +1,5 @@
 package com.oraclechain.pocketeos.modules.welcome;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -17,6 +12,11 @@ import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.modules.wallet.createwallet.login.LoginActivity;
 import com.oraclechain.pocketeos.utils.Utils;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 
 public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
     private static final int TIME = 500;
@@ -66,19 +66,19 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
 
     @Override
     protected void initData() {
-        if (isFirstIn && TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser","")) && TextUtils.isEmpty(Utils.getSpUtils().getString("loginmode",""))) {
+        if (isFirstIn && TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser", "")) && TextUtils.isEmpty(Utils.getSpUtils().getString("loginmode", ""))) {
             mHandler.sendEmptyMessageDelayed(GO_LOGIN, TIME);
             isFirstIn = false;
-        } else if(!TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser",""))&& Utils.getSpUtils().getString("loginmode","").equals("phone")){//上次为社交模式登录
+        } else if (!TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser", "")) && Utils.getSpUtils().getString("loginmode", "").equals("phone")) {//上次为社交模式登录
             UserBean userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
             if (userBean == null) {
                 mHandler.sendEmptyMessageDelayed(GO_LOGIN, TIME);
             } else if (userBean != null && userBean.getWallet_main_account() == null) {//钱包存在 但是没有账号
-                    mHandler.sendEmptyMessageDelayed(GO_CREATWALLET, TIME);
+                mHandler.sendEmptyMessageDelayed(GO_CREATWALLET, TIME);
             } else {
-                    mHandler.sendEmptyMessageDelayed(GO_HOME, TIME);
+                mHandler.sendEmptyMessageDelayed(GO_HOME, TIME);
             }
-        }else if(!TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser","")) && Utils.getSpUtils().getString("loginmode").equals("blackbox")){//上次登录模式为黑匣子模式
+        } else if (!TextUtils.isEmpty(Utils.getSpUtils().getString("firstUser", "")) && Utils.getSpUtils().getString("loginmode").equals("blackbox")) {//上次登录模式为黑匣子模式
             UserBean userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_name.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
             if (userBean == null) {
                 mHandler.sendEmptyMessageDelayed(GO_LOGIN, TIME);

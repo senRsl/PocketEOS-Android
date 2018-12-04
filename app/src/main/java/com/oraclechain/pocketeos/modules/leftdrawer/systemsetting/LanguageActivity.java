@@ -1,9 +1,5 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.systemsetting;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.RelativeLayout;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.AppManager;
@@ -13,6 +9,9 @@ import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.utils.LocalManageUtil;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
 import butterknife.BindView;
 import butterknife.OnClick;
 

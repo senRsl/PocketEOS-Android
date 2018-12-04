@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.modules.account.mapaccount;
 
-import android.content.Context;
+import java.util.HashMap;
+
+import org.json.JSONObject;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -11,9 +13,7 @@ import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.
@@ -32,7 +32,7 @@ public class MapAccountPresenter extends BasePresent<MapAccountView> {
         HttpUtils.postRequest(BaseUrl.getHTTP_GetAccounts, mContext, new JSONObject(hashMap).toString(), new JsonCallback<GetAccountsBean>() {
             @Override
             public void onSuccess(Response<GetAccountsBean> response) {
-                    view.getBlackAccountDataHttp(response.body());
+                view.getBlackAccountDataHttp(response.body());
             }
         });
 

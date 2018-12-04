@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.net;
 
+import java.util.Map;
+
 import com.lzy.okgo.OkGo;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
-
-import java.util.Map;
 
 /**
  * Created by pocketEos on 2018/4/2.

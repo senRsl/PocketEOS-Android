@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.modules.friendslist.pelist;
 
+import java.util.List;
+
 import com.oraclechain.pocketeos.base.BaseView;
 import com.oraclechain.pocketeos.bean.PelistBean;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/26.

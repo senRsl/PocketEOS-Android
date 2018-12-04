@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.utils;
 
-import com.oraclechain.pocketeos.app.MyApplication;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import com.oraclechain.pocketeos.app.MyApplication;
 
 /**
  * Created by pocketEos on 2018/1/19.

@@ -1,12 +1,7 @@
 package com.oraclechain.pocketeos.modules.blackbox.blackboxcoindetails;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.liaoinstan.springview.container.AliFooter;
@@ -36,9 +31,13 @@ import com.tencent.connect.share.QzonePublish;
 import com.tencent.connect.share.QzoneShare;
 import com.tencent.tauth.Tencent;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

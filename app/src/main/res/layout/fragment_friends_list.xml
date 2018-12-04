@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,7 +14,7 @@
         android:gravity="center"
         android:text="@string/friends_text"
         android:textColor="@color/title_color"
-        android:textSize="@dimen/dimens_17"/>
+        android:textSize="@dimen/dimens_17" />
 
     <RelativeLayout
         android:id="@+id/go_seach"
@@ -34,7 +33,7 @@
             android:gravity="center"
             android:text="@string/seach_friend"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/dimens_13"/>
+            android:textSize="@dimen/dimens_13" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -51,14 +50,14 @@
             android:fadingEdge="none"
             android:overScrollMode="never"
             android:scrollbars="none"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
 
         <com.oraclechain.pocketeos.view.contact.SideBarView
             android:id="@+id/sidebarview"
             android:layout_width="@dimen/dimens_25"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true" />
 
         <TextView
             android:id="@+id/tip"
@@ -70,7 +69,7 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="@dimen/dimens_20"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>
 

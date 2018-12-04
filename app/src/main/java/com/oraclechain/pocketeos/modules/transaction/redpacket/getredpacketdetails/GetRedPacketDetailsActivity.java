@@ -1,11 +1,7 @@
 package com.oraclechain.pocketeos.modules.transaction.redpacket.getredpacketdetails;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Html;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -17,9 +13,12 @@ import com.oraclechain.pocketeos.bean.RedPacketHistoryBean;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.view.RoundImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -95,7 +94,7 @@ public class GetRedPacketDetailsActivity extends BaseAcitvity<GetRedPacketDetail
     @Override
     public void getRedPacketDetailsDataHttp(RedPacketDetailsBean.DataBean dataBean) {
         if (dataBean.getStatistics() != null) {
-            mRedPacketStatus.setText(getString(R.string.already_received)+ (dataBean.getStatistics().getPacketCount() - dataBean.getStatistics().getResidueCount()) + "/" + dataBean.getStatistics().getPacketCount() + "个,剩余" + (RegexUtil.subZeroAndDot(dataBean.getStatistics().getResidueAmount()) + " " + mDataBean.getType()));
+            mRedPacketStatus.setText(getString(R.string.already_received) + (dataBean.getStatistics().getPacketCount() - dataBean.getStatistics().getResidueCount()) + "/" + dataBean.getStatistics().getPacketCount() + "个,剩余" + (RegexUtil.subZeroAndDot(dataBean.getStatistics().getResidueAmount()) + " " + mDataBean.getType()));
             for (RedPacketDetailsBean.DataBean.RedPacketOrderRedisDtosBean redPacketOrderRedisDtosBean : dataBean.getRedPacketOrderRedisDtos()) {
                 mRedPacketOrderRedisDtosBeanList.add(redPacketOrderRedisDtosBean);
             }

@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         android:layout_height="@dimen/dimens_50"
         android:gravity="center"
         android:text="@string/application_text"
-        android:textSize="@dimen/dimens_17"/>
+        android:textSize="@dimen/dimens_17" />
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/spring"
@@ -38,19 +37,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_150"
                     android:focusableInTouchMode="true"
-                    app:canLoop="true"/>
+                    app:canLoop="true" />
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycle_application"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dimens_20"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none" />
 
                 <View
                     style="?attr/item_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_10"/>
+                    android:layout_height="@dimen/dimens_10" />
 
                 <TextView
                     style="?attr/text_one_style"
@@ -61,12 +60,13 @@
                     android:drawableRight="@mipmap/hot"
                     android:gravity="center_vertical"
                     android:text="@string/hot_application"
-                    android:textSize="@dimen/dimens_16"/>
+                    android:textSize="@dimen/dimens_16" />
 
                 <View
                     style="?attr/line_style"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_1"/>
+                    android:layout_height="@dimen/dimens_1" />
+
                 <RelativeLayout
                     android:id="@+id/hot_application"
                     android:layout_width="match_parent"
@@ -78,9 +78,9 @@
                         android:layout_width="@dimen/dimens_46"
                         android:layout_height="@dimen/dimens_46"
                         android:layout_marginRight="@dimen/dimens_20"
+                        android:src="@mipmap/ic_launcher"
                         app:radius="@dimen/dimens_4"
-                        app:shape_type="rectangle"
-                        android:src="@mipmap/ic_launcher"/>
+                        app:shape_type="rectangle" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/app_name"
-                            android:textSize="@dimen/dimens_15"/>
+                            android:textSize="@dimen/dimens_15" />
 
                         <TextView
                             android:id="@+id/hot_application_desc"
@@ -106,14 +106,14 @@
                             android:ellipsize="end"
                             android:singleLine="true"
                             android:text="@string/app_name"
-                            android:textSize="@dimen/dimens_13"/>
+                            android:textSize="@dimen/dimens_13" />
                     </LinearLayout>
                 </RelativeLayout>
 
                 <View
                     style="?attr/item_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_10"/>
+                    android:layout_height="@dimen/dimens_10" />
 
                 <TextView
                     style="?attr/text_one_style"
@@ -122,12 +122,12 @@
                     android:layout_marginLeft="@dimen/dimens_20"
                     android:gravity="center_vertical"
                     android:text="@string/bussiness_application"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <View
                     style="?attr/line_style"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_1"/>
+                    android:layout_height="@dimen/dimens_1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -137,7 +137,7 @@
                         android:id="@+id/recycle_bussiness_application"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scrollbars="none"/>
+                        android:scrollbars="none" />
                 </RelativeLayout>
 
             </LinearLayout>

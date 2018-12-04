@@ -1,12 +1,8 @@
 package com.oraclechain.pocketeos.modules.account.backupaccount.fragment;
 
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.TextView;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -24,9 +20,12 @@ import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -84,8 +83,8 @@ public class BackUpAccountFragment extends BaseFragment<NormalView, NormalPresen
                             if (MyApplication.getInstance().getUserBean().getWallet_shapwd().equals(PasswordToKeyUtils.shaCheck(password))) {
                                 if (position == 0) {
                                     try {
-                                        mDetails.setText("OWNKEY:\n" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(),password)
-                                                + "\nACTIVEKEY：\n" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(),password));
+                                        mDetails.setText("OWNKEY:\n" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(), password)
+                                                + "\nACTIVEKEY：\n" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(), password));
                                     } catch (NoSuchAlgorithmException e) {
                                         e.printStackTrace();
                                     } catch (InvalidKeySpecException e) {
@@ -99,6 +98,7 @@ public class BackUpAccountFragment extends BaseFragment<NormalView, NormalPresen
                                 mBackupDesc.setVisibility(View.GONE);
                             }
                         }
+
                         @Override
                         public void cancle() {
                         }
@@ -122,7 +122,7 @@ public class BackUpAccountFragment extends BaseFragment<NormalView, NormalPresen
 
     @OnClick(R.id.go_home)
     public void onViewClicked() {
-          if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
             ActivityUtils.next(getActivity(), MainActivity.class, true);
         } else {
             ActivityUtils.next(getActivity(), BlackBoxMainActivity.class, true);

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +22,7 @@
             android:layout_centerVertical="true"
             android:text="@string/pocket_eos"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_23"/>
+            android:textSize="@dimen/dimens_23" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,7 +31,7 @@
             android:layout_marginTop="@dimen/dimens_10"
             android:text="@string/login_des"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_13"/>
+            android:textSize="@dimen/dimens_13" />
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -46,12 +45,12 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/dimens_10"
                 android:clickable="true"
-                android:gravity="center"
                 android:drawablePadding="@dimen/dimens_10"
                 android:drawableRight="@mipmap/white_more"
+                android:gravity="center"
                 android:text="@string/social_contact"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -59,7 +58,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginRight="@dimen/dimens_10"
                 android:layout_marginTop="@dimen/dimens_10"
-                android:src="@mipmap/black_box_login_img"/>
+                android:src="@mipmap/black_box_login_img" />
         </FrameLayout>
 
     </RelativeLayout>
@@ -83,7 +82,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/choose_wallet"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_14" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -95,7 +94,7 @@
                     android:id="@+id/wallet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none" />
             </RelativeLayout>
 
 
@@ -111,7 +110,7 @@
                 android:background="@color/black_box_color"
                 android:text="@string/sure"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_14" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,7 +126,7 @@
                     android:layout_marginLeft="@dimen/dimens_20"
                     android:checked="true"
                     android:clickable="false"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical" />
 
                 <TextView
                     android:id="@+id/go_pocketeos_user"
@@ -139,7 +138,7 @@
                     android:singleLine="true"
                     android:text="@string/read_agreement"
                     android:textColor="@color/gray_color"
-                    android:textSize="@dimen/dimens_12"/>
+                    android:textSize="@dimen/dimens_12" />
             </LinearLayout>
 
             <RelativeLayout
@@ -155,7 +154,7 @@
                     android:layout_height="@dimen/dimens_16"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/black_box_color"/>
+                    android:background="@color/black_box_color" />
 
                 <TextView
                     android:id="@+id/create_a_wallet"
@@ -168,7 +167,7 @@
                     android:gravity="center"
                     android:text="@string/creat_a_wallet"
                     android:textColor="@color/black_box_color"
-                    android:textSize="@dimen/dimens_13"/>
+                    android:textSize="@dimen/dimens_13" />
 
                 <TextView
                     android:id="@+id/black_box_info"
@@ -182,7 +181,7 @@
                     android:gravity="left|center_vertical"
                     android:text="@string/black_box_info"
                     android:textColor="@color/black_box_color"
-                    android:textSize="@dimen/dimens_13"/>
+                    android:textSize="@dimen/dimens_13" />
             </RelativeLayout>
         </LinearLayout>
     </com.oraclechain.pocketeos.view.MyScrollview>

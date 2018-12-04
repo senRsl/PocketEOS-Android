@@ -8,23 +8,41 @@ import android.os.Parcelable;
  */
 
 public class WechatInfoBean implements Parcelable {
+    public static final Parcelable.Creator<WechatInfoBean> CREATOR = new Parcelable.Creator<WechatInfoBean>() {
+        @Override
+        public WechatInfoBean createFromParcel(Parcel source) {
+            return new WechatInfoBean(source);
+        }
+
+        @Override
+        public WechatInfoBean[] newArray(int size) {
+            return new WechatInfoBean[size];
+        }
+    };
     private int errCode;
-
     private String openid;
-
     private int sex;
-
     private String nickname;
-
     private String headimgurl;
-
     private String province;
-
     private String language;
-
     private String country;
-
     private String unionid;
+
+    public WechatInfoBean() {
+    }
+
+    protected WechatInfoBean(Parcel in) {
+        this.errCode = in.readInt();
+        this.openid = in.readString();
+        this.sex = in.readInt();
+        this.nickname = in.readString();
+        this.headimgurl = in.readString();
+        this.province = in.readString();
+        this.language = in.readString();
+        this.country = in.readString();
+        this.unionid = in.readString();
+    }
 
     public String getOpenid() {
         return openid;
@@ -52,6 +70,10 @@ public class WechatInfoBean implements Parcelable {
 
     public String getSex() {
         return (sex == 0) ? "男" : "女";
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 
     public String getProvince() {
@@ -84,10 +106,6 @@ public class WechatInfoBean implements Parcelable {
 
     public void setUnionid(String unionid) {
         this.unionid = unionid;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
     }
 
     public int getErrCode() {
@@ -130,31 +148,4 @@ public class WechatInfoBean implements Parcelable {
         dest.writeString(this.country);
         dest.writeString(this.unionid);
     }
-
-    public WechatInfoBean() {
-    }
-
-    protected WechatInfoBean(Parcel in) {
-        this.errCode = in.readInt();
-        this.openid = in.readString();
-        this.sex = in.readInt();
-        this.nickname = in.readString();
-        this.headimgurl = in.readString();
-        this.province = in.readString();
-        this.language = in.readString();
-        this.country = in.readString();
-        this.unionid = in.readString();
-    }
-
-    public static final Parcelable.Creator<WechatInfoBean> CREATOR = new Parcelable.Creator<WechatInfoBean>() {
-        @Override
-        public WechatInfoBean createFromParcel(Parcel source) {
-            return new WechatInfoBean(source);
-        }
-
-        @Override
-        public WechatInfoBean[] newArray(int size) {
-            return new WechatInfoBean[size];
-        }
-    };
 }

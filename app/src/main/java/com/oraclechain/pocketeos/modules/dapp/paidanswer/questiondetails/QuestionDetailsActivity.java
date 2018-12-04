@@ -1,15 +1,5 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.questiondetails;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
-
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -23,6 +13,15 @@ import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 import butterknife.BindView;
 
 public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
@@ -79,7 +78,7 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
                     if (progress == 100) {
                         mProgressBar.setVisibility(View.GONE);//加载完网页进度条消失
                         mWebview.loadUrl("javascript:getquestion('" + mDataBean.getId() + "','" + mDataBean.getReleasedLable() + "')");
-                    }else {
+                    } else {
                         mProgressBar.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
                         mProgressBar.setProgress(progress);//设置进度值
                     }
@@ -94,7 +93,6 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
     public void initEvent() {
 
     }
-
 
 
     private class JsInterface {

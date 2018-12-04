@@ -1,13 +1,8 @@
 package com.oraclechain.pocketeos.modules.dapp;
 
 
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.liaoinstan.springview.widget.SpringView;
 import com.oraclechain.pocketeos.R;
@@ -31,9 +26,13 @@ import com.oraclechain.pocketeos.view.convenientbanner.adapter.LocalImageHolderV
 import com.oraclechain.pocketeos.view.convenientbanner.holder.CBViewHolderCreator;
 import com.oraclechain.pocketeos.view.convenientbanner.listener.OnItemClickListener;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -76,7 +75,7 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
             if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
                 mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
             } else {
-                mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
+                mImmersionBar.statusBarDarkFont(false, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
             }
         }
     }
@@ -222,7 +221,7 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
         if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
             mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         } else {
-            mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
+            mImmersionBar.statusBarDarkFont(false, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
         }
     }
 
@@ -236,7 +235,7 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
         if (mHotApplicationName.getText().toString().equals("有问币答")) {
             ActivityUtils.next(getActivity(), PaidAnswerActivity.class);
         } else {
-            if (hotapplication!=null) {
+            if (hotapplication != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("title", hotapplication.getApplyName());
                 bundle.putString("url", hotapplication.getUrl());

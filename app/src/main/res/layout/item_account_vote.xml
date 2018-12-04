@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,7 +23,7 @@
             android:gravity="center_vertical|left"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_14"/>
+            android:textSize="@dimen/dimens_14" />
 
 
         <TextView
@@ -37,6 +35,6 @@
             android:gravity="center_vertical|right"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_14"/>
+            android:textSize="@dimen/dimens_14" />
     </RelativeLayout>
 </RelativeLayout>

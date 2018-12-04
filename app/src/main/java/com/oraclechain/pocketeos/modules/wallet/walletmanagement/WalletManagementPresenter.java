@@ -25,7 +25,7 @@ public class WalletManagementPresenter extends BasePresent<WalletManagementView>
                         OkLogger.i(response.body().toString());
                         BaseBean baseBean = (BaseBean) JsonUtil.parseStringToBean(response.body(), BaseBean.class);
                         if (baseBean != null) {
-                            view.setPolicyAccountHttp(baseBean , position);
+                            view.setPolicyAccountHttp(baseBean, position);
                         }
                     }
 

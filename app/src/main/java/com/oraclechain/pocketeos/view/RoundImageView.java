@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view;
 
+import com.oraclechain.pocketeos.R;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,23 +19,19 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 
-import com.oraclechain.pocketeos.R;
-
 /**
  * Created by pocketEos on 2018/3/12.
  */
 
 public class RoundImageView extends ImageView {
+    // 定义 Bitmap 的默认配置
+    private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
+    private static final int COLORDRAWABLE_DIMENSION = 1;
     // 图片按下的画笔
     private Paint pressPaint;
     // 图片的宽高
     private int width;
     private int height;
-
-    // 定义 Bitmap 的默认配置
-    private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
-    private static final int COLORDRAWABLE_DIMENSION = 1;
-
     // 边框颜色
     private int borderColor;
     // 边框宽度

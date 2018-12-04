@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.modules.transaction.transferaccounts;
 
-import android.content.Context;
+import java.util.HashMap;
+
+import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.model.Response;
@@ -14,9 +16,7 @@ import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import org.apache.commons.lang.StringUtils;
-
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.
@@ -73,12 +73,12 @@ public class TransferAccountsPresenter extends BasePresent<TransferAccountsView>
         });
     }
 
-    public void pushAction(String contract, String action, String message, String scopes, String permissionAccount, String permissionName ){
+    public void pushAction(String contract, String action, String message, String scopes, String permissionAccount, String permissionName) {
 
 
         // can make
-        String[] permissions = ( StringUtils.isEmpty(permissionAccount) || StringUtils.isEmpty( permissionName))
-                ? null : new String[]{permissionAccount + "@" + permissionName };
+        String[] permissions = (StringUtils.isEmpty(permissionAccount) || StringUtils.isEmpty(permissionName))
+                ? null : new String[]{permissionAccount + "@" + permissionName};
 
 
   /*      addDisposable(

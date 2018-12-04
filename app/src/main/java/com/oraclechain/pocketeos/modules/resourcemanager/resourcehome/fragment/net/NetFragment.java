@@ -1,8 +1,6 @@
 package com.oraclechain.pocketeos.modules.resourcemanager.resourcehome.fragment.net;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import java.math.BigDecimal;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -11,8 +9,9 @@ import com.oraclechain.pocketeos.bean.BlockChainAccountInfoBean;
 import com.oraclechain.pocketeos.modules.resourcemanager.changenet.ChangeNetActivity;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 
-import java.math.BigDecimal;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -78,10 +77,10 @@ public class NetFragment extends BaseFragment<NetView, NetPresenter> implements 
         mCpuNowTakeUp.setText(getString(R.string.now_take_up) + mBlockChainAccountInfoBean.getCpu_limit().getUsed() + " ms");
         mCpuNowUsable.setText(getString(R.string.now_usable) + mBlockChainAccountInfoBean.getCpu_limit().getAvailable() + " ms");
 
-        mNetTotalQuota.setText(getString(R.string.total_quota)+ mBlockChainAccountInfoBean.getNet_limit().getMax() + " bytes");
+        mNetTotalQuota.setText(getString(R.string.total_quota) + mBlockChainAccountInfoBean.getNet_limit().getMax() + " bytes");
         mNetQuotaStaked.setText(getString(R.string.quota_staked) + mBlockChainAccountInfoBean.getTotal_resources().getNet_weight());
-        mNetNowTakeUp.setText(getString(R.string.now_take_up)+ mBlockChainAccountInfoBean.getNet_limit().getUsed() + " bytes");
-        mNetNowUsable.setText(getString(R.string.now_usable)+ mBlockChainAccountInfoBean.getNet_limit().getAvailable() + " bytes");
+        mNetNowTakeUp.setText(getString(R.string.now_take_up) + mBlockChainAccountInfoBean.getNet_limit().getUsed() + " bytes");
+        mNetNowUsable.setText(getString(R.string.now_usable) + mBlockChainAccountInfoBean.getNet_limit().getAvailable() + " bytes");
 
         cpu = new BigDecimal(mBlockChainAccountInfoBean.getTotal_resources().getCpu_weight().substring(0, (mBlockChainAccountInfoBean.getTotal_resources().getCpu_weight().length() - 4)));
         net = new BigDecimal(mBlockChainAccountInfoBean.getTotal_resources().getNet_weight().substring(0, (mBlockChainAccountInfoBean.getTotal_resources().getNet_weight().length() - 4)));

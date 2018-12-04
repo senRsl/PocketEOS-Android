@@ -1,5 +1,13 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+import com.oraclechain.pocketeos.R;
+
 import android.Manifest;
 import android.app.DownloadManager;
 import android.app.Service;
@@ -12,15 +20,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.v4.content.FileProvider;
-
-import com.oraclechain.pocketeos.R;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import me.ljp.permission.HiPermission;
 import me.ljp.permission.PermissionCallback;
 import me.ljp.permission.PermissionItem;
@@ -30,6 +29,7 @@ import me.ljp.permission.PermissionItem;
  */
 
 public class DownLoadServerice extends Service {
+    private static String versionName = ""; //版本号
     /**
      * 广播接受者
      */
@@ -42,9 +42,34 @@ public class DownLoadServerice extends Service {
      * 系统下载器分配的唯一下载任务id，可以通过这个id查询或者处理下载任务
      */
     private long enqueue;
-
     private String downloadUrl = ""; //下载地址
-    private static String versionName = ""; //版本号
+
+    /**
+     * 通过隐式意图调用系统安装程序安装APK
+     */
+    public static void install(Context context) {
+
+        File file = new File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/pocketEos/App"
+                , "pocketEos" + versionName + ".apk");
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        // 由于没有在Activity环境下启动Activity,设置下面的标签
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
+            //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
+            Uri apkUri =
+                    FileProvider.getUriForFile(context, "com.oraclechain.pocketeos.fileprovider", file);
+            //添加这一句表示对目标应用临时授权该Uri所代表的文件
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        } else {
+            intent.setDataAndType(Uri.fromFile(file),
+                    "application/vnd.android.package-archive");
+        }
+        context.startActivity(intent);
+
+
+    }
 
     @Nullable
     @Override
@@ -84,7 +109,7 @@ public class DownLoadServerice extends Service {
                     @Override
                     public void onFinish() {
                         //请求成功 先进行删除操作
-                        if (new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/pocketEos/App/")!=null){
+                        if (new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/pocketEos/App/") != null) {
                             FilesUtils.deleteAllFiles(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/pocketEos/App/"));
                         }
                         startDownload(downloadUrl);
@@ -99,33 +124,6 @@ public class DownLoadServerice extends Service {
                     }
                 });
         return Service.START_STICKY;
-    }
-
-    /**
-     * 通过隐式意图调用系统安装程序安装APK
-     */
-    public static void install(Context context) {
-
-        File file = new File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/pocketEos/App"
-                , "pocketEos" + versionName + ".apk");
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        // 由于没有在Activity环境下启动Activity,设置下面的标签
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
-            //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
-            Uri apkUri =
-                    FileProvider.getUriForFile(context, "com.oraclechain.pocketeos.fileprovider", file);
-            //添加这一句表示对目标应用临时授权该Uri所代表的文件
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
-        } else {
-            intent.setDataAndType(Uri.fromFile(file),
-                    "application/vnd.android.package-archive");
-        }
-        context.startActivity(intent);
-
-
     }
 
     @Override

@@ -117,41 +117,41 @@ public class EosByteWriter implements EosType.Writer {
 
 
     @Override
-    public void putString(String value){
-        if ( null == value ){
-            putVariableUInt( 0 );
+    public void putString(String value) {
+        if (null == value) {
+            putVariableUInt(0);
             return;
         }
 
         // array count 는 variable int 로 넣어야 한다.
-        putVariableUInt( value.length() );
-        putBytes( value.getBytes() );
+        putVariableUInt(value.length());
+        putBytes(value.getBytes());
     }
 
     @Override
-    public void putCollection(Collection<? extends EosType.Packer> collection){
-        if ( null == collection){
-            putVariableUInt( 0 );
+    public void putCollection(Collection<? extends EosType.Packer> collection) {
+        if (null == collection) {
+            putVariableUInt(0);
             return;
         }
 
         // element count 는 variable int 로 넣어야 한다.
-        putVariableUInt( collection.size() );
+        putVariableUInt(collection.size());
 
-        for ( EosType.Packer type : collection) {
-            type.pack( this );
+        for (EosType.Packer type : collection) {
+            type.pack(this);
         }
     }
 
     @Override
-    public void putVariableUInt(long val ) {
+    public void putVariableUInt(long val) {
 
         do {
-            byte b = (byte)((val) & 0x7f);
+            byte b = (byte) ((val) & 0x7f);
             val >>= 7;
-            b |= ( ((val > 0) ? 1 : 0 ) << 7 );
+            b |= (((val > 0) ? 1 : 0) << 7);
             put(b);
-        } while( val != 0 );
+        } while (val != 0);
     }
 
 }

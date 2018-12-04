@@ -1,5 +1,15 @@
 package com.oraclechain.pocketeos.view.contact;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.app.ActivityUtils;
+import com.oraclechain.pocketeos.bean.User;
+import com.oraclechain.pocketeos.modules.friendslist.friendsdetails.FriendsDetailsActivity;
+import com.oraclechain.pocketeos.modules.friendslist.pelist.PelistActivity;
+import com.oraclechain.pocketeos.view.RoundImageView;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,16 +19,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.app.ActivityUtils;
-import com.oraclechain.pocketeos.bean.User;
-import com.oraclechain.pocketeos.modules.friendslist.friendsdetails.FriendsDetailsActivity;
-import com.oraclechain.pocketeos.modules.friendslist.pelist.PelistActivity;
-import com.oraclechain.pocketeos.view.RoundImageView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/11/30.
@@ -145,7 +145,7 @@ public class UserAdapter extends BaseAdapter {
         return -1;
     }
 
-    static   class ViewHolder {
+    static class ViewHolder {
         TextView tvName;
         TextView tvTitle;
         TextView tvAllMoney;

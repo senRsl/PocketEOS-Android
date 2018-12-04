@@ -1,12 +1,7 @@
 package com.oraclechain.pocketeos.modules.dapp.dappcommpany;
 
-import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -21,9 +16,13 @@ import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -51,6 +50,7 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
     private EmptyWrapper mBussinessDappAdapter;
     private DappCommpanyBean.DataBean commpany;
     private DappBean.DataBean hotapplication;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_dapp_commpany_details;
@@ -70,7 +70,7 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
         if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
             mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
             mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
             mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
@@ -123,7 +123,7 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
         if (mHotApplicationName.getText().toString().equals("有问币答")) {
             ActivityUtils.next(this, PaidAnswerActivity.class);
         } else {
-            if (hotapplication!=null) {
+            if (hotapplication != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("title", hotapplication.getApplyName());
                 bundle.putString("url", hotapplication.getUrl());

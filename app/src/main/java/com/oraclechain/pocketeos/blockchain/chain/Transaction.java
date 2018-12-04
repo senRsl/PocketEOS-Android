@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.blockchain.chain;
 
-import com.google.gson.annotations.Expose;
-import com.oraclechain.pocketeos.blockchain.types.EosType;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
+import com.oraclechain.pocketeos.blockchain.types.EosType;
 
 /**
  * Created by swapnibble on 2017-09-12.
@@ -21,24 +21,24 @@ public class Transaction extends TransactionHeader {
     @Expose
     private List<String> transaction_extensions = new ArrayList<>();
 
-    public Transaction(){
+    public Transaction() {
         super();
     }
 
 
-    public Transaction( Transaction other) {
+    public Transaction(Transaction other) {
         super(other);
-        this.context_free_actions = deepCopyOnlyContainer( other.context_free_actions );
-        this.actions = deepCopyOnlyContainer( other.actions );
+        this.context_free_actions = deepCopyOnlyContainer(other.context_free_actions);
+        this.actions = deepCopyOnlyContainer(other.actions);
         this.transaction_extensions = other.transaction_extensions;
     }
 
-    public void addAction(Action msg ){
-        if ( null == actions) {
+    public void addAction(Action msg) {
+        if (null == actions) {
             actions = new ArrayList<>(1);
         }
 
-        actions.add( msg);
+        actions.add(msg);
     }
 
 
@@ -50,16 +50,18 @@ public class Transaction extends TransactionHeader {
         this.actions = actions;
     }
 
-    public int getContextFreeActionCount(){ return ( actions == null ? 0 : actions.size());}
+    public int getContextFreeActionCount() {
+        return (actions == null ? 0 : actions.size());
+    }
 
 
-    <T> List<T> deepCopyOnlyContainer(List<T> srcList){
-        if ( null == srcList ){
+    <T> List<T> deepCopyOnlyContainer(List<T> srcList) {
+        if (null == srcList) {
             return null;
         }
 
-        List<T> newList = new ArrayList<>( srcList.size() );
-        newList.addAll( srcList);
+        List<T> newList = new ArrayList<>(srcList.size());
+        newList.addAll(srcList);
 
         return newList;
     }
@@ -71,8 +73,8 @@ public class Transaction extends TransactionHeader {
         writer.putCollection(context_free_actions);
         writer.putCollection(actions);
         //writer.putCollection(transaction_extensions);
-        writer.putVariableUInt( transaction_extensions.size());
-        if ( transaction_extensions.size() > 0 ){
+        writer.putVariableUInt(transaction_extensions.size());
+        if (transaction_extensions.size() > 0) {
             // TODO 구체적 코드가 나오면 확인후 구현할 것.
         }
     }

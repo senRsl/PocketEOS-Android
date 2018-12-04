@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_dialog_confirm"
@@ -21,7 +20,7 @@
             android:layout_margin="@dimen/dimens_25"
             android:text="@string/dialog_share_wallet_title"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_18"/>
+            android:textSize="@dimen/dimens_18" />
 
         <ImageView
             android:id="@+id/wallet_code"
@@ -29,13 +28,13 @@
             android:layout_height="@dimen/dimens_160"
             android:layout_centerInParent="true"
             android:layout_marginBottom="@dimen/dimens_30"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_1"
-        android:background="@color/line"/>
+        android:background="@color/line" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +53,7 @@
             android:gravity="center"
             android:text="@string/go_weixin_friend"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_weixin_circle"
@@ -66,7 +65,7 @@
             android:gravity="center"
             android:text="@string/go_weixin_circle"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_qq_friend"
@@ -78,7 +77,7 @@
             android:gravity="center"
             android:text="@string/go_qq_friend"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_qzone"
@@ -90,7 +89,7 @@
             android:gravity="center"
             android:text="@string/go_qzone"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
     </LinearLayout>
 
 </LinearLayout>

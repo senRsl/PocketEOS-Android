@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.app;
 
+import java.util.Stack;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-
-import java.util.Stack;
 
 /**
  * Created by pocketEos on 2017/11/23.

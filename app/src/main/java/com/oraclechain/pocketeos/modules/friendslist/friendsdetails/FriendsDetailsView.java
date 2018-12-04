@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.modules.friendslist.friendsdetails;
 
+import java.util.List;
+
 import com.oraclechain.pocketeos.base.BaseView;
 import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
 import com.oraclechain.pocketeos.bean.WalletDetailsBean;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2018/1/18.

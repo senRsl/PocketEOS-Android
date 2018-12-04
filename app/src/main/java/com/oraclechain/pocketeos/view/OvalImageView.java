@@ -34,8 +34,6 @@ public class OvalImageView extends ImageView {
     }
 
 
-
-
     /**
      * 画图
      * by Hankkin at:2015-08-30 21:15:53

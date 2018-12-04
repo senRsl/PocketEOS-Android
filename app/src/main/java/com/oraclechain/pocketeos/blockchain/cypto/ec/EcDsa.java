@@ -24,13 +24,13 @@
 
 package com.oraclechain.pocketeos.blockchain.cypto.ec;
 
+import java.math.BigInteger;
+import java.util.Arrays;
+
 import com.google.common.base.Preconditions;
 import com.oraclechain.pocketeos.blockchain.cypto.Hmac;
 import com.oraclechain.pocketeos.blockchain.cypto.digest.Sha256;
 import com.oraclechain.pocketeos.blockchain.types.EosByteWriter;
-
-import java.math.BigInteger;
-import java.util.Arrays;
 
 
 /**
@@ -39,44 +39,8 @@ import java.util.Arrays;
 
 public class EcDsa {
 
-    private static class SigChecker {
-        BigInteger e;
-        BigInteger privKey;
-
-        BigInteger r;
-        BigInteger s;
-
-        SigChecker(byte[] hash, BigInteger privKey){
-            this.e = new BigInteger(1, hash);
-            this.privKey = privKey;
-        }
-
-        boolean checkSignature(CurveParam curveParam, BigInteger k) {
-
-            EcPoint Q = EcTools.multiply( curveParam.G(), k);// Secp256k1Param.G, k);
-            if ( Q.isInfinity() ) return false;
-
-            r = Q.getX().toBigInteger().mod( curveParam.n());// Secp256k1Param.n );
-            if ( r.signum() == 0 ) return false;
-
-
-            s = k.modInverse( curveParam.n())// Secp256k1Param.n)
-                    .multiply(e.add( privKey.multiply(r)))
-                    .mod( curveParam.n());// Secp256k1Param.n);
-
-            if (s.signum() == 0) return false;
-
-            return true;
-        }
-
-        public boolean isRSEachLength(int length) {
-            return (r.toByteArray().length == length) && ( s.toByteArray().length == length) ;
-        }
-    }
-
-
-    private static BigInteger deterministicGenerateK(CurveParam curveParam, byte[] hash, BigInteger d, SigChecker checker, int nonce ){
-        if ( nonce > 0 ){
+    private static BigInteger deterministicGenerateK(CurveParam curveParam, byte[] hash, BigInteger d, SigChecker checker, int nonce) {
+        if (nonce > 0) {
 //            hash = Sha256.from(hash, EosPrivateKey.getSecuRandom().generateSeed(nonce)).getBytes();
             hash = Sha256.from(hash, BigInteger.valueOf(nonce).toByteArray()).getBytes();
         }
@@ -85,17 +49,17 @@ public class EcDsa {
 
         // Step b
         byte[] v = new byte[32];
-        Arrays.fill(v, (byte)0x01);
+        Arrays.fill(v, (byte) 0x01);
 
         // Step c
-        byte [] k = new byte[32];
-        Arrays.fill(k, (byte)0x00);
+        byte[] k = new byte[32];
+        Arrays.fill(k, (byte) 0x00);
 
         // Step d
         EosByteWriter bwD = new EosByteWriter(32 + 1 + 32 + 32);
         bwD.putBytes(v);
-        bwD.put((byte) 0x00 );
-        bwD.putBytes( dBytes );
+        bwD.put((byte) 0x00);
+        bwD.putBytes(dBytes);
         bwD.putBytes(hash);
         k = Hmac.hmacSha256(k, bwD.toBytes());
 
@@ -105,7 +69,7 @@ public class EcDsa {
         // Step f
         EosByteWriter bwF = new EosByteWriter(32 + 1 + 32 + 32);
         bwF.putBytes(v);
-        bwF.put((byte) 0x01 );
+        bwF.put((byte) 0x01);
         bwF.putBytes(dBytes);
         bwF.putBytes(hash);
         k = Hmac.hmacSha256(k, bwF.toBytes());
@@ -119,7 +83,7 @@ public class EcDsa {
         BigInteger t = new BigInteger(1, v);
 
         // Step H3, repeat until T is within the interval [1, Secp256k1Param.n - 1]
-        while ((t.signum() <= 0) || (t.compareTo( curveParam.n()) >= 0) || !checker.checkSignature(curveParam, t)) {
+        while ((t.signum() <= 0) || (t.compareTo(curveParam.n()) >= 0) || !checker.checkSignature(curveParam, t)) {
             EosByteWriter bwH = new EosByteWriter(32 + 1);
             bwH.putBytes(v);
             bwH.put((byte) 0x00);
@@ -135,26 +99,26 @@ public class EcDsa {
         return t;
     }
 
-    public static EcSignature sign(Sha256 hash, EosPrivateKey key ) {
+    public static EcSignature sign(Sha256 hash, EosPrivateKey key) {
         BigInteger privAsBI = key.getAsBigInteger();
         SigChecker checker = new SigChecker(hash.getBytes(), privAsBI);
 
         CurveParam curveParam = key.getCurveParam();
 
         int nonce = 0;
-        while ( true ) {
+        while (true) {
             deterministicGenerateK(curveParam, hash.getBytes(), privAsBI, checker, nonce++);
 
-            if (checker.s.compareTo( curveParam.halfCurveOrder() ) > 0) {//  Secp256k1Param.HALF_CURVE_ORDER) > 0) {
+            if (checker.s.compareTo(curveParam.halfCurveOrder()) > 0) {//  Secp256k1Param.HALF_CURVE_ORDER) > 0) {
                 checker.s = curveParam.n().subtract(checker.s);//   Secp256k1Param.n.subtract(checker.s);
             }
 
-            if ( checker.isRSEachLength(32)) {
+            if (checker.isRSEachLength(32)) {
                 break;
             }
         }
 
-        EcSignature signature = new EcSignature( checker.r, checker.s, curveParam );
+        EcSignature signature = new EcSignature(checker.r, checker.s, curveParam);
 
         byte[] data = hash.getBytes();
 
@@ -162,24 +126,24 @@ public class EcDsa {
 
         for (int i = 0; i < 4; i++) {
             EosPublicKey recovered = recoverPubKey(curveParam, data, signature, i);
-            if ( pubKey.equals( recovered)) {
-                signature.setRecid( i );
+            if (pubKey.equals(recovered)) {
+                signature.setRecid(i);
                 break;
             }
         }
 
-        if ( signature.recId < 0 ) {
+        if (signature.recId < 0) {
             throw new IllegalStateException("could not find recid. Was this data signed with this key?");
         }
 
         return signature;
     }
 
-    public static EosPublicKey recoverPubKey(byte[] messageSigned, EcSignature signature ) {
-        return recoverPubKey( signature.curveParam, messageSigned, signature, signature.recId);
+    public static EosPublicKey recoverPubKey(byte[] messageSigned, EcSignature signature) {
+        return recoverPubKey(signature.curveParam, messageSigned, signature, signature.recId);
     }
 
-    public static EosPublicKey recoverPubKey(CurveParam curveParam, byte[] messageSigned, EcSignature signature, int recId ) {
+    public static EosPublicKey recoverPubKey(CurveParam curveParam, byte[] messageSigned, EcSignature signature, int recId) {
 
         Preconditions.checkArgument(recId >= 0, "recId must be positive");
         Preconditions.checkArgument(signature.r.compareTo(BigInteger.ZERO) >= 0, "r must be positive");
@@ -245,18 +209,17 @@ public class EcDsa {
         BigInteger rInv = signature.r.modInverse(n);
         BigInteger srInv = rInv.multiply(signature.s).mod(n);
         BigInteger eInvrInv = rInv.multiply(eInv).mod(n);
-        EcPoint q = EcTools.sumOfTwoMultiplies( curveParam.G(), eInvrInv, R, srInv); //  Secp256k1Param.G, eInvrInv, R, srInv);
+        EcPoint q = EcTools.sumOfTwoMultiplies(curveParam.G(), eInvrInv, R, srInv); //  Secp256k1Param.G, eInvrInv, R, srInv);
 
 
         // We have to manually recompress the point as the compressed-ness gets
         // lost when multiply() is used.
         q = new EcPoint(curve, q.getX(), q.getY(), true);
 
-        return new EosPublicKey( q.getEncoded() );
+        return new EosPublicKey(q.getEncoded());
     }
 
-
-    private static boolean isSignerOf(CurveParam curveParam, byte[] messageSigned, int recId, EcSignature sig, byte[] pubKeyBytes ) {
+    private static boolean isSignerOf(CurveParam curveParam, byte[] messageSigned, int recId, EcSignature sig, byte[] pubKeyBytes) {
         Preconditions.checkArgument(recId >= 0, "recId must be positive");
         Preconditions.checkArgument(sig.r.compareTo(BigInteger.ZERO) >= 0, "r must be positive");
         Preconditions.checkArgument(sig.s.compareTo(BigInteger.ZERO) >= 0, "s must be positive");
@@ -321,7 +284,7 @@ public class EcDsa {
         BigInteger rInv = sig.r.modInverse(n);
         BigInteger srInv = rInv.multiply(sig.s).mod(n);
         BigInteger eInvrInv = rInv.multiply(eInv).mod(n);
-        EcPoint q = EcTools.sumOfTwoMultiplies( curveParam.G(), eInvrInv, R, srInv); //Secp256k1Param.G, eInvrInv, R, srInv);
+        EcPoint q = EcTools.sumOfTwoMultiplies(curveParam.G(), eInvrInv, R, srInv); //Secp256k1Param.G, eInvrInv, R, srInv);
 
 
         // We have to manually recompress the point as the compressed-ness gets
@@ -330,6 +293,41 @@ public class EcDsa {
 
         byte[] recoveredPub = q.getEncoded();
 
-        return Arrays.equals(recoveredPub, pubKeyBytes );
+        return Arrays.equals(recoveredPub, pubKeyBytes);
+    }
+
+    private static class SigChecker {
+        BigInteger e;
+        BigInteger privKey;
+
+        BigInteger r;
+        BigInteger s;
+
+        SigChecker(byte[] hash, BigInteger privKey) {
+            this.e = new BigInteger(1, hash);
+            this.privKey = privKey;
+        }
+
+        boolean checkSignature(CurveParam curveParam, BigInteger k) {
+
+            EcPoint Q = EcTools.multiply(curveParam.G(), k);// Secp256k1Param.G, k);
+            if (Q.isInfinity()) return false;
+
+            r = Q.getX().toBigInteger().mod(curveParam.n());// Secp256k1Param.n );
+            if (r.signum() == 0) return false;
+
+
+            s = k.modInverse(curveParam.n())// Secp256k1Param.n)
+                    .multiply(e.add(privKey.multiply(r)))
+                    .mod(curveParam.n());// Secp256k1Param.n);
+
+            if (s.signum() == 0) return false;
+
+            return true;
+        }
+
+        public boolean isRSEachLength(int length) {
+            return (r.toByteArray().length == length) && (s.toByteArray().length == length);
+        }
     }
 }

@@ -1,15 +1,15 @@
 package me.ljp.permission;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
@@ -38,13 +38,21 @@ public class HiPermission {
     private int mFilterColor = 0;
     private int mAnimStyleId = -1;
 
+    public HiPermission(Context context) {
+        mContext = context;
+        mNormalPermissionNames = mContext.getResources().getStringArray(R.array.permissionNames);
+    }
+
     public static HiPermission create(Context context) {
         return new HiPermission(context);
     }
 
-    public HiPermission(Context context) {
-        mContext = context;
-        mNormalPermissionNames = mContext.getResources().getStringArray(R.array.permissionNames);
+    public static boolean checkPermission(Context context, String permission) {
+        int checkPermission = ContextCompat.checkSelfPermission(context, permission);
+        if (checkPermission == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        return false;
     }
 
     public HiPermission title(String title) {
@@ -83,14 +91,6 @@ public class HiPermission {
             permissionItems.add(new PermissionItem(mNormalPermissions[i], mNormalPermissionNames[i], mNormalPermissionIconRes[i]));
         }
         return permissionItems;
-    }
-
-    public static boolean checkPermission(Context context, String permission) {
-        int checkPermission = ContextCompat.checkSelfPermission(context, permission);
-        if (checkPermission == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        return false;
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.candyintegral;
 
-import android.content.Context;
+import java.util.HashMap;
+import java.util.List;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -13,8 +14,7 @@ import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.
@@ -28,7 +28,7 @@ public class CandyIntegralPresenter extends BasePresent<CandyIntegralView> {
     }
 
     public void getCandyData() {
-        String url = BaseUrl.getHTTP_get_candy_score+"/"+MyApplication.getInstance().getUserBean().getWallet_uid();
+        String url = BaseUrl.getHTTP_get_candy_score + "/" + MyApplication.getInstance().getUserBean().getWallet_uid();
         HashMap<String, String> hashMap = new HashMap<String, String>();
         HttpUtils.getRequets(url, mContext, hashMap, new JsonCallback<ResponseBean<CandyScoreBean.DataBean>>() {
             @Override
@@ -53,7 +53,7 @@ public class CandyIntegralPresenter extends BasePresent<CandyIntegralView> {
             }
         });
 
-        String taskUrl = BaseUrl.getHTTP_get_user_task+"/"+MyApplication.getInstance().getUserBean().getWallet_uid();
+        String taskUrl = BaseUrl.getHTTP_get_user_task + "/" + MyApplication.getInstance().getUserBean().getWallet_uid();
         HttpUtils.getRequets(taskUrl, mContext, hashMap, new JsonCallback<ResponseBean<List<CandyUserTaskBean.DataBean>>>() {
             @Override
             public void onSuccess(Response<ResponseBean<List<CandyUserTaskBean.DataBean>>> response) {

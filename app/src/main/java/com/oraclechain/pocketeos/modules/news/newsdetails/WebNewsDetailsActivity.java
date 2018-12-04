@@ -1,12 +1,5 @@
 package com.oraclechain.pocketeos.modules.news.newsdetails;
 
-import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
@@ -16,6 +9,12 @@ import com.oraclechain.pocketeos.view.webview.BaseWebSetting;
 import com.oraclechain.pocketeos.view.webview.BaseWebView;
 import com.oraclechain.pocketeos.view.webview.BaseWebViewClient;
 
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.BindView;
 
 public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {

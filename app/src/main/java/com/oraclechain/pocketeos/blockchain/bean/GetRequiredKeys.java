@@ -1,38 +1,37 @@
 package com.oraclechain.pocketeos.blockchain.bean;
 
 
-import com.google.gson.annotations.Expose;
-import com.oraclechain.pocketeos.blockchain.chain.SignedTransaction;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
+import com.oraclechain.pocketeos.blockchain.chain.SignedTransaction;
 
 /**
  * Created by swapnibble on 2017-09-12.
  */
 
 public class GetRequiredKeys {
+    @Expose
+    private SignedTransaction transaction;
+    @Expose
+    private List<String> available_keys;
+    public GetRequiredKeys(SignedTransaction transaction, List<String> keys) {
+        this.transaction = transaction;
+
+        if (null != keys) {
+            available_keys = new ArrayList<>(keys);
+        } else {
+            available_keys = new ArrayList<>();
+        }
+    }
+
     @Override
     public String toString() {
         return "GetRequiredKeys{" +
                 "transaction=" + transaction +
                 ", available_keys=" + available_keys +
                 '}';
-    }
-    @Expose
-    private SignedTransaction transaction;
-    @Expose
-    private List<String> available_keys ;
-
-    public GetRequiredKeys(SignedTransaction transaction, List<String> keys ) {
-        this.transaction = transaction;
-
-        if ( null != keys ) {
-            available_keys = new ArrayList<>(keys);
-        }
-        else {
-            available_keys = new ArrayList<>();
-        }
     }
 
     public SignedTransaction getTransaction() {

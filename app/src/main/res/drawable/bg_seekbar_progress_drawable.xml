@@ -4,8 +4,8 @@
     <!-- 底部背景 -->
     <item android:id="@android:id/background">
         <shape>
-            <corners android:radius="8dp"/>
-            <solid android:color="#CBCBCB"/>
+            <corners android:radius="8dp" />
+            <solid android:color="#CBCBCB" />
         </shape>
     </item>
 
@@ -13,8 +13,8 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape>
-                <corners android:radius="8dp"/>
-                <solid android:color="@color/blue_button"/>
+                <corners android:radius="8dp" />
+                <solid android:color="@color/blue_button" />
             </shape>
         </clip>
     </item>

@@ -1,11 +1,7 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.candyintegral;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -18,9 +14,12 @@ import com.oraclechain.pocketeos.bean.HotEquitiesBean;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.RoundImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

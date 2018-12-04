@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".modules.transaction.transferaccounts.TransferAccountsActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/spring"
@@ -41,7 +40,7 @@
                         android:layout_toLeftOf="@+id/coin_uoanddown"
                         android:singleLine="true"
                         android:textColor="@color/title_color"
-                        android:textSize="@dimen/dimens_24"/>
+                        android:textSize="@dimen/dimens_24" />
 
 
                     <TextView
@@ -53,7 +52,7 @@
                         android:layout_marginLeft="@dimen/dimens_10"
                         android:text="@string/_2_06"
                         android:textColor="@color/money_color"
-                        android:textSize="@dimen/dimens_14"/>
+                        android:textSize="@dimen/dimens_14" />
                 </RelativeLayout>
 
                 <TextView
@@ -64,19 +63,19 @@
                     android:layout_marginRight="@dimen/dimens_20"
                     android:layout_marginTop="@dimen/dimens_10"
                     android:textColor="@color/gray_color"
-                    android:textSize="@dimen/dimens_14"/>
+                    android:textSize="@dimen/dimens_14" />
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/lineChart"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_100"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_1"
                     android:layout_marginTop="@dimen/dimens_20"
-                    android:background="@color/line"/>
+                    android:background="@color/line" />
 
                 <ImageView
                     android:id="@+id/coin_upanddown_img"
@@ -86,12 +85,12 @@
                     android:layout_marginLeft="@dimen/dimens_20"
                     android:layout_marginRight="@dimen/dimens_20"
                     android:layout_marginTop="@dimen/dimens_10"
-                    android:scaleType="fitXY"/>
+                    android:scaleType="fitXY" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_10"
-                    android:background="@color/bg_color"/>
+                    android:background="@color/bg_color" />
 
                 <TextView
                     android:id="@+id/coin_user_number"
@@ -103,13 +102,13 @@
                     android:paddingLeft="@dimen/dimens_20"
                     android:paddingRight="@dimen/dimens_20"
                     android:textColor="@color/title_color"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_line_cash"
                     android:layout_marginTop="@dimen/dimens_10"
-                    android:background="@color/line"/>
+                    android:background="@color/line" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -125,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:singleLine="true"
                         android:textColor="@color/title_color"
-                        android:textSize="@dimen/dimens_32"/>
+                        android:textSize="@dimen/dimens_32" />
 
                     <TextView
                         android:id="@+id/icon_rmb_number"
@@ -134,13 +133,13 @@
                         android:layout_marginTop="@dimen/dimens_10"
                         android:singleLine="true"
                         android:textColor="@color/txt_color"
-                        android:textSize="@dimen/dimens_14"/>
+                        android:textSize="@dimen/dimens_14" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_line_cash"
-                    android:background="@color/line"/>
+                    android:background="@color/line" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -159,7 +158,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/transfer_accounts"
                         android:textColor="@color/txt_color"
-                        android:textSize="@dimen/dimens_14"/>
+                        android:textSize="@dimen/dimens_14" />
 
                     <com.oraclechain.pocketeos.view.DrawableCenterTextView
                         android:id="@+id/go_make_collections"
@@ -172,7 +171,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/make_collections"
                         android:textColor="@color/txt_color"
-                        android:textSize="@dimen/dimens_14"/>
+                        android:textSize="@dimen/dimens_14" />
 
                     <com.oraclechain.pocketeos.view.DrawableCenterTextView
                         android:id="@+id/go_red_packet"
@@ -185,14 +184,14 @@
                         android:gravity="center_vertical"
                         android:text="@string/red_packet"
                         android:textColor="@color/txt_color"
-                        android:textSize="@dimen/dimens_14"/>
+                        android:textSize="@dimen/dimens_14" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_10"
                     android:background="#FFF9F9F9"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -203,12 +202,12 @@
                     android:text="@string/recycle_coin_history"
                     android:textColor="@color/title_color"
                     android:textSize="@dimen/dimens_15"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
 
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimens_line_cash"
-                    android:background="@color/line"/>
+                    android:background="@color/line" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -220,7 +219,7 @@
                         android:id="@+id/recycle_coin_history"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scrollbars="none"/>
+                        android:scrollbars="none" />
                 </RelativeLayout>
             </LinearLayout>
         </com.oraclechain.pocketeos.view.MyScrollview>

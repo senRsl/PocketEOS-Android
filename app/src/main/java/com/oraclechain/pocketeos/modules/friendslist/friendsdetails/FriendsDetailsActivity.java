@@ -1,18 +1,8 @@
 package com.oraclechain.pocketeos.modules.friendslist.friendsdetails;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.liaoinstan.springview.widget.SpringView;
 import com.oraclechain.pocketeos.R;
@@ -33,10 +23,19 @@ import com.oraclechain.pocketeos.view.AppDefeatHeadView;
 import com.oraclechain.pocketeos.view.MyScrollview;
 import com.oraclechain.pocketeos.view.RoundImageView;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

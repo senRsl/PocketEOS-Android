@@ -1,8 +1,7 @@
 package com.oraclechain.pocketeos.modules.switchusernumber;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -15,9 +14,9 @@ import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import butterknife.BindView;
 
 import static com.oraclechain.pocketeos.utils.Utils.getContext;
@@ -52,7 +51,7 @@ public class SwitchUserNumberActivity extends BaseAcitvity<NormalView, NormalPre
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleUserNumber.setLayoutManager(layoutManager);
         mRecycleUserNumber.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        mAccountAdapter = new EmptyWrapper(AdapterManger.getSwitchUserNumberAdapter(this,mAccountInfoBeanList,getIntent().getStringExtra("account")));
+        mAccountAdapter = new EmptyWrapper(AdapterManger.getSwitchUserNumberAdapter(this, mAccountInfoBeanList, getIntent().getStringExtra("account")));
         mAccountAdapter.setEmptyView(R.layout.empty_project);
         mRecycleUserNumber.setAdapter(mAccountAdapter);
     }

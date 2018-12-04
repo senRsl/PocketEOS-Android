@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.suggestionfeedback;
 
+import java.util.List;
+
 import com.oraclechain.pocketeos.base.BaseView;
 import com.oraclechain.pocketeos.bean.SuggestionBean;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/26.

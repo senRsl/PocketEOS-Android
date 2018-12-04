@@ -1,15 +1,8 @@
 package com.oraclechain.pocketeos.modules.transaction.redpacket.makeredpacket;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.liaoinstan.springview.container.DefaultFooter;
@@ -39,10 +32,16 @@ import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 import com.oraclechain.pocketeos.view.textwatcher.MakeRedPacketMoneyTextWatcher;
 import com.oraclechain.pocketeos.view.textwatcher.MakeRedPacketNumberTextWatcher;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -330,7 +329,7 @@ public class RedPacketActivity extends BaseAcitvity<RedPacketView, RedPacketPres
                     toast(getString(R.string.input_all_redpacket_info));
                 }*/
 
-               toast(getString(R.string.red_packet_toast));
+                toast(getString(R.string.red_packet_toast));
                 break;
         }
     }

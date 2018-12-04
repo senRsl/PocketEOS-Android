@@ -1,8 +1,6 @@
 package com.oraclechain.pocketeos.modules.unstake;
 
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -19,8 +17,9 @@ import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.math.BigDecimal;
-
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

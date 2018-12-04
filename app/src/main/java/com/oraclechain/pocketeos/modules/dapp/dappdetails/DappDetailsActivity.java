@@ -1,5 +1,14 @@
 package com.oraclechain.pocketeos.modules.dapp.dappdetails;
 
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.app.ActivityUtils;
+import com.oraclechain.pocketeos.base.BaseAcitvity;
+import com.oraclechain.pocketeos.modules.dapp.paidanswer.chooseaccountwithcoin.ChooseAccountWithCoinActivity;
+import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
+import com.oraclechain.pocketeos.modules.normalvp.NormalView;
+import com.oraclechain.pocketeos.view.webview.BaseWebSetting;
+import com.oraclechain.pocketeos.view.webview.BaseWebView;
+
 import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Bundle;
@@ -12,16 +21,6 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.app.ActivityUtils;
-import com.oraclechain.pocketeos.base.BaseAcitvity;
-import com.oraclechain.pocketeos.modules.dapp.paidanswer.chooseaccountwithcoin.ChooseAccountWithCoinActivity;
-import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
-import com.oraclechain.pocketeos.modules.normalvp.NormalView;
-import com.oraclechain.pocketeos.view.webview.BaseWebSetting;
-import com.oraclechain.pocketeos.view.webview.BaseWebView;
-
 import butterknife.BindView;
 
 public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
@@ -95,7 +94,6 @@ public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresente
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
 
     @Override

@@ -1,5 +1,9 @@
 package com.oraclechain.pocketeos.blockchain.chain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.annotations.Expose;
@@ -8,10 +12,6 @@ import com.oraclechain.pocketeos.blockchain.types.EosType;
 import com.oraclechain.pocketeos.blockchain.types.TypeAccountName;
 import com.oraclechain.pocketeos.blockchain.types.TypeActionName;
 import com.oraclechain.pocketeos.blockchain.types.TypePermissionLevel;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by swapnibble on 2017-09-12.
@@ -30,25 +30,25 @@ public class Action implements EosType.Packer {
     @Expose
     private JsonElement data;
 
-    public Action(String account, String name, TypePermissionLevel authorization, String data){
+    public Action(String account, String name, TypePermissionLevel authorization, String data) {
         this.account = new TypeAccountName(account);
         this.name = new TypeActionName(name);
         this.authorization = new ArrayList<>();
-        if ( null != authorization ) {
+        if (null != authorization) {
             this.authorization.add(authorization);
         }
 
-        if ( null != data ) {
+        if (null != data) {
             this.data = new JsonPrimitive(data);
         }
     }
 
     public Action(String account, String name) {
-        this (account, name, null, null);
+        this(account, name, null, null);
     }
 
-    public Action(){
-        this ( null, null, null, null);
+    public Action() {
+        this(null, null, null, null);
     }
 
     public String getAccount() {
@@ -71,23 +71,23 @@ public class Action implements EosType.Packer {
         return authorization;
     }
 
+    public void setAuthorization(String[] accountWithPermLevel) {
+        if (null == accountWithPermLevel) {
+            return;
+        }
+
+        for (String permissionStr : accountWithPermLevel) {
+            String[] split = permissionStr.split("@", 2);
+            authorization.add(new TypePermissionLevel(split[0], split[1]));
+        }
+    }
+
     public void setAuthorization(List<TypePermissionLevel> authorization) {
         this.authorization = authorization;
     }
 
     public void setAuthorization(TypePermissionLevel[] authorization) {
-        this.authorization.addAll( Arrays.asList( authorization) );
-    }
-
-    public void setAuthorization(String[] accountWithPermLevel) {
-        if ( null == accountWithPermLevel){
-            return;
-        }
-
-        for ( String permissionStr : accountWithPermLevel ) {
-            String[] split = permissionStr.split("@", 2);
-            authorization.add( new TypePermissionLevel(split[0], split[1]) );
-        }
+        this.authorization.addAll(Arrays.asList(authorization));
     }
 
     public JsonElement getData() {
@@ -103,14 +103,13 @@ public class Action implements EosType.Packer {
         account.pack(writer);
         name.pack(writer);
 
-        writer.putCollection( authorization );
+        writer.putCollection(authorization);
 
-        if ( null != data ) {
-            byte[] dataAsBytes = HexUtils.toBytes( data.getAsString());
+        if (null != data) {
+            byte[] dataAsBytes = HexUtils.toBytes(data.getAsString());
             writer.putVariableUInt(dataAsBytes.length);
-            writer.putBytes( dataAsBytes );
-        }
-        else {
+            writer.putBytes(dataAsBytes);
+        } else {
             writer.putVariableUInt(0);
         }
     }

@@ -1,6 +1,6 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.usercenter;
 
-import android.content.Context;
+import java.io.File;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
@@ -13,7 +13,7 @@ import com.oraclechain.pocketeos.bean.UpdataPhotoBean;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 
-import java.io.File;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2018/1/18.

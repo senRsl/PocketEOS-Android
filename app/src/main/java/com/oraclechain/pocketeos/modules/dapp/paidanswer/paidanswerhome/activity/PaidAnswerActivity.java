@@ -1,19 +1,8 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.oraclechain.pocketeos.R;
@@ -28,10 +17,20 @@ import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.utils.DensityUtil;
 import com.oraclechain.pocketeos.utils.Utils;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -142,9 +141,9 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        if (!Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (!Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mCollapsingToolbarLayout.setBackgroundDrawable(this.getResources().getDrawable(R.mipmap.black_box_answer_top));
-        }else {
+        } else {
             mCollapsingToolbarLayout.setBackgroundDrawable(this.getResources().getDrawable(R.mipmap.paid_answer));
         }
         ActivityUtils.next(PaidAnswerActivity.this, ChooseAccountWithCoinActivity.class, 100);

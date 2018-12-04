@@ -1,10 +1,5 @@
 package com.oraclechain.pocketeos.wxapi;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.WindowManager;
-import android.widget.Toast;
-
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -34,6 +29,11 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
@@ -97,7 +97,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     break;
                 case BaseResp.ErrCode.ERR_USER_CANCEL:
                     //分享取消
-                    Toast.makeText(WXEntryActivity.this,R.string.cancel_share, Toast.LENGTH_LONG).show();
+                    Toast.makeText(WXEntryActivity.this, R.string.cancel_share, Toast.LENGTH_LONG).show();
                     break;
                 case BaseResp.ErrCode.ERR_AUTH_DENIED:
                     //分享拒绝

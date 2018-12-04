@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dialog_confirm"
@@ -22,7 +21,7 @@
             android:gravity="center"
             android:text="@string/make_collection_code_top_text"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_15"/>
+            android:textSize="@dimen/dimens_15" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +44,7 @@
                 android:singleLine="true"
                 android:text="@string/app_name"
                 android:textColor="@color/title_color"
-                android:textSize="@dimen/dimens_24"/>
+                android:textSize="@dimen/dimens_24" />
 
             <TextView
                 android:id="@+id/icon_type"
@@ -57,7 +56,7 @@
                 android:singleLine="true"
                 android:text="@string/oct"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_14" />
         </LinearLayout>
 
         <ImageView
@@ -68,7 +67,7 @@
             android:layout_marginBottom="@dimen/dimens_30"
             android:layout_marginTop="@dimen/dimens_10"
             android:scaleType="fitXY"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher" />
 
     </LinearLayout>
 
@@ -76,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_marginBottom="@dimen/dimens_10"
-        android:background="@color/line"/>
+        android:background="@color/line" />
 
 
     <LinearLayout
@@ -96,7 +95,7 @@
             android:gravity="center"
             android:text="@string/go_weixin_friend"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_weixin_circle"
@@ -108,7 +107,7 @@
             android:gravity="center"
             android:text="@string/go_weixin_circle"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_qq_friend"
@@ -120,7 +119,7 @@
             android:gravity="center"
             android:text="@string/go_qq_friend"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/go_qzone"
@@ -132,7 +131,7 @@
             android:gravity="center"
             android:text="@string/go_qzone"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
     </LinearLayout>
 </LinearLayout>
 

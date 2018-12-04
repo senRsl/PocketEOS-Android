@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.blockchain;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.os.Handler;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,10 +35,10 @@ import com.oraclechain.pocketeos.utils.PublicAndPrivateKeyUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
 
 /**
  * Created by pocketEos on 2018/5/2.
@@ -47,7 +47,7 @@ import java.util.List;
 
 public class EosDataManger {
     static String EOSCONTRACT = Constants.EOSCONTRACT;
-    static String OCTCONTRACT =  Constants.OCTCONTRACT;//erctoken
+    static String OCTCONTRACT = Constants.OCTCONTRACT;//erctoken
     static String ACTIONTRANSFER = Constants.ACTIONTRANSFER;
     static String PERMISSONION = Constants.PERMISSONION;
 
@@ -70,8 +70,6 @@ public class EosDataManger {
         mContext = context;
         this.userpassword = password;
     }
-
-
 
 
     public void pushAction(String message, String permissionAccount) {
@@ -114,7 +112,7 @@ public class EosDataManger {
                     mJsonToBeanResultBean = (JsonToBeanResultBean) JsonUtil.parseStringToBean(mGson.toJson(response.body().data), JsonToBeanResultBean.class);
                     txnBeforeSign = createTransaction(contract, action, mJsonToBeanResultBean.getBinargs(), permissions, mChainInfoBean);
                     //扫描钱包列出所有可用账号的公钥
-                    List<String> pubKey =  PublicAndPrivateKeyUtils.getActivePublicKey();
+                    List<String> pubKey = PublicAndPrivateKeyUtils.getActivePublicKey();
 
                     getRequreKey(new GetRequiredKeys(txnBeforeSign, pubKey));
                 } else {

@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.blockchain;
 
-import android.content.Context;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,9 +29,7 @@ import com.oraclechain.pocketeos.utils.PublicAndPrivateKeyUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2018/5/8.
@@ -166,6 +166,7 @@ public class PushDatamanger {
             }
         });
     }
+
     public interface Callback {
         void getResult(String result);
     }

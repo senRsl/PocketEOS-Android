@@ -16,16 +16,16 @@
 package com.oraclechain.pocketeos.net.callbck;
 
 
-import com.google.gson.stream.JsonReader;
-import com.lzy.okgo.convert.Converter;
-import com.oraclechain.pocketeos.bean.BaseResponseBean;
-import com.oraclechain.pocketeos.bean.ResponseBean;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import com.google.gson.stream.JsonReader;
+import com.lzy.okgo.convert.Converter;
+import com.oraclechain.pocketeos.bean.BaseResponseBean;
+import com.oraclechain.pocketeos.bean.ResponseBean;
 
 import okhttp3.Response;
 import okhttp3.ResponseBody;

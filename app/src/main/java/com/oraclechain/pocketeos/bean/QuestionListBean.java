@@ -8,12 +8,35 @@ import android.os.Parcelable;
  */
 
 public class QuestionListBean implements Parcelable {
+    public static final Parcelable.Creator<QuestionListBean> CREATOR = new Parcelable.Creator<QuestionListBean>() {
+        @Override
+        public QuestionListBean createFromParcel(Parcel source) {
+            return new QuestionListBean(source);
+        }
+
+        @Override
+        public QuestionListBean[] newArray(int size) {
+            return new QuestionListBean[size];
+        }
+    };
     private String title;
     private String content;
     private String time;
     private String name;
     private String id;
     private int releasedLable;
+
+    public QuestionListBean() {
+    }
+
+    protected QuestionListBean(Parcel in) {
+        this.title = in.readString();
+        this.content = in.readString();
+        this.time = in.readString();
+        this.name = in.readString();
+        this.id = in.readString();
+        this.releasedLable = in.readInt();
+    }
 
     public String getTitle() {
         return title == null ? "" : title;
@@ -77,28 +100,4 @@ public class QuestionListBean implements Parcelable {
         dest.writeString(this.id);
         dest.writeInt(this.releasedLable);
     }
-
-    public QuestionListBean() {
-    }
-
-    protected QuestionListBean(Parcel in) {
-        this.title = in.readString();
-        this.content = in.readString();
-        this.time = in.readString();
-        this.name = in.readString();
-        this.id = in.readString();
-        this.releasedLable = in.readInt();
-    }
-
-    public static final Parcelable.Creator<QuestionListBean> CREATOR = new Parcelable.Creator<QuestionListBean>() {
-        @Override
-        public QuestionListBean createFromParcel(Parcel source) {
-            return new QuestionListBean(source);
-        }
-
-        @Override
-        public QuestionListBean[] newArray(int size) {
-            return new QuestionListBean[size];
-        }
-    };
 }

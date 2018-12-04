@@ -1,18 +1,8 @@
 package com.oraclechain.pocketeos.modules.transaction.transferaccounts;
 
-import android.Manifest;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.liaoinstan.springview.container.AliFooter;
@@ -51,10 +41,19 @@ import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 import com.oraclechain.pocketeos.view.textwatcher.TransferMoneyTextWatcher;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.Manifest;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.ljp.permission.PermissionItem;

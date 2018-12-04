@@ -33,9 +33,9 @@ public class UserBean {
 
     @Generated(hash = 223952739)
     public UserBean(Long id, String wallet_uid, String wallet_name, String wallet_img,
-            String wallet_weixin, String wallet_qq, String wallet_main_account,
-            String wallet_main_account_img, String wallet_phone, String wallet_shapwd,
-            String password_check, String account_info) {
+                    String wallet_weixin, String wallet_qq, String wallet_main_account,
+                    String wallet_main_account_img, String wallet_phone, String wallet_shapwd,
+                    String password_check, String account_info) {
         this.id = id;
         this.wallet_uid = wallet_uid;
         this.wallet_name = wallet_name;

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:src="@mipmap/white_back"/>
+            android:src="@mipmap/white_back" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -34,7 +33,7 @@
             android:gravity="center"
             android:text="@string/red_packet_title"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_17"/>
+            android:textSize="@dimen/dimens_17" />
     </RelativeLayout>
 
 
@@ -61,7 +60,7 @@
                     android:layout_height="90dp"
                     android:scaleType="centerCrop"
                     android:src="@color/red_packet_color"
-                    app:arcHeight="70dp"/>
+                    app:arcHeight="70dp" />
 
                 <com.oraclechain.pocketeos.view.RoundImageView
                     android:id="@+id/user_img"
@@ -69,8 +68,8 @@
                     android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimens_10"
-                    app:shape_type="round"
-                    android:src="@mipmap/ic_launcher_round"/>
+                    android:src="@mipmap/ic_launcher_round"
+                    app:shape_type="round" />
             </FrameLayout>
 
             <TextView
@@ -80,7 +79,7 @@
                 android:gravity="center"
                 android:text="@string/vip230656469"
                 android:textColor="@color/title_color"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <TextView
                 android:id="@+id/user_leave_message"
@@ -90,7 +89,7 @@
                 android:gravity="center"
                 android:text="@string/user_leave_message"
                 android:textColor="@color/gray_color"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <TextView
                 android:id="@+id/take_rmb_property"
@@ -100,7 +99,7 @@
                 android:gravity="center"
                 android:text="≈****CNY"
                 android:textColor="@color/title_color"
-                android:textSize="@dimen/dimens_24"/>
+                android:textSize="@dimen/dimens_24" />
 
             <Button
                 android:id="@+id/go_red_pocket"
@@ -111,7 +110,7 @@
                 android:background="@color/red_packet_buutton"
                 android:text="@string/go_on_red_pocket"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_15"/>
+                android:textSize="@dimen/text_15" />
 
             <TextView
                 android:id="@+id/red_packet_status"
@@ -120,12 +119,12 @@
                 android:gravity="center"
                 android:text="@string/red_packet_status"
                 android:textColor="@color/gray_color"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_10"
-                android:background="#FFF9F9F9"/>
+                android:background="#FFF9F9F9" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -134,12 +133,12 @@
                 android:padding="@dimen/dimens_20"
                 android:text="@string/redpacket_history"
                 android:textColor="@color/title_color"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="1px"
-                android:background="@color/line"/>
+                android:background="@color/line" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -149,7 +148,7 @@
                     android:id="@+id/recycle_redpacket_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none" />
             </RelativeLayout>
         </LinearLayout>
     </com.oraclechain.pocketeos.view.MyScrollview>

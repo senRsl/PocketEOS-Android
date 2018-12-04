@@ -1,11 +1,11 @@
 package com.oraclechain.pocketeos.modules.transaction.redpacket.makeredpacket;
 
+import java.util.List;
+
 import com.oraclechain.pocketeos.base.BaseView;
 import com.oraclechain.pocketeos.bean.CoinRateBean;
 import com.oraclechain.pocketeos.bean.RedPacketHistoryBean;
 import com.oraclechain.pocketeos.bean.SendRedPacketBean;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/26.

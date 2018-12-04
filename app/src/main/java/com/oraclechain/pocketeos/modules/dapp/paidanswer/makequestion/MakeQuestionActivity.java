@@ -1,14 +1,12 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.makequestion;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.greenrobot.eventbus.EventBus;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.google.gson.Gson;
@@ -39,14 +37,15 @@ import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 import com.oraclechain.pocketeos.view.textwatcher.FourMoneyTextWatcher;
 
-import org.greenrobot.eventbus.EventBus;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -171,7 +170,7 @@ public class MakeQuestionActivity extends BaseAcitvity<NormalView, NormalPresent
                                                             }
                                                         }
                                                     }).pushAction(AskansDatamanger.OCTASKANSCONTRACT, AskansDatamanger.ACTIONASK,
-                                                            new Gson().toJson(new AskMessageBean("1", getIntent().getStringExtra("account"), StringUtils.addZero(mPropertyNumber.getText().toString().trim())+" OCT", "0", dateTime + "",
+                                                            new Gson().toJson(new AskMessageBean("1", getIntent().getStringExtra("account"), StringUtils.addZero(mPropertyNumber.getText().toString().trim()) + " OCT", "0", dateTime + "",
                                                                     mAnswerBeanList.size() + "",
                                                                     new Gson().toJson(new ChainAsktitleBean(mInputQuestionTitle.getText().toString(), mInputQuestionDetail.getText().toString())),
                                                                     new Gson().toJson(new ChainOptionanswersBean(mAnswerBeanMap.get(0), mAnswerBeanMap.get(1), mAnswerBeanMap.get(2),
@@ -179,7 +178,7 @@ public class MakeQuestionActivity extends BaseAcitvity<NormalView, NormalPresent
                                                             getIntent().getStringExtra("account"));
                                                 }
                                             }
-                                        }).pushAction(AskansDatamanger.OCTCONTRACT, AskansDatamanger.ACTIONAPPROVE, new Gson().toJson(new ApproveMessageBean(getIntent().getStringExtra("account"), AskansDatamanger.OCTASKANSCONTRACT, StringUtils.addZero(mPropertyNumber.getText().toString().trim())+" OCT")), getIntent().getStringExtra("account"));
+                                        }).pushAction(AskansDatamanger.OCTCONTRACT, AskansDatamanger.ACTIONAPPROVE, new Gson().toJson(new ApproveMessageBean(getIntent().getStringExtra("account"), AskansDatamanger.OCTASKANSCONTRACT, StringUtils.addZero(mPropertyNumber.getText().toString().trim()) + " OCT")), getIntent().getStringExtra("account"));
                                     } else {
                                         toast(getResources().getString(R.string.password_error));
                                     }

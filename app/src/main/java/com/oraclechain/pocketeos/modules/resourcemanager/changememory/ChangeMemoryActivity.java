@@ -1,8 +1,6 @@
 package com.oraclechain.pocketeos.modules.resourcemanager.changememory;
 
-import android.os.Bundle;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import java.math.BigDecimal;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -18,8 +16,9 @@ import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.math.BigDecimal;
-
+import android.os.Bundle;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -74,7 +73,7 @@ public class ChangeMemoryActivity extends BaseAcitvity<ChangeMemoryView, ChangeM
                 if (tag.equals("1")) {
                     BigDecimal bigDecimal = BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(progress), new BigDecimal(100), 2), total, 4);
                     mNumber.setText(bigDecimal + " EOS");
-                    mEstimate.setText(getString(R.string.estimate)+ BigDecimalUtil.divide(bigDecimal, price, 4) + " bytes");
+                    mEstimate.setText(getString(R.string.estimate) + BigDecimalUtil.divide(bigDecimal, price, 4) + " bytes");
                 } else {
                     BigDecimal bigDecimal = BigDecimalUtil.multiply(BigDecimalUtil.divide(new BigDecimal(progress), new BigDecimal(100), 2), useRam, 4);
                     mNumber.setText(bigDecimal + " bytes");

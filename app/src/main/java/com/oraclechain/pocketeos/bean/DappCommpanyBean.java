@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by pocketEos on 2018/1/3.
@@ -49,6 +49,17 @@ public class DappCommpanyBean {
     }
 
     public static class DataBean implements Parcelable {
+        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
         /**
          * id : 1
          * summary :
@@ -66,6 +77,19 @@ public class DappCommpanyBean {
         private String enterpriseIcon;
         private int weight;
         private String introReason;
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.id = in.readInt();
+            this.summary = in.readString();
+            this.enterpriseName = in.readString();
+            this.publicImage = in.readString();
+            this.enterpriseIcon = in.readString();
+            this.weight = in.readInt();
+            this.introReason = in.readString();
+        }
 
         public int getId() {
             return id;
@@ -138,30 +162,5 @@ public class DappCommpanyBean {
             dest.writeInt(this.weight);
             dest.writeString(this.introReason);
         }
-
-        public DataBean() {
-        }
-
-        protected DataBean(Parcel in) {
-            this.id = in.readInt();
-            this.summary = in.readString();
-            this.enterpriseName = in.readString();
-            this.publicImage = in.readString();
-            this.enterpriseIcon = in.readString();
-            this.weight = in.readInt();
-            this.introReason = in.readString();
-        }
-
-        public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
-            @Override
-            public DataBean createFromParcel(Parcel source) {
-                return new DataBean(source);
-            }
-
-            @Override
-            public DataBean[] newArray(int size) {
-                return new DataBean[size];
-            }
-        };
     }
 }

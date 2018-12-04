@@ -24,12 +24,12 @@
 package com.oraclechain.pocketeos.blockchain.cypto.ec;
 
 
-import com.oraclechain.pocketeos.blockchain.cypto.util.HexUtils;
+import java.math.BigInteger;
+import java.util.Arrays;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.math.BigInteger;
-import java.util.Arrays;
+import com.oraclechain.pocketeos.blockchain.cypto.util.HexUtils;
 
 /**
  * Created by swapnibble on 2017-09-20.
@@ -37,12 +37,10 @@ import java.util.Arrays;
 
 public class EcSignature {
     private static final String PREFIX = "SIG";
-
-    public int recId = -1;
-
     public final BigInteger r;
     public final BigInteger s;
     public final CurveParam curveParam;
+    public int recId = -1;
 
     public EcSignature(BigInteger r, BigInteger s, CurveParam curveParam) {
         this.r = r;
@@ -51,39 +49,39 @@ public class EcSignature {
     }
 
     public EcSignature(BigInteger r, BigInteger s, CurveParam curveParam, int recId) {
-        this(r, s,curveParam);
+        this(r, s, curveParam);
 
-        setRecid( recId );
+        setRecid(recId);
     }
 
-    public EcSignature( String base58Str ){
-        String[] parts = EosEcUtil.safeSplitEosCryptoString( base58Str );
-        if ( parts.length < 3 ) {
+    public EcSignature(String base58Str) {
+        String[] parts = EosEcUtil.safeSplitEosCryptoString(base58Str);
+        if (parts.length < 3) {
             throw new IllegalArgumentException("Invalid private key format: " + base58Str);
         }
 
-        if ( PREFIX.equals( parts[0]) == false ) {
+        if (PREFIX.equals(parts[0]) == false) {
             throw new IllegalArgumentException("Signature Key has invalid prefix: " + base58Str);
         }
 
-        if (StringUtils.isEmpty( parts[2])) {
+        if (StringUtils.isEmpty(parts[2])) {
             throw new IllegalArgumentException("Signature has no data: " + base58Str);
         }
 
-        this.curveParam = EosEcUtil.getCurveParamFrom( parts[1]);
-        byte[] rawBytes = EosEcUtil.getBytesIfMatchedRipemd160( parts[2], parts[1], null);
+        this.curveParam = EosEcUtil.getCurveParamFrom(parts[1]);
+        byte[] rawBytes = EosEcUtil.getBytesIfMatchedRipemd160(parts[2], parts[1], null);
 
-        if ( null == rawBytes ) {
+        if (null == rawBytes) {
             // TODO handle error!
         }
 
-        setRecid( rawBytes[0] - 27 - 4 ); // recId encoding 이 recId + 27 + (compressed ? 4 : 0) 이므로
+        setRecid(rawBytes[0] - 27 - 4); // recId encoding 이 recId + 27 + (compressed ? 4 : 0) 이므로
 
-        this.r = new BigInteger(Arrays.copyOfRange(rawBytes, 1, 33) );
-        this.s = new BigInteger(Arrays.copyOfRange(rawBytes, 33, 65) );
+        this.r = new BigInteger(Arrays.copyOfRange(rawBytes, 1, 33));
+        this.s = new BigInteger(Arrays.copyOfRange(rawBytes, 33, 65));
     }
 
-    public void setRecid(int recid ) {
+    public void setRecid(int recid) {
         this.recId = recid;
     }
 
@@ -93,8 +91,8 @@ public class EcSignature {
      * href="https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki#Low_S_values_in_signatures">BIP62</a>.
      */
 
-    public boolean isCanonical(){
-        return s.compareTo( curveParam.halfCurveOrder()) <= 0 ; // Secp256k1Param.HALF_CURVE_ORDER) <= 0;
+    public boolean isCanonical() {
+        return s.compareTo(curveParam.halfCurveOrder()) <= 0; // Secp256k1Param.HALF_CURVE_ORDER) <= 0;
     }
 
     /**
@@ -118,11 +116,11 @@ public class EcSignature {
     }
 
     @Override
-    public boolean equals( Object other) {
+    public boolean equals(Object other) {
         if (this == other)
             return true;
 
-        if ( null == other || getClass() != other.getClass())
+        if (null == other || getClass() != other.getClass())
             return false;
 
         EcSignature otherSig = (EcSignature) other;
@@ -130,30 +128,30 @@ public class EcSignature {
     }
 
     public boolean isRSEachLength(int length) {
-        return (r.toByteArray().length == length) && ( s.toByteArray().length == length) ;
+        return (r.toByteArray().length == length) && (s.toByteArray().length == length);
     }
 
 
-    public String eosEncodingHex( boolean compressed ) {
-        if ( recId < 0 || recId > 3) {
+    public String eosEncodingHex(boolean compressed) {
+        if (recId < 0 || recId > 3) {
             throw new IllegalStateException("signature has invalid recid.");
         }
 
         int headerByte = recId + 27 + (compressed ? 4 : 0);
         byte[] sigData = new byte[65]; // 1 header + 32 bytes for R + 32 bytes for S
         sigData[0] = (byte) headerByte;
-        System.arraycopy(EcTools.integerToBytes( this.r, 32), 0, sigData, 1, 32);
-        System.arraycopy(EcTools.integerToBytes( this.s, 32), 0, sigData, 33, 32);
+        System.arraycopy(EcTools.integerToBytes(this.r, 32), 0, sigData, 1, 32);
+        System.arraycopy(EcTools.integerToBytes(this.s, 32), 0, sigData, 33, 32);
 
-        return EosEcUtil.encodeEosCrypto( PREFIX, curveParam , sigData);
+        return EosEcUtil.encodeEosCrypto(PREFIX, curveParam, sigData);
     }
 
     @Override
-    public String toString(){
-        if ( recId < 0 || recId > 3) {
-            return "no recovery sig: "+ HexUtils.toHex(this.r.toByteArray()) + HexUtils.toHex(this.s.toByteArray());
+    public String toString() {
+        if (recId < 0 || recId > 3) {
+            return "no recovery sig: " + HexUtils.toHex(this.r.toByteArray()) + HexUtils.toHex(this.s.toByteArray());
         }
 
-        return eosEncodingHex( true );
+        return eosEncodingHex(true);
     }
 }

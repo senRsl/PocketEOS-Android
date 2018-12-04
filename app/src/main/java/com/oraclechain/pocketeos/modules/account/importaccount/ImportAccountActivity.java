@@ -1,12 +1,9 @@
 package com.oraclechain.pocketeos.modules.account.importaccount;
 
-import android.Manifest;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -30,11 +27,13 @@ import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.Manifest;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.ljp.permission.PermissionItem;
@@ -157,7 +156,7 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
             AppManager.getAppManager().finishAllActivity();
             if (!Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
                 ActivityUtils.next(ImportAccountActivity.this, MainActivity.class, true);
-            }else {
+            } else {
                 ActivityUtils.next(ImportAccountActivity.this, BlackBoxMainActivity.class, true);
             }
         } else {

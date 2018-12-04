@@ -1,12 +1,12 @@
 package com.oraclechain.pocketeos.view.textwatcher;
 
+import com.oraclechain.pocketeos.utils.BigDecimalUtil;
+import com.oraclechain.pocketeos.utils.ToastUtils;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.SeekBar;
-
-import com.oraclechain.pocketeos.utils.BigDecimalUtil;
-import com.oraclechain.pocketeos.utils.ToastUtils;
 
 /**
  * Created by pocketEos on 2018/2/27.

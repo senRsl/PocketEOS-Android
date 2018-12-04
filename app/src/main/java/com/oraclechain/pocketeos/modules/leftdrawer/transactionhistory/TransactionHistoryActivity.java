@@ -1,13 +1,7 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.transactionhistory;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -28,9 +22,14 @@ import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 
 import static com.oraclechain.pocketeos.utils.Utils.getContext;
@@ -181,10 +180,10 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
         hideProgress();
         mRecycleTransferaccountsHistory.refreshComplete();
         mRecycleTransferaccountsHistory.loadMoreComplete();
-        if (!transferHistoryBean.isHasMore()){
+        if (!transferHistoryBean.isHasMore()) {
             mRecycleTransferaccountsHistory.setLoadingMoreEnabled(false);
             return;
-        }else {
+        } else {
             mRecycleTransferaccountsHistory.setLoadingMoreEnabled(true);
         }
         page += 1;

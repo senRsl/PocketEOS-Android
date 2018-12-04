@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,11 +7,13 @@
     android:orientation="vertical"
     tools:context=".modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
+
     <View
         style="?attr/line_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_1"/>
+        android:layout_height="@dimen/dimens_1" />
+
     <com.oraclechain.pocketeos.view.ClearEditText
         android:id="@+id/suggestion_details"
         android:layout_width="match_parent"
@@ -25,11 +26,13 @@
         android:textColor="@color/txt_color"
         android:textColorHint="@color/gray_color"
         android:textCursorDrawable="@drawable/edittext_cursor"
-        android:textSize="@dimen/dimens_14"/>
+        android:textSize="@dimen/dimens_14" />
+
     <View
         style="?attr/item_bg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_10"/>
+        android:layout_height="@dimen/dimens_10" />
+
     <TextView
         style="?attr/text_one_style"
         android:layout_width="match_parent"
@@ -37,15 +40,16 @@
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/dimens_20"
         android:text="@string/suggertion_history"
-        android:textSize="@dimen/dimens_15"/>
+        android:textSize="@dimen/dimens_15" />
 
     <View
         style="?attr/line_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_1"/>
-        <com.jcodecraeer.xrecyclerview.XRecyclerView
-            android:id="@+id/recycle_suggertion_history"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"/>
+        android:layout_height="@dimen/dimens_1" />
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recycle_suggertion_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" />
 </LinearLayout>

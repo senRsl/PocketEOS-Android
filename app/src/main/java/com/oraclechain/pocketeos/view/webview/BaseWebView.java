@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.webview;
 
+import java.lang.reflect.Method;
+
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -7,11 +9,8 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
 import android.webkit.WebView;
 
-import java.lang.reflect.Method;
-
 /**
  * Created by pocketEos on 2018/4/11.
- *
  */
 
 public class BaseWebView extends WebView {
@@ -29,15 +28,6 @@ public class BaseWebView extends WebView {
     public BaseWebView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         removeSearchBox();
-    }
-
-    /**
-     * 移除系统注入的对象，避免js漏洞
-     */
-    private void removeSearchBox() {
-        super.removeJavascriptInterface("searchBoxJavaBridge_");
-        super.removeJavascriptInterface("accessibility");
-        super.removeJavascriptInterface("accessibilityTraversal");
     }
 
     public static void disableAccessibility(Context context) {
@@ -58,6 +48,15 @@ public class BaseWebView extends WebView {
                 }
             }
         }
+    }
+
+    /**
+     * 移除系统注入的对象，避免js漏洞
+     */
+    private void removeSearchBox() {
+        super.removeJavascriptInterface("searchBoxJavaBridge_");
+        super.removeJavascriptInterface("accessibility");
+        super.removeJavascriptInterface("accessibilityTraversal");
     }
 
     @Override

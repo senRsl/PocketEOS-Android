@@ -1,9 +1,6 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.systemsetting;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.io.File;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -14,8 +11,10 @@ import com.oraclechain.pocketeos.utils.CacheDataManager;
 import com.oraclechain.pocketeos.utils.FilesUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 
-import java.io.File;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

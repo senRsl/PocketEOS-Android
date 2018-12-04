@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -21,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@mipmap/start_lock_icon"/>
+                android:src="@mipmap/start_lock_icon" />
 
 
         </RelativeLayout>
@@ -35,7 +34,7 @@
             android:gravity="center"
             android:text="@string/hint"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/dimens_14"/>
+            android:textSize="@dimen/dimens_14" />
 
 
     </RelativeLayout>

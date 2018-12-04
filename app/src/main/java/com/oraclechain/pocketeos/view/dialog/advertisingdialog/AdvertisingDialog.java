@@ -1,5 +1,8 @@
 package com.oraclechain.pocketeos.view.dialog.advertisingdialog;
 
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.view.OvalImageView;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Display;
@@ -8,9 +11,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.view.OvalImageView;
 
 
 /**

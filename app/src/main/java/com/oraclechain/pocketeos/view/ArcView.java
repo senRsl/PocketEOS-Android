@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view;
 
+import com.oraclechain.pocketeos.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -11,8 +13,6 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-
-import com.oraclechain.pocketeos.R;
 
 /**
  * Created by pocketEos on 2017/12/7.

@@ -1,7 +1,7 @@
 package com.oraclechain.pocketeos.modules.friendslist.pelist;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -12,9 +12,8 @@ import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.PelistBean;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import butterknife.BindView;
 
 import static com.oraclechain.pocketeos.utils.Utils.getContext;

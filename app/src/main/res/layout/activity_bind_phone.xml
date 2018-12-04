@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".modules.wallet.createwallet.bindphone.BindPhoneActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +16,7 @@
         android:gravity="center_vertical"
         android:text="@string/mobile_phone"
         android:textColor="@color/txt_color"
-        android:textSize="@dimen/dimens_14"/>
+        android:textSize="@dimen/dimens_14" />
 
     <com.oraclechain.pocketeos.view.ClearEditText
         android:id="@+id/mobile_phone"
@@ -32,14 +31,14 @@
         android:textColor="@color/title_color"
         android:textColorHint="@color/gray_color"
         android:textCursorDrawable="@drawable/edittext_cursor"
-        android:textSize="@dimen/dimens_15"/>
+        android:textSize="@dimen/dimens_15" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_1"
         android:layout_marginLeft="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_10"
-        android:background="@color/line"/>
+        android:background="@color/line" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +47,7 @@
         android:gravity="center_vertical"
         android:text="@string/sms_password"
         android:textColor="@color/txt_color"
-        android:textSize="@dimen/dimens_14"/>
+        android:textSize="@dimen/dimens_14" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -70,7 +69,7 @@
             android:textColor="@color/title_color"
             android:textColorHint="@color/gray_color"
             android:textCursorDrawable="@drawable/edittext_cursor"
-            android:textSize="@dimen/dimens_15"/>
+            android:textSize="@dimen/dimens_15" />
 
         <TextView
             android:id="@+id/get_code"
@@ -82,7 +81,7 @@
             android:gravity="center"
             android:text="@string/get_code"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/dimens_13"/>
+            android:textSize="@dimen/dimens_13" />
     </RelativeLayout>
 
     <View
@@ -90,7 +89,8 @@
         android:layout_height="@dimen/dimens_1"
         android:layout_marginLeft="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_10"
-        android:background="@color/line"/>
+        android:background="@color/line" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,20 +106,21 @@
             android:layout_marginLeft="@dimen/dimens_20"
             android:checked="true"
             android:clickable="false"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical" />
 
         <TextView
+            android:id="@+id/go_pocketeos_user"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimens_17"
             android:layout_marginLeft="@dimen/dimens_10"
+            android:clickable="true"
             android:gravity="center_vertical"
             android:singleLine="true"
-            android:id="@+id/go_pocketeos_user"
-            android:clickable="true"
             android:text="@string/read_agreement"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
     </LinearLayout>
+
     <Button
         android:id="@+id/bind_phone"
         style="?android:attr/borderlessButtonStyle"
@@ -131,6 +132,6 @@
         android:background="@color/blue_button"
         android:text="@string/creat"
         android:textColor="@color/white"
-        android:textSize="@dimen/dimens_14"/>
+        android:textSize="@dimen/dimens_14" />
 
 </LinearLayout>

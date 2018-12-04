@@ -5,8 +5,8 @@ package com.oraclechain.pocketeos.bean;
  */
 
 public class BaseBean {
-    private String code ;
-    private String message ;
+    private String code;
+    private String message;
 
     public String getCode() {
         return code == null ? "" : code;

@@ -1,6 +1,6 @@
 package com.oraclechain.pocketeos.modules.resourcemanager.changememory;
 
-import android.content.Context;
+import java.util.HashMap;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.base.BasePresent;
@@ -11,7 +11,7 @@ import com.oraclechain.pocketeos.bean.TableResultBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.
@@ -23,7 +23,8 @@ public class ChangeMemoryPresenter extends BasePresent<ChangeMemoryView> {
     public ChangeMemoryPresenter(Context context) {
         this.mContext = context;
     }
-    public void getTabData(){
+
+    public void getTabData() {
 
         HttpUtils.postRequest(BaseUrl.HTTP_eos_get_table, mContext, "{\"json\":true,\"code\":\"eosio\",\"scope\":\"eosio\",\"table\":\"rammarket\",\"table_key\":\"\",\"lower_bound\":\"\",\"upper_bound\":\"\",\"limit\":10}", new JsonCallback<ResponseBean<TableResultBean.DataBean>>() {
             @Override

@@ -1,13 +1,13 @@
 package com.oraclechain.pocketeos.utils;
 
-import com.oraclechain.pocketeos.app.MyApplication;
-import com.oraclechain.pocketeos.bean.AccountInfoBean;
-import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.oraclechain.pocketeos.app.MyApplication;
+import com.oraclechain.pocketeos.bean.AccountInfoBean;
+import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
 
 /**
  * Created by pocketEos on 2018/2/3.
@@ -36,9 +36,9 @@ public class PublicAndPrivateKeyUtils {
             }
         }
         if (activePrivateKey != null) {
-            String key =null;
+            String key = null;
             try {
-                key =  EncryptUtil.getDecryptString(activePrivateKey, password);
+                key = EncryptUtil.getDecryptString(activePrivateKey, password);
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (InvalidKeySpecException e) {

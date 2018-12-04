@@ -1,8 +1,14 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.fragment;
 
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -13,15 +19,8 @@ import com.oraclechain.pocketeos.base.BaseFragment;
 import com.oraclechain.pocketeos.bean.PaidAnswerBean;
 import com.oraclechain.pocketeos.bean.QuestionListBean;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import butterknife.BindView;
 
 /**

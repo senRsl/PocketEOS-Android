@@ -1,8 +1,8 @@
 package com.gyf.barlibrary;
 
-import android.text.TextUtils;
-
 import java.lang.reflect.Method;
+
+import android.text.TextUtils;
 
 /**
  * 手机系统判断

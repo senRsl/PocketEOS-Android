@@ -1,5 +1,10 @@
 package com.oraclechain.pocketeos.view.textwatcher;
 
+import java.math.BigDecimal;
+
+import com.oraclechain.pocketeos.utils.BigDecimalUtil;
+import com.oraclechain.pocketeos.utils.StringUtils;
+
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -7,11 +12,6 @@ import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.utils.BigDecimalUtil;
-import com.oraclechain.pocketeos.utils.StringUtils;
-
-import java.math.BigDecimal;
 
 /**
  * Created by pocketEos on 2018/2/3.

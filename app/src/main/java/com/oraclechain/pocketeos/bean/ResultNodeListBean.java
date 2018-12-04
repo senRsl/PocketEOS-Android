@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.bean;
 
+import java.util.List;
+
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2018/6/11.
@@ -101,6 +101,17 @@ public class ResultNodeListBean {
         }
 
         public static class DataBean implements Parcelable {
+            public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
+                @Override
+                public DataBean createFromParcel(Parcel source) {
+                    return new DataBean(source);
+                }
+
+                @Override
+                public DataBean[] newArray(int size) {
+                    return new DataBean[size];
+                }
+            };
             /**
              * owner : oraclegogogo
              * total_votes : 74145520018.94651794433593750
@@ -123,6 +134,22 @@ public class ResultNodeListBean {
             private String location;
             private ProducerUrlInfoBean producerUrlInfo = null;
             private Boolean select = false;
+
+            public DataBean() {
+            }
+
+            protected DataBean(Parcel in) {
+                this.owner = in.readString();
+                this.total_votes = in.readString();
+                this.producer_key = in.readString();
+                this.is_active = in.readString();
+                this.url = in.readString();
+                this.unpaid_blocks = in.readString();
+                this.last_claim_time = in.readString();
+                this.location = in.readString();
+                this.producerUrlInfo = in.readParcelable(ProducerUrlInfoBean.class.getClassLoader());
+                this.select = (Boolean) in.readValue(Boolean.class.getClassLoader());
+            }
 
             public Boolean getSelect() {
                 return select;
@@ -204,7 +231,37 @@ public class ResultNodeListBean {
                 this.producerUrlInfo = producerUrlInfo;
             }
 
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(this.owner);
+                dest.writeString(this.total_votes);
+                dest.writeString(this.producer_key);
+                dest.writeString(this.is_active);
+                dest.writeString(this.url);
+                dest.writeString(this.unpaid_blocks);
+                dest.writeString(this.last_claim_time);
+                dest.writeString(this.location);
+                dest.writeParcelable(this.producerUrlInfo, flags);
+                dest.writeValue(this.select);
+            }
+
             public static class ProducerUrlInfoBean implements Parcelable {
+                public static final Creator<ProducerUrlInfoBean> CREATOR = new Creator<ProducerUrlInfoBean>() {
+                    @Override
+                    public ProducerUrlInfoBean createFromParcel(Parcel source) {
+                        return new ProducerUrlInfoBean(source);
+                    }
+
+                    @Override
+                    public ProducerUrlInfoBean[] newArray(int size) {
+                        return new ProducerUrlInfoBean[size];
+                    }
+                };
                 /**
                  * producer_account_name : oraclegogogo
                  * org : {"branding":{"logo_256":"https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle.png","logo_1024":"https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle_big.png","logo_svg":""},"candidate_name":"oraclechain","website":"https://oraclechain.io","email":"decai.zeng@oracleChain.io"}
@@ -212,6 +269,14 @@ public class ResultNodeListBean {
 
                 private String producer_account_name;
                 private OrgBean org;
+
+                public ProducerUrlInfoBean() {
+                }
+
+                protected ProducerUrlInfoBean(Parcel in) {
+                    this.producer_account_name = in.readString();
+                    this.org = in.readParcelable(OrgBean.class.getClassLoader());
+                }
 
                 public String getProducer_account_name() {
                     return producer_account_name;
@@ -229,7 +294,29 @@ public class ResultNodeListBean {
                     this.org = org;
                 }
 
+                @Override
+                public int describeContents() {
+                    return 0;
+                }
+
+                @Override
+                public void writeToParcel(Parcel dest, int flags) {
+                    dest.writeString(this.producer_account_name);
+                    dest.writeParcelable(this.org, flags);
+                }
+
                 public static class OrgBean implements Parcelable {
+                    public static final Creator<OrgBean> CREATOR = new Creator<OrgBean>() {
+                        @Override
+                        public OrgBean createFromParcel(Parcel in) {
+                            return new OrgBean(in);
+                        }
+
+                        @Override
+                        public OrgBean[] newArray(int size) {
+                            return new OrgBean[size];
+                        }
+                    };
                     /**
                      * branding : {"logo_256":"https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle.png","logo_1024":"https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle_big.png","logo_svg":""}
                      * candidate_name : oraclechain
@@ -248,18 +335,6 @@ public class ResultNodeListBean {
                         website = in.readString();
                         email = in.readString();
                     }
-
-                    public static final Creator<OrgBean> CREATOR = new Creator<OrgBean>() {
-                        @Override
-                        public OrgBean createFromParcel(Parcel in) {
-                            return new OrgBean(in);
-                        }
-
-                        @Override
-                        public OrgBean[] newArray(int size) {
-                            return new OrgBean[size];
-                        }
-                    };
 
                     public BrandingBean getBranding() {
                         return branding;
@@ -307,6 +382,17 @@ public class ResultNodeListBean {
                     }
 
                     public static class BrandingBean implements Parcelable {
+                        public static final Creator<BrandingBean> CREATOR = new Creator<BrandingBean>() {
+                            @Override
+                            public BrandingBean createFromParcel(Parcel source) {
+                                return new BrandingBean(source);
+                            }
+
+                            @Override
+                            public BrandingBean[] newArray(int size) {
+                                return new BrandingBean[size];
+                            }
+                        };
                         /**
                          * logo_256 : https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle.png
                          * logo_1024 : https://pocketeos.oss-cn-beijing.aliyuncs.com/P1/oracle_big.png
@@ -316,6 +402,15 @@ public class ResultNodeListBean {
                         private String logo_256;
                         private String logo_1024;
                         private String logo_svg;
+
+                        public BrandingBean() {
+                        }
+
+                        protected BrandingBean(Parcel in) {
+                            this.logo_256 = in.readString();
+                            this.logo_1024 = in.readString();
+                            this.logo_svg = in.readString();
+                        }
 
                         public String getLogo_256() {
                             return logo_256;
@@ -352,108 +447,9 @@ public class ResultNodeListBean {
                             dest.writeString(this.logo_1024);
                             dest.writeString(this.logo_svg);
                         }
-
-                        public BrandingBean() {
-                        }
-
-                        protected BrandingBean(Parcel in) {
-                            this.logo_256 = in.readString();
-                            this.logo_1024 = in.readString();
-                            this.logo_svg = in.readString();
-                        }
-
-                        public static final Creator<BrandingBean> CREATOR = new Creator<BrandingBean>() {
-                            @Override
-                            public BrandingBean createFromParcel(Parcel source) {
-                                return new BrandingBean(source);
-                            }
-
-                            @Override
-                            public BrandingBean[] newArray(int size) {
-                                return new BrandingBean[size];
-                            }
-                        };
                     }
                 }
-
-                @Override
-                public int describeContents() {
-                    return 0;
-                }
-
-                @Override
-                public void writeToParcel(Parcel dest, int flags) {
-                    dest.writeString(this.producer_account_name);
-                    dest.writeParcelable(this.org, flags);
-                }
-
-                public ProducerUrlInfoBean() {
-                }
-
-                protected ProducerUrlInfoBean(Parcel in) {
-                    this.producer_account_name = in.readString();
-                    this.org = in.readParcelable(OrgBean.class.getClassLoader());
-                }
-
-                public static final Creator<ProducerUrlInfoBean> CREATOR = new Creator<ProducerUrlInfoBean>() {
-                    @Override
-                    public ProducerUrlInfoBean createFromParcel(Parcel source) {
-                        return new ProducerUrlInfoBean(source);
-                    }
-
-                    @Override
-                    public ProducerUrlInfoBean[] newArray(int size) {
-                        return new ProducerUrlInfoBean[size];
-                    }
-                };
             }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeString(this.owner);
-                dest.writeString(this.total_votes);
-                dest.writeString(this.producer_key);
-                dest.writeString(this.is_active);
-                dest.writeString(this.url);
-                dest.writeString(this.unpaid_blocks);
-                dest.writeString(this.last_claim_time);
-                dest.writeString(this.location);
-                dest.writeParcelable(this.producerUrlInfo, flags);
-                dest.writeValue(this.select);
-            }
-
-            public DataBean() {
-            }
-
-            protected DataBean(Parcel in) {
-                this.owner = in.readString();
-                this.total_votes = in.readString();
-                this.producer_key = in.readString();
-                this.is_active = in.readString();
-                this.url = in.readString();
-                this.unpaid_blocks = in.readString();
-                this.last_claim_time = in.readString();
-                this.location = in.readString();
-                this.producerUrlInfo = in.readParcelable(ProducerUrlInfoBean.class.getClassLoader());
-                this.select = (Boolean) in.readValue(Boolean.class.getClassLoader());
-            }
-
-            public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
-                @Override
-                public DataBean createFromParcel(Parcel source) {
-                    return new DataBean(source);
-                }
-
-                @Override
-                public DataBean[] newArray(int size) {
-                    return new DataBean[size];
-                }
-            };
         }
     }
 }

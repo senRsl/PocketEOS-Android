@@ -12,8 +12,7 @@
         <item name="item_color__style">@color/bg_color</item>
     </style>
 
-    <style name="ThemeLight" parent="AppTheme">
-    </style>
+    <style name="ThemeLight" parent="AppTheme"></style>
 
     <style name="ThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="color_bg_main">@color/black_box_color</item>

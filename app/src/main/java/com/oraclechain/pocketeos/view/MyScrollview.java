@@ -17,14 +17,6 @@ public class MyScrollview extends ScrollView {
     private int downX;
     private int downY;
     private int mTouchSlop;
-
-    public interface ScrollViewListener {
-
-        void onScrollChanged(MyScrollview scrollView, int x, int y,
-                             int oldx, int oldy);
-
-    }
-
     private ScrollViewListener scrollViewListener = null;
 
     public MyScrollview(Context context) {
@@ -69,6 +61,13 @@ public class MyScrollview extends ScrollView {
         if (scrollViewListener != null) {
             scrollViewListener.onScrollChanged(this, x, y, oldx, oldy);
         }
+    }
+
+    public interface ScrollViewListener {
+
+        void onScrollChanged(MyScrollview scrollView, int x, int y,
+                             int oldx, int oldy);
+
     }
 
 }

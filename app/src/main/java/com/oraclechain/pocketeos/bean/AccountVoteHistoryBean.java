@@ -6,7 +6,7 @@ package com.oraclechain.pocketeos.bean;
 
 public class AccountVoteHistoryBean {
     String producers;
-    String number ;
+    String number;
 
     public String getProducers() {
         return producers == null ? "" : producers;

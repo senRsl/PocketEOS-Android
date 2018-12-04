@@ -1,10 +1,10 @@
 package com.oraclechain.pocketeos.modules.news;
 
+import java.util.List;
+
 import com.oraclechain.pocketeos.base.BaseView;
 import com.oraclechain.pocketeos.bean.CoinBean;
 import com.oraclechain.pocketeos.bean.NewsBean;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/26.

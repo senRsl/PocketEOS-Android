@@ -1,11 +1,5 @@
 package com.oraclechain.pocketeos.utils;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.widget.Toast;
-
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -13,6 +7,12 @@ import com.oraclechain.pocketeos.base.BaseUrl;
 import com.oraclechain.pocketeos.bean.UpdateAppBean;
 import com.oraclechain.pocketeos.view.dialog.updatadialog.UpdataCallback;
 import com.oraclechain.pocketeos.view.dialog.updatadialog.UpdataDialog;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.widget.Toast;
 
 /**
  * Created by pocketEos on 2018/2/10.

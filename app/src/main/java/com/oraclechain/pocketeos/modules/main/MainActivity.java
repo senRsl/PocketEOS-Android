@@ -1,20 +1,7 @@
 package com.oraclechain.pocketeos.modules.main;
 
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -30,11 +17,11 @@ import com.oraclechain.pocketeos.modules.home.HomeFragment;
 import com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.candyintegral.CandyIntegralActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.messagecenter.MessageCenterActivity;
-import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.SystemSettingActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.transactionhistory.TransactionHistoryActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.usercenter.UserCenterActivity;
 import com.oraclechain.pocketeos.modules.news.NewsFragment;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.modules.otherloginorshare.BaseUIListener;
@@ -53,8 +40,20 @@ import com.tencent.connect.share.QQShare;
 import com.tencent.connect.share.QzonePublish;
 import com.tencent.tauth.Tencent;
 
-import java.util.ArrayList;
-
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -336,6 +335,7 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
         mLlApplication.setSelected(false);
         linearLayout.setSelected(true);
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -372,7 +372,6 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
             transaction.hide(applicationFragment);
         }
     }
-
 
 
 }

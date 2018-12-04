@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.bean;
 
+import java.util.List;
+
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2018/4/19.
@@ -47,6 +47,17 @@ public class RedPacketHistoryBean {
 
     public static class DataBean implements Parcelable {
 
+        public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel source) {
+                return new DataBean(source);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
         /**
          * residueCount : 0
          * packetCount : 10
@@ -65,6 +76,21 @@ public class RedPacketHistoryBean {
         private String residueAmount;
         private String verifyString;
         private boolean isSend;
+
+        public DataBean() {
+        }
+
+        protected DataBean(Parcel in) {
+            this.residueCount = in.readInt();
+            this.packetCount = in.readInt();
+            this.amount = in.readString();
+            this.type = in.readString();
+            this.createTime = in.readString();
+            this.id = in.readString();
+            this.residueAmount = in.readString();
+            this.verifyString = in.readString();
+            this.isSend = in.readByte() != 0;
+        }
 
         public int getResidueCount() {
             return residueCount;
@@ -155,32 +181,5 @@ public class RedPacketHistoryBean {
             dest.writeString(this.verifyString);
             dest.writeByte(this.isSend ? (byte) 1 : (byte) 0);
         }
-
-        public DataBean() {
-        }
-
-        protected DataBean(Parcel in) {
-            this.residueCount = in.readInt();
-            this.packetCount = in.readInt();
-            this.amount = in.readString();
-            this.type = in.readString();
-            this.createTime = in.readString();
-            this.id = in.readString();
-            this.residueAmount = in.readString();
-            this.verifyString = in.readString();
-            this.isSend = in.readByte() != 0;
-        }
-
-        public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
-            @Override
-            public DataBean createFromParcel(Parcel source) {
-                return new DataBean(source);
-            }
-
-            @Override
-            public DataBean[] newArray(int size) {
-                return new DataBean[size];
-            }
-        };
     }
 }

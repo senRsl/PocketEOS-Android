@@ -1,5 +1,9 @@
 package com.oraclechain.pocketeos.view.dialog.changepassworddialog;
 
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.utils.ToastUtils;
+import com.oraclechain.pocketeos.view.ClearEditText;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Display;
@@ -8,10 +12,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.utils.ToastUtils;
-import com.oraclechain.pocketeos.view.ClearEditText;
 
 
 /**

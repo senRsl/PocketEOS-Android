@@ -1,9 +1,9 @@
 package com.oraclechain.pocketeos.utils;
 
+import com.oraclechain.pocketeos.R;
+
 import android.app.Activity;
 import android.support.annotation.NonNull;
-
-import com.oraclechain.pocketeos.R;
 
 /**
  * Created by pocketEos on 2018/5/16.

@@ -1,5 +1,9 @@
 package com.oraclechain.pocketeos.view.dialog.sharecoindetailsdialog;
 
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
+import com.oraclechain.pocketeos.utils.StringUtils;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -10,10 +14,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
-import com.oraclechain.pocketeos.utils.StringUtils;
 
 /**
  * Created by pocketEos on 2017/12/5.

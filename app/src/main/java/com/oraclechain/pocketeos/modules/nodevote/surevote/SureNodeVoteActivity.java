@@ -1,14 +1,11 @@
 package com.oraclechain.pocketeos.modules.nodevote.surevote;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.google.gson.Gson;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -40,13 +37,15 @@ import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -108,7 +107,7 @@ public class SureNodeVoteActivity extends BaseAcitvity<SureNodeVoteView, SureNod
 
 
         mVoteEosAmount.setText("0");
-        vote_amount.setText(stakeAmount+" EOS");
+        vote_amount.setText(stakeAmount + " EOS");
     }
 
     @Override
@@ -230,7 +229,7 @@ public class SureNodeVoteActivity extends BaseAcitvity<SureNodeVoteView, SureNod
                                                     if (result.contains("transaction_id")) {
                                                         if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
                                                             presenter.getcomplete_taskData();//通知完成投票
-                                                        }else {
+                                                        } else {
                                                             toast(getString(R.string.node_vote_success));
                                                             finish();
                                                             AppManager.getAppManager().finishActivity(GoNodeVoteActivity.class);
@@ -256,7 +255,7 @@ public class SureNodeVoteActivity extends BaseAcitvity<SureNodeVoteView, SureNod
                                             if (result.contains("transaction_id")) {
                                                 if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
                                                     presenter.getcomplete_taskData();//通知完成投票
-                                                }else {
+                                                } else {
                                                     toast(getString(R.string.node_vote_success));
                                                     finish();
                                                     AppManager.getAppManager().finishActivity(GoNodeVoteActivity.class);
@@ -277,8 +276,8 @@ public class SureNodeVoteActivity extends BaseAcitvity<SureNodeVoteView, SureNod
                                 if (result.contains("transaction_id")) {
                                     if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
                                         presenter.getcomplete_taskData();//通知完成投票
-                                    }else
-                                    toast(getString(R.string.node_vote_success));
+                                    } else
+                                        toast(getString(R.string.node_vote_success));
                                     finish();
                                     AppManager.getAppManager().finishActivity(GoNodeVoteActivity.class);
                                 }
@@ -297,7 +296,7 @@ public class SureNodeVoteActivity extends BaseAcitvity<SureNodeVoteView, SureNod
                                             if (result.contains("transaction_id")) {
                                                 if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
                                                     presenter.getcomplete_taskData();//通知完成投票
-                                                }else {
+                                                } else {
                                                     toast(getString(R.string.node_vote_success));
                                                     finish();
                                                     AppManager.getAppManager().finishActivity(GoNodeVoteActivity.class);

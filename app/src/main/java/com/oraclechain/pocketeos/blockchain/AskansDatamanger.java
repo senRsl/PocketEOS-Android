@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.blockchain;
 
-import android.content.Context;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -27,9 +29,7 @@ import com.oraclechain.pocketeos.utils.PublicAndPrivateKeyUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2018/5/11.
@@ -37,12 +37,12 @@ import java.util.List;
  */
 
 public class AskansDatamanger {
-    public  static String OCTCONTRACT =  Constants.OCTCONTRACT;//erctoken
-    public  static String OCTASKANSCONTRACT = Constants.OCTASKANSCONTRACT;//erctoken
-    public  static String ACTIONAPPROVE =  Constants.ACTIONAPPROVE;//授权可转走（押币）
-    public  static String ACTIONASK =  Constants.ACTIONASK;//押币后提问
-    public  static String ACTIONANSWER =  Constants.ACTIONANSWER;//押币后回答问题
-    public  static String PERMISSONION =  Constants.PERMISSONION;
+    public static String OCTCONTRACT = Constants.OCTCONTRACT;//erctoken
+    public static String OCTASKANSCONTRACT = Constants.OCTASKANSCONTRACT;//erctoken
+    public static String ACTIONAPPROVE = Constants.ACTIONAPPROVE;//授权可转走（押币）
+    public static String ACTIONASK = Constants.ACTIONASK;//押币后提问
+    public static String ACTIONANSWER = Constants.ACTIONANSWER;//押币后回答问题
+    public static String PERMISSONION = Constants.PERMISSONION;
 
     Callback mCallback;
     Context mContext;
@@ -147,7 +147,6 @@ public class AskansDatamanger {
             }
         });
     }
-
 
 
     public void pushTransactionRetJson(PackedTransaction body) {

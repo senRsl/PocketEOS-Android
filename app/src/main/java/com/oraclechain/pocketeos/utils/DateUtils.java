@@ -12,15 +12,10 @@ import java.util.TimeZone;
  */
 public class DateUtils {
 
-    private DateUtils() {
-        throw new UnsupportedOperationException("cannot be instantiated");
-    }
-
     /**
      * The Juhe format pattern.
      */
     static final String juhe_formatPattern = "MM/dd";
-
     /**
      * The Format pattern.
      */
@@ -33,11 +28,14 @@ public class DateUtils {
      * The Date and time pattern.
      */
     static final String DateAndTimePatternT = "yyyy-MM-dd'T'HH:mm:ss";
-
     /**
      * The Week of days.
      */
     static String[] weekOfDays = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
+
+    private DateUtils() {
+        throw new UnsupportedOperationException("cannot be instantiated");
+    }
 
     /**
      * 获取当前日期
@@ -76,11 +74,13 @@ public class DateUtils {
         SimpleDateFormat format = new SimpleDateFormat(DateAndTimePattern);
         return format.format(date);
     }
+
     //获取时间
     public static String getTime1(Date date) {//可根据需要自行截取数据显示
         SimpleDateFormat format = new SimpleDateFormat(formatPattern);
         return format.format(date);
     }
+
     /**
      * 获取时间差
      *
@@ -214,7 +214,7 @@ public class DateUtils {
      * @param s the s
      * @return the string
      */
-/*
+    /*
      * 将时间转换为时间戳
      */
     public static long dateToStamp(String s) {
@@ -238,7 +238,7 @@ public class DateUtils {
      * @param s the s
      * @return the string
      */
-/*
+    /*
      * 将时间戳转换为时间
      */
     public static String stampToDate(int s) {

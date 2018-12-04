@@ -1,12 +1,5 @@
 package com.oraclechain.pocketeos.modules.wallet.createwallet;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -22,6 +15,12 @@ import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -79,9 +78,9 @@ public class CreateWalletActivity extends BaseAcitvity<NormalView, NormalPresent
             UserBean userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
             if (userBean != null) {
                 String randomString = EncryptUtil.getRandomString(32);
-                userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+mPassword.getText().toString().trim()));
+                userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + mPassword.getText().toString().trim()));
                 MyApplication.getDaoInstant().getUserBeanDao().update(userBean);
-                MyApplication.getInstance().getUserBean().setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+mPassword.getText().toString().trim()));
+                MyApplication.getInstance().getUserBean().setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + mPassword.getText().toString().trim()));
             }
             Bundle bundle = new Bundle();
             bundle.putInt("type", 1);

@@ -54,7 +54,6 @@ public class DappBean {
          * applyIcon : 2
          * weight : 5
          * introReason : fegr
-         *
          */
 
         private int id;

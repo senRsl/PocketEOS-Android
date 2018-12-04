@@ -1,11 +1,8 @@
 package com.oraclechain.pocketeos.modules.account.createaccount;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.utils.OkLogger;
@@ -32,10 +29,12 @@ import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -84,8 +83,8 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
                         mAccount_active_public_key = mActiveKey.getPublicKey().toString();
                         mAccount_active_private_key = mActiveKey.toString();
                         mAccount_owner_private_key = mOwnerKey.toString();
-                        OkLogger.i("===============>mAccount_active_private_key"+mAccount_active_private_key);
-                        OkLogger.i("===============>mAccount_owner_private_key"+mAccount_owner_private_key);
+                        OkLogger.i("===============>mAccount_active_private_key" + mAccount_active_private_key);
+                        OkLogger.i("===============>mAccount_owner_private_key" + mAccount_owner_private_key);
                         presenter.postEosAccountData(mAccountName.getText().toString().trim(), mAccount_owner_public_key, mAccount_active_public_key);
                     } else {
 

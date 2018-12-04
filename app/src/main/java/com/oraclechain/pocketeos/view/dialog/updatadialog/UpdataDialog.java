@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.view.dialog.updatadialog;
 
+import com.oraclechain.pocketeos.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.Display;
@@ -8,11 +10,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.oraclechain.pocketeos.R;
-
 
 /**
- *版本更新弹窗
+ * 版本更新弹窗
  */
 
 public class UpdataDialog extends Dialog implements View.OnClickListener {

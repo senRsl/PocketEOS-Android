@@ -1,11 +1,7 @@
 package com.oraclechain.pocketeos.modules.seach;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.oraclechain.pocketeos.R;
@@ -17,9 +13,12 @@ import com.oraclechain.pocketeos.utils.KeyBoardUtil;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.view.ClearEditText;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import android.content.Context;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

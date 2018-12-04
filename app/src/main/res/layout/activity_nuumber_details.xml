@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".modules.wallet.walletmanagement.backupnumber.BackupNumberActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,7 +33,7 @@
                     android:layout_height="@dimen/dimens_180"
                     android:layout_centerHorizontal="true"
                     android:scaleType="fitXY"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
                     style="?attr/text_one_style"
@@ -44,14 +43,14 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dimens_10"
                     android:text="@string/scan_code_attention"
-                    android:textSize="@dimen/dimens_13"/>
+                    android:textSize="@dimen/dimens_13" />
             </RelativeLayout>
 
             <View
                 style="?attr/item_bg"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_10"
-                android:layout_marginTop="@dimen/dimens_32"/>
+                android:layout_marginTop="@dimen/dimens_32" />
 
             <RelativeLayout
                 android:id="@+id/rell"
@@ -71,7 +70,7 @@
                     android:clickable="true"
                     android:gravity="left|center_vertical"
                     android:text="@string/set_main_number"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <Switch
                     android:id="@+id/switch_view"
@@ -81,14 +80,14 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/switch_view_selected"
                     android:thumb="@null"
-                    android:track="@null"/>
+                    android:track="@null" />
             </RelativeLayout>
 
             <View
                 style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_1"
-                android:paddingLeft="@dimen/dimens_20"/>
+                android:paddingLeft="@dimen/dimens_20" />
 
             <TextView
                 android:id="@+id/resource_manager"
@@ -101,13 +100,13 @@
                 android:paddingLeft="@dimen/dimens_20"
                 android:paddingRight="@dimen/dimens_20"
                 android:text="@string/resource_manager"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <View
                 style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_1"
-                android:paddingLeft="@dimen/dimens_20"/>
+                android:paddingLeft="@dimen/dimens_20" />
 
             <TextView
                 android:id="@+id/import_private_key"
@@ -120,13 +119,13 @@
                 android:paddingLeft="@dimen/dimens_20"
                 android:paddingRight="@dimen/dimens_20"
                 android:text="@string/import_private_key"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <View
                 style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_1"
-                android:paddingLeft="@dimen/dimens_20"/>
+                android:paddingLeft="@dimen/dimens_20" />
 
             <FrameLayout
                 android:layout_width="@dimen/dimens_300"
@@ -151,7 +150,7 @@
                         app:slideThreshold="0.5"
                         app:textColorResId="@color/white"
                         app:textHint="@string/slide_to_unlock_account"
-                        app:viewBackgroundResId="@drawable/bg_slide_lock"/>
+                        app:viewBackgroundResId="@drawable/bg_slide_lock" />
                 </RelativeLayout>
 
 
@@ -163,7 +162,7 @@
                     android:layout_marginRight="@dimen/dimens_40"
                     android:scaleType="fitXY"
                     android:src="@mipmap/lock_icon"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
             </FrameLayout>
 
             <TextView
@@ -173,7 +172,7 @@
                 android:layout_marginTop="@dimen/dimens_10"
                 android:gravity="center_horizontal"
                 android:text="@string/slide_to_unlock_notice"
-                android:textSize="@dimen/dimens_13"/>
+                android:textSize="@dimen/dimens_13" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

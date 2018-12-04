@@ -36,6 +36,7 @@
         <item name="PermissionButtonTextColor">@color/permissionColorWhite</item>
         <item name="PermissionIconFilterColor">@color/permissionColorWhite</item>
     </style>
+
     <style name="PermissionBaseblactStyle">
         <item name="PermissionTitleColor">#737373</item>
         <item name="PermissionMsgColor">#737373</item>
@@ -43,7 +44,8 @@
         <item name="PermissionButtonTextColor">#737373</item>
         <item name="PermissionIconFilterColor">#737373</item>
     </style>
-    <style name="PermissionDefaultNormalStyle" >
+
+    <style name="PermissionDefaultNormalStyle">
         <item name="PermissionTitleColor">#737373</item>
         <item name="PermissionMsgColor">#737373</item>
         <item name="PermissionItemTextColor">#737373</item>
@@ -62,10 +64,12 @@
         <item name="PermissionButtonBackground">@drawable/shape_btn_border_white</item>
         <item name="PermissionBackround">@drawable/shape_btn_blue</item>
     </style>
+
     <style name="PermissionThemeStyle" parent="PermissionBaseblactStyle">
         <item name="PermissionButtonBackground">@drawable/shape_btn_border_black</item>
         <item name="PermissionBackround">@drawable/shape_bg_white</item>
     </style>
+
     <style name="PermissionAnimFade">
         <item name="android:windowEnterAnimation">@anim/fade_in</item>
         <item name="android:windowExitAnimation">@anim/fade_out</item>

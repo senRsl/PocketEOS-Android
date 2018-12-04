@@ -25,16 +25,16 @@
 package com.oraclechain.pocketeos.blockchain.cypto.ec;
 
 
-import com.oraclechain.pocketeos.blockchain.cypto.digest.Sha256;
-import com.oraclechain.pocketeos.blockchain.cypto.util.Base58;
-
 import java.math.BigInteger;
 import java.security.SecureRandom;
+
+import com.oraclechain.pocketeos.blockchain.cypto.digest.Sha256;
+import com.oraclechain.pocketeos.blockchain.cypto.util.Base58;
 
 
 /**
  * Created by swapnibble on 2017-09-25.
- *
+ * <p>
  * 참고:
  * https://github.com/EOSIO/eosjs-ecc
  * https://github.com/EOSIO/eosjs-ecc/blob/master/src/ecdsa.js
@@ -43,66 +43,62 @@ import java.security.SecureRandom;
 public class EosPrivateKey {
 
     private static final String PREFIX = "PVT";
-
-    private final BigInteger mPrivateKey;
-    private final EosPublicKey mPublicKey;
-
-    private final CurveParam mCurveParam;
-
     private static final SecureRandom mSecRandom;
 
     static {
         mSecRandom = new SecureRandom();
     }
 
-    public static SecureRandom getSecuRandom(){
-        return mSecRandom;
+    private final BigInteger mPrivateKey;
+    private final EosPublicKey mPublicKey;
+    private final CurveParam mCurveParam;
+
+    public EosPrivateKey() {
+        this(CurveParam.SECP256_K1);
     }
 
-    public EosPrivateKey(){
-        this( CurveParam.SECP256_K1);
-    }
-
-    public EosPrivateKey( int curveParamType){
+    public EosPrivateKey(int curveParamType) {
         mCurveParam = EcTools.getCurveParam(curveParamType);
 
-        mPrivateKey = getOrCreatePrivKeyBigInteger( null );
-        mPublicKey = new EosPublicKey(findPubKey( mPrivateKey ), mCurveParam);
+        mPrivateKey = getOrCreatePrivKeyBigInteger(null);
+        mPublicKey = new EosPublicKey(findPubKey(mPrivateKey), mCurveParam);
     }
 
-    public EosPrivateKey( String base58Str ) {
-        String[] split = EosEcUtil.safeSplitEosCryptoString( base58Str );
+    public EosPrivateKey(String base58Str) {
+        String[] split = EosEcUtil.safeSplitEosCryptoString(base58Str);
         byte[] keyBytes;
 
-        if ( split.length == 1 ){
-            mCurveParam = EcTools.getCurveParam( CurveParam.SECP256_K1);
-            keyBytes = EosEcUtil.getBytesIfMatchedSha256( base58Str, null);
-        }
-        else {
-            if ( split.length < 3 ) {
+        if (split.length == 1) {
+            mCurveParam = EcTools.getCurveParam(CurveParam.SECP256_K1);
+            keyBytes = EosEcUtil.getBytesIfMatchedSha256(base58Str, null);
+        } else {
+            if (split.length < 3) {
                 throw new IllegalArgumentException("Invalid private key format: " + base58Str);
             }
 
-            mCurveParam = EosEcUtil.getCurveParamFrom( split[1]);
-            keyBytes = EosEcUtil.getBytesIfMatchedRipemd160( split[2], split[1], null);
+            mCurveParam = EosEcUtil.getCurveParamFrom(split[1]);
+            keyBytes = EosEcUtil.getBytesIfMatchedRipemd160(split[2], split[1], null);
         }
 
 
-        if ( ( null == keyBytes) || (keyBytes.length < 5 )) {
+        if ((null == keyBytes) || (keyBytes.length < 5)) {
             throw new IllegalArgumentException("Invalid private key length");
         }
 
-        mPrivateKey = getOrCreatePrivKeyBigInteger( keyBytes );
-        mPublicKey = new EosPublicKey(findPubKey( mPrivateKey ), mCurveParam);
+        mPrivateKey = getOrCreatePrivKeyBigInteger(keyBytes);
+        mPublicKey = new EosPublicKey(findPubKey(mPrivateKey), mCurveParam);
     }
 
+    public static SecureRandom getSecuRandom() {
+        return mSecRandom;
+    }
 
-    public void clear(){
-        mPrivateKey.multiply( BigInteger.ZERO );
+    public void clear() {
+        mPrivateKey.multiply(BigInteger.ZERO);
     }
 
     private byte[] findPubKey(BigInteger bnum) {
-        EcPoint Q = EcTools.multiply( mCurveParam.G(), bnum );// Secp256k1Param.G, bnum);
+        EcPoint Q = EcTools.multiply(mCurveParam.G(), bnum);// Secp256k1Param.G, bnum);
 
         // Q를 curve 상에서, compressed point 로 변환하자. ( 압축을 위해 )
 
@@ -117,33 +113,33 @@ public class EosPrivateKey {
 
     public String toWif() {
         byte[] rawPrivKey = getBytes();
-        byte[] resultWIFBytes = new byte[ 1 + 32 + 4 ];
+        byte[] resultWIFBytes = new byte[1 + 32 + 4];
 
-        resultWIFBytes[0] = (byte)0x80;
-        System.arraycopy( rawPrivKey, rawPrivKey.length > 32 ? 1 : 0, resultWIFBytes, 1 , 32);
+        resultWIFBytes[0] = (byte) 0x80;
+        System.arraycopy(rawPrivKey, rawPrivKey.length > 32 ? 1 : 0, resultWIFBytes, 1, 32);
 
-        Sha256 hash = Sha256.doubleHash( resultWIFBytes, 0, 33 );
+        Sha256 hash = Sha256.doubleHash(resultWIFBytes, 0, 33);
 
-        System.arraycopy( hash.getBytes(), 0, resultWIFBytes, 33, 4 );
+        System.arraycopy(hash.getBytes(), 0, resultWIFBytes, 33, 4);
 
-        return Base58.encode( resultWIFBytes );
+        return Base58.encode(resultWIFBytes);
     }
 
-    public CurveParam getCurveParam(){
+    public CurveParam getCurveParam() {
         return mCurveParam;
     }
 
-    public EcSignature sign( Sha256 digest ) {
-        return EcDsa.sign( digest, this);
+    public EcSignature sign(Sha256 digest) {
+        return EcDsa.sign(digest, this);
     }
 
     @Override
     public String toString() {
-        if ( mCurveParam.isType( CurveParam.SECP256_K1 ) ){
+        if (mCurveParam.isType(CurveParam.SECP256_K1)) {
             return toWif();
         }
 
-        return EosEcUtil.encodeEosCrypto( PREFIX, mCurveParam , getBytes());
+        return EosEcUtil.encodeEosCrypto(PREFIX, mCurveParam, getBytes());
     }
 
     public BigInteger getAsBigInteger() {
@@ -177,24 +173,24 @@ public class EosPrivateKey {
         return result;
     }
 
-    private BigInteger toUnsignedBigInteger(BigInteger value ) {
-        if ( value.signum() < 0 ) {
-            return new BigInteger( 1, value.toByteArray());
+    private BigInteger toUnsignedBigInteger(BigInteger value) {
+        if (value.signum() < 0) {
+            return new BigInteger(1, value.toByteArray());
         }
 
         return value;
     }
 
-    private BigInteger toUnsignedBigInteger(byte[] value ) {
-        if ( (( value[0]) & 0x80) != 0 ) {
-            return new BigInteger( 1, value);
+    private BigInteger toUnsignedBigInteger(byte[] value) {
+        if (((value[0]) & 0x80) != 0) {
+            return new BigInteger(1, value);
         }
 
         return new BigInteger(value);
     }
 
-    private BigInteger getOrCreatePrivKeyBigInteger(byte[] value ) {
-        if ( null != value ) {
+    private BigInteger getOrCreatePrivKeyBigInteger(byte[] value) {
+        if (null != value) {
             if (((value[0]) & 0x80) != 0) {
                 return new BigInteger(1, value);
             }

@@ -1,5 +1,7 @@
 package me.ljp.permission;
 
+import java.util.List;
+
 import android.graphics.Color;
 import android.graphics.ColorMatrixColorFilter;
 import android.view.View;
@@ -7,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/5/10 0010.

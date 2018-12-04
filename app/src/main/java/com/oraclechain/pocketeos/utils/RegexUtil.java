@@ -74,8 +74,8 @@ public class RegexUtil {
      * @return the boolean
      */
     public static boolean isMobileNO(String mobiles) {
-    /*第一位必定为1，第二位必定为3或4或5或6,7或8,9，其他位置的可以为0-9
-    */
+        /*第一位必定为1，第二位必定为3或4或5或6,7或8,9，其他位置的可以为0-9
+         */
         Pattern p = Pattern.compile("^((1[3,4,5,6,7,8,9][0-9])|(14[5,7])|(17[0,6,7,8]))\\d{8}$");
         Matcher m = p.matcher(mobiles);
         return m.matches();

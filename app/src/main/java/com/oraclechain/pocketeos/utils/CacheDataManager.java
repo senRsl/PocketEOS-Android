@@ -1,11 +1,11 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.io.File;
+import java.math.BigDecimal;
+
 import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
-
-import java.io.File;
-import java.math.BigDecimal;
 
 /**
  * Created by pocketEos on 2017/11/23.
@@ -39,6 +39,7 @@ public class CacheDataManager {
     public static void cleanSharedPreference(Context context) {
         deleteFilesByDirectory(new File("/data/data/" + context.getPackageName() + "/shared_prefs"));
     }
+
     /**
      * * 清除本应用webview(/data/data/com.xxx.xxx/shared_prefs) *
      *
@@ -47,6 +48,7 @@ public class CacheDataManager {
     public static void cleanWebview(Context context) {
         deleteFilesByDirectory(new File("/data/data/" + context.getPackageName() + "/app_webview"));
     }
+
     /**
      * * 按名字清除本应用数据库 * *
      *
@@ -132,6 +134,7 @@ public class CacheDataManager {
                 }
             }
     }
+
     /**
      * Delete all files.
      *
@@ -158,12 +161,13 @@ public class CacheDataManager {
                 }
             }
     }
+
     // 获取文件
     // Context.getExternalFilesDir() --> SDCard/Android/data/你的应用的包名/files/
     // 目录，一般放一些长时间保存的数据
     // Context.getExternalCacheDir() -->
     // SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据
-    public static long getFolderSize(File file){
+    public static long getFolderSize(File file) {
         long size = 0;
         try {
             File[] fileList = file.listFiles();

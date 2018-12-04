@@ -9,6 +9,17 @@ import android.os.Parcelable;
  */
 
 public class AccountWithCoinBean implements Parcelable {
+    public static final Parcelable.Creator<AccountWithCoinBean> CREATOR = new Parcelable.Creator<AccountWithCoinBean>() {
+        @Override
+        public AccountWithCoinBean createFromParcel(Parcel source) {
+            return new AccountWithCoinBean(source);
+        }
+
+        @Override
+        public AccountWithCoinBean[] newArray(int size) {
+            return new AccountWithCoinBean[size];
+        }
+    };
     private String coinName;
     private String coinImg;
     private String coinNumber;
@@ -20,6 +31,23 @@ public class AccountWithCoinBean implements Parcelable {
     private String oct_market_cap_cny;
     private String oct_price_cny;
     private String eos_price_cny;
+
+    public AccountWithCoinBean() {
+    }
+
+    protected AccountWithCoinBean(Parcel in) {
+        this.coinName = in.readString();
+        this.coinImg = in.readString();
+        this.coinNumber = in.readString();
+        this.coinForCny = in.readString();
+        this.coinUpsAndDowns = in.readString();
+        this.eos_market_cap_usd = in.readString();
+        this.eos_market_cap_cny = in.readString();
+        this.oct_market_cap_usd = in.readString();
+        this.oct_market_cap_cny = in.readString();
+        this.oct_price_cny = in.readString();
+        this.eos_price_cny = in.readString();
+    }
 
     public String getCoinName() {
         return coinName == null ? "" : coinName;
@@ -128,33 +156,4 @@ public class AccountWithCoinBean implements Parcelable {
         dest.writeString(this.oct_price_cny);
         dest.writeString(this.eos_price_cny);
     }
-
-    public AccountWithCoinBean() {
-    }
-
-    protected AccountWithCoinBean(Parcel in) {
-        this.coinName = in.readString();
-        this.coinImg = in.readString();
-        this.coinNumber = in.readString();
-        this.coinForCny = in.readString();
-        this.coinUpsAndDowns = in.readString();
-        this.eos_market_cap_usd = in.readString();
-        this.eos_market_cap_cny = in.readString();
-        this.oct_market_cap_usd = in.readString();
-        this.oct_market_cap_cny = in.readString();
-        this.oct_price_cny = in.readString();
-        this.eos_price_cny = in.readString();
-    }
-
-    public static final Parcelable.Creator<AccountWithCoinBean> CREATOR = new Parcelable.Creator<AccountWithCoinBean>() {
-        @Override
-        public AccountWithCoinBean createFromParcel(Parcel source) {
-            return new AccountWithCoinBean(source);
-        }
-
-        @Override
-        public AccountWithCoinBean[] newArray(int size) {
-            return new AccountWithCoinBean[size];
-        }
-    };
 }

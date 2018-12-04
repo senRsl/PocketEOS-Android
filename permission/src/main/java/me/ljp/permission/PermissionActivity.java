@@ -1,5 +1,8 @@
 package me.ljp.permission;
 
+import java.util.List;
+import java.util.ListIterator;
+
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,9 +23,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
-import java.util.List;
-import java.util.ListIterator;
-
 
 /**
  * Created by pocketEos on 2017/5/10 0010.
@@ -30,25 +30,27 @@ import java.util.ListIterator;
 
 public class PermissionActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE_MUTI_SINGLE = 3;
+    private static final int REQUEST_CODE_SINGLE = 1;
+    private static final int REQUEST_CODE_MUTI = 2;
+    private static final int REQUEST_SETTING = 110;
+    private static final String TAG = "PermissionActivity";
     public static int PERMISSION_TYPE_SINGLE = 1;
     public static int PERMISSION_TYPE_MUTI = 2;
+    private static PermissionCallback mCallback;
     private int mPermissionType;
     private String mTitle;
     private String mMsg;
-    private static PermissionCallback mCallback;
     private List<PermissionItem> mCheckPermissions;
     private Dialog mDialog;
-
-    private static final int REQUEST_CODE_SINGLE = 1;
-    private static final int REQUEST_CODE_MUTI = 2;
-    public static final int REQUEST_CODE_MUTI_SINGLE = 3;
-    private static final int REQUEST_SETTING = 110;
-
-    private static final String TAG = "PermissionActivity";
     private CharSequence mAppName;
     private int mStyleId;
     private int mFilterColor;
     private int mAnimStyleId;
+    /**
+     * 重新申请权限数组的索引
+     */
+    private int mRePermissionIndex;
 
     public static void setCallBack(PermissionCallback callBack) {
         PermissionActivity.mCallback = callBack;
@@ -78,7 +80,6 @@ public class PermissionActivity extends AppCompatActivity {
             showPermissionDialog();
         }
     }
-
 
     private String getPermissionTitle() {
         return TextUtils.isEmpty(mTitle) ? String.format(getString(R.string.permission_dialog_title), mAppName) : mTitle;
@@ -132,7 +133,6 @@ public class PermissionActivity extends AppCompatActivity {
         mDialog.show();
     }
 
-
     private void reRequestPermission(final String permission) {
         String permissionName = getPermissionItem(permission).PermissionName;
         String alertTitle = String.format(getString(R.string.permission_title), permissionName);
@@ -174,7 +174,6 @@ public class PermissionActivity extends AppCompatActivity {
         return str;
     }
 
-
     private void getDatas() {
         Intent intent = getIntent();
         mPermissionType = intent.getIntExtra(ConstantValue.DATA_PERMISSION_TYPE, PERMISSION_TYPE_SINGLE);
@@ -185,11 +184,6 @@ public class PermissionActivity extends AppCompatActivity {
         mAnimStyleId = intent.getIntExtra(ConstantValue.DATA_ANIM_STYLE, -1);
         mCheckPermissions = (List<PermissionItem>) intent.getSerializableExtra(ConstantValue.DATA_PERMISSIONS);
     }
-
-    /**
-     * 重新申请权限数组的索引
-     */
-    private int mRePermissionIndex;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

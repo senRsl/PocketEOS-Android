@@ -1,8 +1,8 @@
 package com.oraclechain.pocketeos.view.contact;
 
-import com.oraclechain.pocketeos.bean.User;
-
 import java.util.Comparator;
+
+import com.oraclechain.pocketeos.bean.User;
 
 /**
  * 排序类

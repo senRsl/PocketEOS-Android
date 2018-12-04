@@ -1,7 +1,9 @@
 package com.oraclechain.pocketeos.modules.friendslist.myfriendslist;
 
-import android.content.Context;
-import android.text.TextUtils;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.R;
@@ -9,17 +11,15 @@ import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BasePresent;
 import com.oraclechain.pocketeos.base.BaseUrl;
 import com.oraclechain.pocketeos.bean.FriendsListInfoBean;
-import com.oraclechain.pocketeos.view.contact.ChineseToEnglish;
-import com.oraclechain.pocketeos.view.contact.CompareSort;
+import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.bean.User;
 import com.oraclechain.pocketeos.net.HttpUtils;
-import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
+import com.oraclechain.pocketeos.view.contact.ChineseToEnglish;
+import com.oraclechain.pocketeos.view.contact.CompareSort;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
+import android.text.TextUtils;
 
 /**
  * Created by pocketEos on 2017/12/26.

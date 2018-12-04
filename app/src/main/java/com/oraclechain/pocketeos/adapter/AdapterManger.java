@@ -1,13 +1,8 @@
 package com.oraclechain.pocketeos.adapter;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.baseadapter.CommonAdapter;
@@ -48,9 +43,14 @@ import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.view.RoundImageView;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**

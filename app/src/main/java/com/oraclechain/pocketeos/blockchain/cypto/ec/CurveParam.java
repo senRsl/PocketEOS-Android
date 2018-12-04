@@ -25,9 +25,9 @@
 package com.oraclechain.pocketeos.blockchain.cypto.ec;
 
 
-import com.oraclechain.pocketeos.blockchain.cypto.util.HexUtils;
-
 import java.math.BigInteger;
+
+import com.oraclechain.pocketeos.blockchain.cypto.util.HexUtils;
 
 /**
  * Created by swapnibble on 2018-02-02.
@@ -45,14 +45,14 @@ public class CurveParam {
 
     private final BigInteger HALF_CURVE_ORDER;
 
-    public CurveParam( int curveParamType, String pInHex, String aInHex, String bInHex, String GxInHex, String GyInHex, String nInHex ){
+    public CurveParam(int curveParamType, String pInHex, String aInHex, String bInHex, String GxInHex, String GyInHex, String nInHex) {
         this.curveParamType = curveParamType;
         BigInteger p = new BigInteger(pInHex, 16); //p
-        BigInteger b = new BigInteger(bInHex , 16);
-        BigInteger a = new BigInteger( aInHex, 16);
+        BigInteger b = new BigInteger(bInHex, 16);
+        BigInteger a = new BigInteger(aInHex, 16);
         curve = new EcCurve(p, a, b);
 
-        G = curve.decodePoint( HexUtils.toBytes("04" + GxInHex + GyInHex)  );
+        G = curve.decodePoint(HexUtils.toBytes("04" + GxInHex + GyInHex));
         n = new BigInteger(nInHex, 16);
         //h = BigInteger.ONE;
 
@@ -63,7 +63,7 @@ public class CurveParam {
         return curveParamType;
     }
 
-    public boolean isType(int paramType ) {
+    public boolean isType(int paramType) {
         return curveParamType == paramType;
     }
 

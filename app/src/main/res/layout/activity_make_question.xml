@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".modules.dapp.paidanswer.makequestion.MakeQuestionActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
 
     <com.oraclechain.pocketeos.view.MyScrollview
         android:layout_width="match_parent"
@@ -29,14 +28,14 @@
 
                 <TextView
                     android:id="@+id/txt"
+                    style="?attr/text_one_style"
                     android:layout_width="@dimen/dimens_50"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_marginRight="@dimen/dimens_10"
                     android:gravity="center_vertical"
                     android:text="@string/total_value"
-                   style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <com.oraclechain.pocketeos.view.ClearEditText
                     android:id="@+id/property_number"
@@ -51,23 +50,23 @@
                     android:textColor="@color/title_color"
                     android:textColorHint="@color/gray_color"
                     android:textCursorDrawable="@drawable/edittext_cursor"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <TextView
                     android:id="@+id/right_tv"
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:text="@string/oct"
-                    style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
             </RelativeLayout>
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_1"
-                style="?attr/line_style"/>
+                android:layout_height="@dimen/dimens_1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -78,14 +77,14 @@
 
                 <TextView
                     android:id="@+id/txt1"
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_marginRight="@dimen/dimens_10"
                     android:gravity="center_vertical"
                     android:text="@string/end_time"
-                    style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <TextView
                     android:id="@+id/end_time"
@@ -100,7 +99,7 @@
                     android:textColor="@color/title_color"
                     android:textColorHint="@color/gray_color"
                     android:textCursorDrawable="@drawable/edittext_cursor"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <ImageView
                     android:id="@+id/right_img"
@@ -108,13 +107,13 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@mipmap/more"/>
+                    android:src="@mipmap/more" />
             </RelativeLayout>
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_10"
-                style="?attr/line_style"/>
+                android:layout_height="@dimen/dimens_10" />
 
             <com.oraclechain.pocketeos.view.ClearEditText
                 android:id="@+id/input_question_title"
@@ -128,12 +127,12 @@
                 android:textColor="@color/title_color"
                 android:textColorHint="@color/gray_color"
                 android:textCursorDrawable="@drawable/edittext_cursor"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_1"
-                style="?attr/line_style"/>
+                android:layout_height="@dimen/dimens_1" />
 
 
             <com.oraclechain.pocketeos.view.ClearEditText
@@ -148,12 +147,12 @@
                 android:textColor="@color/title_color"
                 android:textColorHint="@color/gray_color"
                 android:textCursorDrawable="@drawable/edittext_cursor"
-                android:textSize="@dimen/dimens_15"/>
+                android:textSize="@dimen/dimens_15" />
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_1"
-                style="?attr/line_style"/>
+                android:layout_height="@dimen/dimens_1" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -164,7 +163,7 @@
                     android:id="@+id/recycle_question_answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none" />
             </RelativeLayout>
 
             <Button
@@ -176,7 +175,7 @@
                 android:background="@drawable/broken_line"
                 android:text="@string/add_answer"
                 android:textColor="@color/gray_color"
-                android:textSize="@dimen/dimens_16"/>
+                android:textSize="@dimen/dimens_16" />
         </LinearLayout>
     </com.oraclechain.pocketeos.view.MyScrollview>
 </LinearLayout>

@@ -43,7 +43,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class CryptUtil {
 
-    public static byte[] aesEncrypt( byte[] key, byte[] data, byte[] iv ) {
+    public static byte[] aesEncrypt(byte[] key, byte[] data, byte[] iv) {
 
         byte[] encrypted = null;
 
@@ -73,14 +73,14 @@ public class CryptUtil {
         return encrypted;
     }
 
-    public static byte[] aesDecrypt( byte[] key, byte[] data,  byte[] iv) {
+    public static byte[] aesDecrypt(byte[] key, byte[] data, byte[] iv) {
         byte[] decrypted = null;
         try {
             SecretKey secureKey = new SecretKeySpec(key, "AES");
             Cipher c = Cipher.getInstance("AES/CBC/PKCS5Padding");
 
-            if ( iv.length > 16 ) {
-                iv = Arrays.copyOf( iv, 16 ); // aes/cbc 에선 iv 는 16-byte !
+            if (iv.length > 16) {
+                iv = Arrays.copyOf(iv, 16); // aes/cbc 에선 iv 는 16-byte !
             }
 
             c.init(Cipher.DECRYPT_MODE, secureKey, new IvParameterSpec(iv));

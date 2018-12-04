@@ -1,10 +1,5 @@
 package com.oraclechain.pocketeos.modules.leftdrawer.usercenter.changename;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
@@ -13,6 +8,10 @@ import com.oraclechain.pocketeos.gen.UserBeanDao;
 import com.oraclechain.pocketeos.utils.KeyBoardUtil;
 import com.oraclechain.pocketeos.view.ClearEditText;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 
 //修改名字

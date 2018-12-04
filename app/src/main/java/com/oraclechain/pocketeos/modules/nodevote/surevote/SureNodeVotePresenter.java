@@ -1,6 +1,8 @@
 package com.oraclechain.pocketeos.modules.nodevote.surevote;
 
-import android.content.Context;
+import java.util.HashMap;
+
+import org.json.JSONObject;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.model.Response;
@@ -14,9 +16,7 @@ import com.oraclechain.pocketeos.bean.ResultVoteWeightBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.

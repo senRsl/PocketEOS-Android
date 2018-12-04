@@ -1,5 +1,9 @@
 package com.oraclechain.pocketeos.view.swiperecycle;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
@@ -14,10 +18,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/11.
@@ -242,12 +242,12 @@ public class SwipeItemLayout extends FrameLayout {
         }
     }
 
-    public void setSwipeEnable(boolean enable) {
-        mSwipeEnable = enable;
-    }
-
     public boolean isSwipeEnable() {
         return mSwipeEnable;
+    }
+
+    public void setSwipeEnable(boolean enable) {
+        mSwipeEnable = enable;
     }
 
     /**
@@ -450,6 +450,12 @@ public class SwipeItemLayout extends FrameLayout {
         }
     }
 
+    public interface SwipeListener {
+        void onSwipeOpen(SwipeItemLayout view);
+
+        void onSwipeClose(SwipeItemLayout view);
+    }
+
     private class DragCallBack extends ViewDragHelper.Callback {
 
         @Override
@@ -535,11 +541,5 @@ public class SwipeItemLayout extends FrameLayout {
             }
         }
 
-    }
-
-    public interface SwipeListener {
-        void onSwipeOpen(SwipeItemLayout view);
-
-        void onSwipeClose(SwipeItemLayout view);
     }
 }

@@ -1,10 +1,7 @@
 package com.oraclechain.pocketeos.modules.resourcemanager.resourcehome.fragment.memory;
 
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import java.math.BigDecimal;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -13,8 +10,10 @@ import com.oraclechain.pocketeos.bean.BlockChainAccountInfoBean;
 import com.oraclechain.pocketeos.modules.resourcemanager.changememory.ChangeMemoryActivity;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 
-import java.math.BigDecimal;
-
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 

@@ -1,13 +1,12 @@
 package com.oraclechain.pocketeos.utils;
 
-import android.content.Context;
-import android.content.Intent;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.service.KillSelfService;
 
-import java.util.List;
-
+import android.content.Context;
+import android.content.Intent;
 import me.ljp.permission.HiPermission;
 import me.ljp.permission.PermissionCallback;
 import me.ljp.permission.PermissionItem;
@@ -90,20 +89,20 @@ public final class Utils {
 
     /**
      * 重启整个APP
+     *
      * @param Delayed 延迟多少毫秒
      */
-    public static void restartAPP(long Delayed){
+    public static void restartAPP(long Delayed) {
 
         /**开启一个新的服务，用来重启本APP*/
-        Intent intent1=new Intent(context,KillSelfService.class);
-        intent1.putExtra("PackageName",context.getPackageName());
-        intent1.putExtra("Delayed",Delayed);
+        Intent intent1 = new Intent(context, KillSelfService.class);
+        intent1.putExtra("PackageName", context.getPackageName());
+        intent1.putExtra("Delayed", Delayed);
         context.startService(intent1);
 
         /**杀死整个进程**/
         android.os.Process.killProcess(android.os.Process.myPid());
     }
-
 
 
 }

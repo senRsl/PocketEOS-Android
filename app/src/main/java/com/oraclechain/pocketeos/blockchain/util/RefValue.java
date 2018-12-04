@@ -30,11 +30,11 @@ package com.oraclechain.pocketeos.blockchain.util;
 public class RefValue<T> {
     public T data;
 
-    public RefValue(){
+    public RefValue() {
         data = null;
     }
 
-    public RefValue(T initialVal ){
+    public RefValue(T initialVal) {
         data = initialVal;
     }
 }

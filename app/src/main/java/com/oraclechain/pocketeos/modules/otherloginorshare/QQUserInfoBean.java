@@ -9,6 +9,17 @@ import android.os.Parcelable;
 
 public class QQUserInfoBean implements Parcelable {
 
+    public static final Parcelable.Creator<QQUserInfoBean> CREATOR = new Parcelable.Creator<QQUserInfoBean>() {
+        @Override
+        public QQUserInfoBean createFromParcel(Parcel source) {
+            return new QQUserInfoBean(source);
+        }
+
+        @Override
+        public QQUserInfoBean[] newArray(int size) {
+            return new QQUserInfoBean[size];
+        }
+    };
     /**
      * ret : 0
      * msg :
@@ -43,6 +54,32 @@ public class QQUserInfoBean implements Parcelable {
     private String figureurl_qq_2;
     private String is_yellow_vip;
     private String vip;
+    private String yellow_vip_level;
+    private String level;
+    private String is_yellow_year_vip;
+
+    public QQUserInfoBean() {
+    }
+
+    protected QQUserInfoBean(Parcel in) {
+        this.ret = in.readInt();
+        this.msg = in.readString();
+        this.is_lost = in.readInt();
+        this.nickname = in.readString();
+        this.gender = in.readString();
+        this.province = in.readString();
+        this.city = in.readString();
+        this.figureurl = in.readString();
+        this.figureurl_1 = in.readString();
+        this.figureurl_2 = in.readString();
+        this.figureurl_qq_1 = in.readString();
+        this.figureurl_qq_2 = in.readString();
+        this.is_yellow_vip = in.readString();
+        this.vip = in.readString();
+        this.yellow_vip_level = in.readString();
+        this.level = in.readString();
+        this.is_yellow_year_vip = in.readString();
+    }
 
     @Override
     public String toString() {
@@ -66,10 +103,6 @@ public class QQUserInfoBean implements Parcelable {
                 ", is_yellow_year_vip='" + is_yellow_year_vip + '\'' +
                 '}';
     }
-
-    private String yellow_vip_level;
-    private String level;
-    private String is_yellow_year_vip;
 
     public int getRet() {
         return ret;
@@ -232,39 +265,4 @@ public class QQUserInfoBean implements Parcelable {
         dest.writeString(this.level);
         dest.writeString(this.is_yellow_year_vip);
     }
-
-    public QQUserInfoBean() {
-    }
-
-    protected QQUserInfoBean(Parcel in) {
-        this.ret = in.readInt();
-        this.msg = in.readString();
-        this.is_lost = in.readInt();
-        this.nickname = in.readString();
-        this.gender = in.readString();
-        this.province = in.readString();
-        this.city = in.readString();
-        this.figureurl = in.readString();
-        this.figureurl_1 = in.readString();
-        this.figureurl_2 = in.readString();
-        this.figureurl_qq_1 = in.readString();
-        this.figureurl_qq_2 = in.readString();
-        this.is_yellow_vip = in.readString();
-        this.vip = in.readString();
-        this.yellow_vip_level = in.readString();
-        this.level = in.readString();
-        this.is_yellow_year_vip = in.readString();
-    }
-
-    public static final Parcelable.Creator<QQUserInfoBean> CREATOR = new Parcelable.Creator<QQUserInfoBean>() {
-        @Override
-        public QQUserInfoBean createFromParcel(Parcel source) {
-            return new QQUserInfoBean(source);
-        }
-
-        @Override
-        public QQUserInfoBean[] newArray(int size) {
-            return new QQUserInfoBean[size];
-        }
-    };
 }

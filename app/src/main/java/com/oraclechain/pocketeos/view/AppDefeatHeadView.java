@@ -1,5 +1,8 @@
 package com.oraclechain.pocketeos.view;
 
+import com.liaoinstan.springview.container.BaseHeader;
+import com.oraclechain.pocketeos.R;
+
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -11,22 +14,18 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.liaoinstan.springview.container.BaseHeader;
-import com.oraclechain.pocketeos.R;
-
 /**
  * Created by pocketEos on 2017/12/7.
  * app默认下拉刷新效果
  */
 
 public class AppDefeatHeadView extends BaseHeader {
+    private final int ROTATE_ANIM_DURATION = 180;
     private Context context;
     private int rotationSrc;
     private int arrowSrc;
     private int logoSrc;
     private boolean isShowText;
-
-    private final int ROTATE_ANIM_DURATION = 180;
     private RotateAnimation mRotateUpAnim;
     private RotateAnimation mRotateDownAnim;
 
@@ -36,32 +35,32 @@ public class AppDefeatHeadView extends BaseHeader {
     private ProgressBar headerProgressbar;
     private View frame;
 
-    public AppDefeatHeadView(Context context){
-        this(context, 0, R.mipmap.whitearrow,0,false);
+    public AppDefeatHeadView(Context context) {
+        this(context, 0, R.mipmap.whitearrow, 0, false);
     }
 
-    public AppDefeatHeadView(Context context,boolean isShowText){
-        this(context, 0,R.mipmap.whitearrow,0,isShowText);
+    public AppDefeatHeadView(Context context, boolean isShowText) {
+        this(context, 0, R.mipmap.whitearrow, 0, isShowText);
     }
 
-    public AppDefeatHeadView(Context context,int logoSrc){
-        this(context, 0,R.mipmap.whitearrow,logoSrc,false);
+    public AppDefeatHeadView(Context context, int logoSrc) {
+        this(context, 0, R.mipmap.whitearrow, logoSrc, false);
     }
 
-    public AppDefeatHeadView(Context context,int logoSrc,boolean isShowText){
-        this(context, 0,R.mipmap.whitearrow,logoSrc,isShowText);
+    public AppDefeatHeadView(Context context, int logoSrc, boolean isShowText) {
+        this(context, 0, R.mipmap.whitearrow, logoSrc, isShowText);
     }
 
-    public AppDefeatHeadView(Context context,int rotationSrc,int arrowSrc,int logoSrc,boolean isShowText){
+    public AppDefeatHeadView(Context context, int rotationSrc, int arrowSrc, int logoSrc, boolean isShowText) {
         this.context = context;
         this.rotationSrc = rotationSrc;
         this.arrowSrc = arrowSrc;
         this.logoSrc = logoSrc;
         this.isShowText = isShowText;
-        mRotateUpAnim = new RotateAnimation(0.0f, -180.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,0.5f);
+        mRotateUpAnim = new RotateAnimation(0.0f, -180.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateUpAnim.setDuration(ROTATE_ANIM_DURATION);
         mRotateUpAnim.setFillAfter(true);
-        mRotateDownAnim = new RotateAnimation(-180.0f, 0.0f,Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,0.5f);
+        mRotateDownAnim = new RotateAnimation(-180.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateDownAnim.setDuration(ROTATE_ANIM_DURATION);
         mRotateDownAnim.setFillAfter(true);
     }
@@ -74,9 +73,10 @@ public class AppDefeatHeadView extends BaseHeader {
         headerLogo = (ImageView) view.findViewById(R.id.app_defeat_header_logo);
         headerProgressbar = (ProgressBar) view.findViewById(R.id.app_defeat_header_progressbar);
         frame = view.findViewById(R.id.app_defeat_frame);
-        if(logoSrc!=0) headerLogo.setImageResource(logoSrc);
-        if(!isShowText) headerTitle.setVisibility(View.GONE);
-        if(rotationSrc!=0) headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
+        if (logoSrc != 0) headerLogo.setImageResource(logoSrc);
+        if (!isShowText) headerTitle.setVisibility(View.GONE);
+        if (rotationSrc != 0)
+            headerProgressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, rotationSrc));
         headerArrow.setImageResource(arrowSrc);
         return view;
     }
@@ -101,14 +101,13 @@ public class AppDefeatHeadView extends BaseHeader {
 
     @Override
     public void onLimitDes(View rootView, boolean upORdown) {
-        if (!upORdown){
+        if (!upORdown) {
             headerTitle.setText("松开刷新");
-            if (headerArrow.getVisibility()==View.VISIBLE)
+            if (headerArrow.getVisibility() == View.VISIBLE)
                 headerArrow.startAnimation(mRotateUpAnim);
-        }
-        else {
+        } else {
             headerTitle.setText("下拉刷新");
-            if (headerArrow.getVisibility()==View.VISIBLE)
+            if (headerArrow.getVisibility() == View.VISIBLE)
                 headerArrow.startAnimation(mRotateDownAnim);
         }
     }

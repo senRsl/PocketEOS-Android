@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -21,7 +20,7 @@
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/title_color"
-            android:textSize="@dimen/dimens_14"/>
+            android:textSize="@dimen/dimens_14" />
 
 
         <TextView
@@ -34,7 +33,7 @@
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/gray"
-            android:textSize="@dimen/dimens_14"/>
+            android:textSize="@dimen/dimens_14" />
 
     </RelativeLayout>
 </LinearLayout>

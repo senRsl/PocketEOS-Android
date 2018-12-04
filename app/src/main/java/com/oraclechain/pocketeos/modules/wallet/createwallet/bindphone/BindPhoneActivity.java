@@ -1,12 +1,5 @@
 package com.oraclechain.pocketeos.modules.wallet.createwallet.bindphone;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -25,6 +18,12 @@ import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.countdowntimer.CountDownTimerUtils;
 
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -96,7 +95,7 @@ public class BindPhoneActivity extends BaseAcitvity<BindPhoneView, BindPhonePres
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("details", FilesUtils.readAssetsTxt(BindPhoneActivity.this,"pocketeos_user"));
+                bundle.putString("details", FilesUtils.readAssetsTxt(BindPhoneActivity.this, "pocketeos_user"));
                 bundle.putString("title", getString(R.string.setting_one));
                 ActivityUtils.next(BindPhoneActivity.this, RichTextActivity.class, bundle);
             }

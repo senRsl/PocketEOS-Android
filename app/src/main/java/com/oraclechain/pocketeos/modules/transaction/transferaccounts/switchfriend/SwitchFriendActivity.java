@@ -1,8 +1,7 @@
 package com.oraclechain.pocketeos.modules.transaction.transferaccounts.switchfriend;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -12,9 +11,9 @@ import com.oraclechain.pocketeos.bean.FriendsListInfoBean;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import butterknife.BindView;
 
 import static com.oraclechain.pocketeos.utils.Utils.getContext;
@@ -44,9 +43,9 @@ public class SwitchFriendActivity extends BaseAcitvity<SwitchFriendView, SwitchF
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycle.setLayoutManager(layoutManager);
         mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
         mCommonAdapter = new EmptyWrapper(AdapterManger.getFriendListAdapter(this, mDataBeanList, getIntent().getStringExtra("account")));

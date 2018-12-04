@@ -1,6 +1,6 @@
 package com.oraclechain.pocketeos.modules.coindetails;
 
-import android.content.Context;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.model.Response;
@@ -13,7 +13,7 @@ import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.

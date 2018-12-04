@@ -11,12 +11,17 @@ import android.webkit.WebSettings;
 public class BaseWebSetting {
     BaseWebView mBaseWebView;
     Context mContext;
-    boolean isCache =true;
-    public BaseWebSetting(BaseWebView baseWebView, Context context,boolean isCache) {
+    boolean isCache = true;
+
+    public BaseWebSetting(BaseWebView baseWebView, Context context, boolean isCache) {
         mBaseWebView = baseWebView;
         mContext = context;
         this.isCache = isCache;
         initWebSettings();
+    }
+
+    private static boolean hasKitkat() {
+        return Build.VERSION.SDK_INT >= 19;
     }
 
     private void initWebSettings() {
@@ -64,9 +69,5 @@ public class BaseWebSetting {
         // 如果此设置是允许，则 setAllowFileAccessFromFileURLs 不起做用
         webSettings.setAllowUniversalAccessFromFileURLs(false);
 
-    }
-
-    private static boolean hasKitkat() {
-        return Build.VERSION.SDK_INT >= 19;
     }
 }

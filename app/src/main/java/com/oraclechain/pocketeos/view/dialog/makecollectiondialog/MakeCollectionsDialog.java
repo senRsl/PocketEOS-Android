@@ -1,5 +1,10 @@
 package com.oraclechain.pocketeos.view.dialog.makecollectiondialog;
 
+import com.google.zxing.client.result.ParsedResultType;
+import com.mylhyl.zxing.scanner.encode.QREncode;
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.utils.ViewToImageUtils;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,11 +17,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.google.zxing.client.result.ParsedResultType;
-import com.mylhyl.zxing.scanner.encode.QREncode;
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.utils.ViewToImageUtils;
 
 /**
  * Created by pocketEos on 2017/12/5.

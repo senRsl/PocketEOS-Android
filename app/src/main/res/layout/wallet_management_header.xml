@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/wallet_management_header_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +16,7 @@
         android:padding="@dimen/dimens_20"
         android:text="@string/wallect_intro"
         android:textColor="#FFFFB540"
-        android:textSize="@dimen/dimens_13"/>
+        android:textSize="@dimen/dimens_13" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,6 +28,7 @@
 
         <TextView
             android:id="@+id/create_number"
+            style="?attr/text_one_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -36,11 +36,11 @@
             android:drawableTop="@mipmap/create_number"
             android:gravity="center"
             android:text="@string/create_number"
-           style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/import_number"
+            style="?attr/text_one_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -48,11 +48,11 @@
             android:drawableTop="@mipmap/import_number"
             android:gravity="center"
             android:text="@string/import_number"
-            style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/backup_number"
+            style="?attr/text_one_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -60,11 +60,11 @@
             android:drawableTop="@mipmap/backup_number"
             android:gravity="center"
             android:text="@string/backup_number"
-            style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
 
         <TextView
             android:id="@+id/reset_password"
+            style="?attr/text_one_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -72,14 +72,13 @@
             android:drawableTop="@mipmap/reset_password"
             android:gravity="center"
             android:text="@string/reset_password"
-            style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
     </LinearLayout>
 
     <View
+        style="?attr/item_bg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_10"
-        style="?attr/item_bg"/>
+        android:layout_height="@dimen/dimens_10" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,11 +89,11 @@
         android:paddingRight="@dimen/dimens_20">
 
         <TextView
+            style="?attr/text_one_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/main_number"
-            style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_13"/>
+            android:textSize="@dimen/dimens_13" />
 
         <TextView
             android:layout_width="match_parent"
@@ -102,16 +101,18 @@
             android:layout_marginTop="@dimen/dimens_10"
             android:text="@string/main_number_notice"
             android:textColor="@color/gray_color"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12" />
     </LinearLayout>
 
     <View
+        style="?attr/line_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_line_cash"
-        style="?attr/line_style"/>
+        android:layout_height="@dimen/dimens_line_cash" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_66">
+
         <ImageView
             android:id="@+id/main_account_img"
             android:layout_width="@dimen/dimens_36"
@@ -120,37 +121,37 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimens_20"
             android:layout_marginRight="@dimen/dimens_20"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/main_account"
+            style="?attr/text_one_style"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/main_account_img"
             android:drawablePadding="@dimen/dimens_10"
             android:gravity="center_vertical"
             android:text="@string/vip158415321561"
-            style="?attr/text_one_style"
-            android:textSize="@dimen/dimens_15"/>
+            android:textSize="@dimen/dimens_15" />
     </RelativeLayout>
 
 
     <View
+        style="?attr/item_bg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_10"
-        style="?attr/item_bg"/>
+        android:layout_height="@dimen/dimens_10" />
 
     <TextView
+        style="?attr/text_one_style"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_48"
-        android:gravity="center_vertical"
         android:layout_marginLeft="@dimen/dimens_20"
+        android:gravity="center_vertical"
         android:text="@string/other_number"
-        style="?attr/text_one_style"
-        android:textSize="@dimen/dimens_13"/>
+        android:textSize="@dimen/dimens_13" />
 
     <View
+        style="?attr/line_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_line_cash"
-        style="?attr/line_style"/>
+        android:layout_height="@dimen/dimens_line_cash" />
 </LinearLayout>

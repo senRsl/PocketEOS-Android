@@ -1,14 +1,9 @@
 package com.oraclechain.pocketeos.modules.scancode;
 
-import android.Manifest;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
@@ -34,16 +29,21 @@ import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.Manifest;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import me.ljp.permission.PermissionItem;
 
 public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
 
+    private static final int CHOOSE_PICTURE = 0;
     @BindView(R.id.scanner_view)
     ScannerView mScannerView;
     @BindView(R.id.iv_back)
@@ -52,7 +52,6 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
     RelativeLayout mLl;
     @BindView(R.id.tv_right)
     TextView mTvRight;
-    private static final int CHOOSE_PICTURE = 0;
 
     @Override
     protected int getLayoutId() {
@@ -96,7 +95,7 @@ public class ScanCodeActivity extends BaseAcitvity<NormalView, NormalPresenter> 
                 List<PermissionItem> permissonItems = new ArrayList<PermissionItem>();
                 permissonItems.add(new PermissionItem(Manifest.permission.WRITE_EXTERNAL_STORAGE, getString(R.string.WRITE_STORAGE), R.drawable.permission_card1));
                 permissonItems.add(new PermissionItem(Manifest.permission.READ_EXTERNAL_STORAGE, getString(R.string.READ_STORAGE), R.drawable.permission_card1));
-                if(Utils.getPermissions(permissonItems , getString(R.string.SCAN_EXTERNAL_STORAGE))){
+                if (Utils.getPermissions(permissonItems, getString(R.string.SCAN_EXTERNAL_STORAGE))) {
                     Intent intent = new Intent(Intent.ACTION_PICK);
                     intent.setType("image/*");
                     startActivityForResult(intent, CHOOSE_PICTURE);

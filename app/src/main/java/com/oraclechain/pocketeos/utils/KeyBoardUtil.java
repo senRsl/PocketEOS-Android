@@ -1,11 +1,11 @@
 package com.oraclechain.pocketeos.utils;
 
+import java.lang.ref.WeakReference;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-
-import java.lang.ref.WeakReference;
 
 /**
  * Created by pocketEos on 2017/11/23.
@@ -35,18 +35,6 @@ public class KeyBoardUtil {
     }
 
     /**
-     * 强制显示输入法
-     */
-    public void show() {
-        Activity activity = mActivity.get();
-        if (activity != null) {
-            if (!isSoftInputShow(activity)) {
-                show(activity.getWindow().getCurrentFocus());
-            }
-        }
-    }
-
-    /**
      * 判断当前软键盘是否打开
      *
      * @param activity
@@ -65,6 +53,18 @@ public class KeyBoardUtil {
             return inputmanger.isActive() && activity.getWindow().getCurrentFocus() != null;
         }
         return false;
+    }
+
+    /**
+     * 强制显示输入法
+     */
+    public void show() {
+        Activity activity = mActivity.get();
+        if (activity != null) {
+            if (!isSoftInputShow(activity)) {
+                show(activity.getWindow().getCurrentFocus());
+            }
+        }
     }
 
     /**

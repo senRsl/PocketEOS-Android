@@ -1,6 +1,7 @@
 package com.oraclechain.pocketeos.modules.transaction.redpacket.makeredpacket;
 
-import android.content.Context;
+import java.util.HashMap;
+import java.util.List;
 
 import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.app.MyApplication;
@@ -13,8 +14,7 @@ import com.oraclechain.pocketeos.bean.SendRedPacketBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import java.util.HashMap;
-import java.util.List;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.

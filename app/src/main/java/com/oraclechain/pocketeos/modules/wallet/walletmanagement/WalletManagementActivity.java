@@ -1,14 +1,9 @@
 package com.oraclechain.pocketeos.modules.wallet.walletmanagement;
 
-import android.Manifest;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -37,11 +32,15 @@ import com.oraclechain.pocketeos.view.dialog.changepassworddialog.PasswordCallba
 import com.oraclechain.pocketeos.view.swiperecycle.SwipeItemLayout;
 import com.oraclechain.pocketeos.view.swiperecycle.SwipeMenuRecyclerView;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.Manifest;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import me.ljp.permission.PermissionItem;
 
@@ -52,7 +51,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
     @BindView(R.id.user_account_number)
     SwipeMenuRecyclerView mUserAccountNumber;
 
-    TextView desc ,create_number, import_number, backup_number, reset_password, main_account;
+    TextView desc, create_number, import_number, backup_number, reset_password, main_account;
     ImageView main_account_img;
     private CommonAdapter mCommonAdapter;
     private BackUpNumberDialog dialog;
@@ -145,10 +144,10 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         if (!Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             desc.setBackgroundColor(getResources().getColor(R.color.black_box_coin_backgroud));
             desc.setTextColor(getResources().getColor(R.color.blackbox_desc_text));
-            TextDrawUtil.setDrawableTop(this,create_number, R.mipmap.black_box_creat_account);
-            TextDrawUtil.setDrawableTop(this,import_number, R.mipmap.black_box_import_account);
-            TextDrawUtil.setDrawableTop(this,backup_number, R.mipmap.black_box_back_up_wallet);
-            TextDrawUtil.setDrawableTop(this,reset_password, R.mipmap.black_box_chang_pwd);
+            TextDrawUtil.setDrawableTop(this, create_number, R.mipmap.black_box_creat_account);
+            TextDrawUtil.setDrawableTop(this, import_number, R.mipmap.black_box_import_account);
+            TextDrawUtil.setDrawableTop(this, backup_number, R.mipmap.black_box_back_up_wallet);
+            TextDrawUtil.setDrawableTop(this, reset_password, R.mipmap.black_box_chang_pwd);
         }
     }
 
@@ -256,7 +255,6 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         initData();
         initEvent();
     }
-
 
 
     @Override

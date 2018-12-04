@@ -1,10 +1,8 @@
 package com.oraclechain.pocketeos.modules.nodevote;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -25,10 +23,11 @@ import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -162,9 +161,9 @@ public class NodeVoteActivity extends BaseAcitvity<NodeVoteView, NodeVotePresent
     @Override
     public void getAccountDetailsDataHttp(AccountDetailsBean accountDetailsBean) {
         mAmount.setText(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_balance()));
-        String stake = BigDecimalUtil.add(new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight())),new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_net_weight())))+"";
+        String stake = BigDecimalUtil.add(new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight())), new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_net_weight()))) + "";
         stakedAmount = RegexUtil.subZeroAndDot(stake);
-        mVoteAccount.setText(stakedAmount+ " EOS");
+        mVoteAccount.setText(stakedAmount + " EOS");
     }
 
     @Override

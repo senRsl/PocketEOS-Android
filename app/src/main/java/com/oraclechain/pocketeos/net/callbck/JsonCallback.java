@@ -15,16 +15,16 @@
  */
 package com.oraclechain.pocketeos.net.callbck;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+
 import com.google.gson.JsonSyntaxException;
 import com.lzy.okgo.callback.AbsCallback;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
 
 import okhttp3.Response;
 

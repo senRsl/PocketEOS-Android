@@ -1,8 +1,5 @@
 package com.oraclechain.pocketeos.utils;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.spongycastle.util.encoders.Hex;
-
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -17,6 +14,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
+
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.spongycastle.util.encoders.Hex;
 
 /**
  * Created by pocketEos on 2018/5/26.
@@ -43,7 +43,8 @@ public class EncryptUtil {
 
     /**
      * Gets encrypt string.
-     *加密
+     * 加密
+     *
      * @param content  the content
      * @param password the password
      * @return the encrypt string
@@ -63,7 +64,8 @@ public class EncryptUtil {
 
     /**
      * Gets decrypt string.
-     *解密
+     * 解密
+     *
      * @param content  the content
      * @param password the password
      * @return the decrypt string
@@ -72,12 +74,12 @@ public class EncryptUtil {
      */
     public static String getDecryptString(String content, String password)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
-        String  salt = content.substring(0,32);//盐
+        String salt = content.substring(0, 32);//盐
         char[] chars = password.toCharArray();//加密密码明文
 
         byte[] encryPassword = pbkdf2(chars, salt.getBytes(), 1000, 32);
         // 解密
-        String dncstr =content.substring(32 , content.length());
+        String dncstr = content.substring(32, content.length());
         byte[] dec = decrypt(Hex.decode(dncstr), encryPassword);
         return new String(dec);
     }

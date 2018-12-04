@@ -1,5 +1,14 @@
 package com.oraclechain.pocketeos.view.popupwindow;
 
+import java.util.List;
+
+import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.adapter.AdapterManger;
+import com.oraclechain.pocketeos.adapter.baseadapter.CommonAdapter;
+import com.oraclechain.pocketeos.bean.AccountInfoBean;
+import com.oraclechain.pocketeos.bean.CoinBean;
+import com.oraclechain.pocketeos.utils.RotateUtils;
+
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
@@ -9,15 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
-import com.oraclechain.pocketeos.R;
-import com.oraclechain.pocketeos.adapter.AdapterManger;
-import com.oraclechain.pocketeos.adapter.baseadapter.CommonAdapter;
-import com.oraclechain.pocketeos.bean.AccountInfoBean;
-import com.oraclechain.pocketeos.bean.CoinBean;
-import com.oraclechain.pocketeos.utils.RotateUtils;
-
-import java.util.List;
-
 /**
  * Created by pocketEos on 2017/12/4.
  */
@@ -26,6 +26,10 @@ public class BasePopupWindow extends PopupWindow {
     final PopupController controller;
     RecyclerView mRecyclerView;
     boolean baseIsShow = false;
+
+    private BasePopupWindow(Context context) {
+        controller = new PopupController(context, this);
+    }
 
     @Override
     public int getWidth() {
@@ -37,15 +41,79 @@ public class BasePopupWindow extends PopupWindow {
         return controller.mPopupView.getMeasuredHeight();
     }
 
-
-    private BasePopupWindow(Context context) {
-        controller = new PopupController(context, this);
-    }
-
     @Override
     public void dismiss() {
         super.dismiss();
         controller.setBackGroundLevel(1.0f);
+    }
+
+    @Override
+    public void showAsDropDown(View anchor) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            Rect visibleFrame = new Rect();
+            anchor.getGlobalVisibleRect(visibleFrame);
+            int height = anchor.getResources().getDisplayMetrics().heightPixels - visibleFrame.bottom;
+            setHeight(height);
+        }
+
+        super.showAsDropDown(anchor);
+    }
+
+    public boolean setAccountData(final Context context, final List<AccountInfoBean> mAccountInfoBeanList, final String account, final ImageView lookMore, final boolean isSHow) {
+        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecyclerView.setLayoutManager(layoutManager);
+        CommonAdapter commonAdapter = AdapterManger.getAccountAdapter(context, mAccountInfoBeanList, account);
+        mRecyclerView.setAdapter(commonAdapter);
+        baseIsShow = isSHow;
+        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+                baseIsShow = !isSHow;
+                RotateUtils.rotateArrow(lookMore, baseIsShow);
+            }
+        });
+        return baseIsShow;
+    }
+
+    public boolean setCoinData(final Context context, List<String> mCoinList, final String coin, final ImageView lookMore, final boolean isSHow) {
+        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecyclerView.setLayoutManager(layoutManager);
+        CommonAdapter commonAdapter = AdapterManger.getCoinTypeAdapter(context, mCoinList, coin);
+        mRecyclerView.setAdapter(commonAdapter);
+        baseIsShow = isSHow;
+        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+                baseIsShow = !isSHow;
+                RotateUtils.rotateArrow(lookMore, baseIsShow);
+            }
+        });
+        return baseIsShow;
+    }
+
+    public boolean setNewsCoinData(final Context context, List<CoinBean.DataBean> mCoinBeen, final String coinid, final ImageView lookMore, final boolean isSHow) {
+        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecyclerView.setLayoutManager(layoutManager);
+        CommonAdapter commonAdapter = AdapterManger.getNewsCoinTypeAdapter(context, mCoinBeen, coinid);
+        mRecyclerView.setAdapter(commonAdapter);
+        baseIsShow = isSHow;
+        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+                baseIsShow = !isSHow;
+                RotateUtils.rotateArrow(lookMore, baseIsShow);
+            }
+        });
+        return baseIsShow;
     }
 
     public static class Builder {
@@ -132,75 +200,6 @@ public class BasePopupWindow extends PopupWindow {
 
             return popupWindow;
         }
-    }
-
-    @Override
-    public void showAsDropDown(View anchor) {
-        if(Build.VERSION.SDK_INT >= 24){
-            Rect visibleFrame = new Rect();
-            anchor.getGlobalVisibleRect(visibleFrame);
-            int height = anchor.getResources().getDisplayMetrics().heightPixels - visibleFrame.bottom;
-            setHeight(height);
-        }
-
-        super.showAsDropDown(anchor);
-    }
-
-    public boolean setAccountData(final Context context, final List<AccountInfoBean> mAccountInfoBeanList, final String account, final ImageView lookMore, final boolean isSHow) {
-        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        layoutManager.setSmoothScrollbarEnabled(true);
-        mRecyclerView.setLayoutManager(layoutManager);
-        CommonAdapter commonAdapter = AdapterManger.getAccountAdapter(context, mAccountInfoBeanList, account);
-        mRecyclerView.setAdapter(commonAdapter);
-        baseIsShow = isSHow;
-        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-                baseIsShow = !isSHow;
-                RotateUtils.rotateArrow(lookMore, baseIsShow);
-            }
-        });
-        return baseIsShow;
-    }
-
-    public boolean setCoinData(final Context context, List<String> mCoinList, final String coin, final ImageView lookMore, final boolean isSHow) {
-        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        layoutManager.setSmoothScrollbarEnabled(true);
-        mRecyclerView.setLayoutManager(layoutManager);
-        CommonAdapter commonAdapter =  AdapterManger.getCoinTypeAdapter(context, mCoinList, coin);
-        mRecyclerView.setAdapter(commonAdapter);
-        baseIsShow = isSHow;
-        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-                baseIsShow = !isSHow;
-                RotateUtils.rotateArrow(lookMore, baseIsShow);
-            }
-        });
-        return baseIsShow;
-    }
-
-    public boolean setNewsCoinData(final Context context, List<CoinBean.DataBean> mCoinBeen, final String coinid, final ImageView lookMore, final boolean isSHow) {
-        mRecyclerView = getContentView().findViewById(R.id.exchange_two_type);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        layoutManager.setSmoothScrollbarEnabled(true);
-        mRecyclerView.setLayoutManager(layoutManager);
-        CommonAdapter commonAdapter =  AdapterManger.getNewsCoinTypeAdapter(context, mCoinBeen, coinid);
-        mRecyclerView.setAdapter(commonAdapter);
-        baseIsShow = isSHow;
-        getContentView().findViewById(R.id.dismiss).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-                baseIsShow = !isSHow;
-                RotateUtils.rotateArrow(lookMore, baseIsShow);
-            }
-        });
-        return baseIsShow;
     }
 
 }

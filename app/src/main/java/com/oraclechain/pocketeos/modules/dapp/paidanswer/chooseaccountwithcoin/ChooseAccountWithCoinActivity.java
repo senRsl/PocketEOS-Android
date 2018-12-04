@@ -1,12 +1,7 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.chooseaccountwithcoin;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.oraclechain.pocketeos.R;
@@ -16,9 +11,13 @@ import com.oraclechain.pocketeos.bean.AccountInfoBean;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

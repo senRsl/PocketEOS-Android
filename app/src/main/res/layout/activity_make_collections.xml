@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".modules.transaction.transferaccounts.TransferAccountsActivity">
 
-    <include layout="@layout/title_project"/>
+    <include layout="@layout/title_project" />
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/spring"
@@ -47,14 +46,14 @@
                             android:layout_height="match_parent"
                             android:gravity="right|center_vertical"
                             android:text="@string/all_number"
-                            android:textSize="@dimen/dimens_13"/>
+                            android:textSize="@dimen/dimens_13" />
 
                         <ImageView
                             android:id="@+id/look_number"
                             android:layout_width="@dimen/dimens_20"
                             android:layout_height="match_parent"
                             android:scaleType="centerInside"
-                            android:src="@mipmap/drop_down"/>
+                            android:src="@mipmap/drop_down" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -71,21 +70,21 @@
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
                             android:text="@string/all_property"
-                            android:textSize="@dimen/dimens_13"/>
+                            android:textSize="@dimen/dimens_13" />
 
                         <ImageView
                             android:id="@+id/look_property"
                             android:layout_width="@dimen/dimens_20"
                             android:layout_height="match_parent"
                             android:scaleType="centerInside"
-                            android:src="@mipmap/drop_down"/>
+                            android:src="@mipmap/drop_down" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     style="?attr/line_style"
                     android:layout_width="wrap_content"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px" />
 
 
                 <RelativeLayout
@@ -104,7 +103,7 @@
                         android:layout_marginRight="@dimen/dimens_10"
                         android:gravity="center_vertical"
                         android:text="@string/get_property_number"
-                        android:textSize="@dimen/dimens_15"/>
+                        android:textSize="@dimen/dimens_15" />
 
                     <com.oraclechain.pocketeos.view.ClearEditText
                         android:id="@+id/get_property_number"
@@ -118,14 +117,14 @@
                         android:inputType="numberDecimal"
                         android:textColorHint="@color/gray_color"
                         android:textCursorDrawable="@drawable/edittext_cursor"
-                        android:textSize="@dimen/dimens_15"/>
+                        android:textSize="@dimen/dimens_15" />
 
                 </RelativeLayout>
 
                 <View
                     style="?attr/line_style"
                     android:layout_width="wrap_content"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px" />
 
                 <TextView
                     android:id="@+id/take_rmb_property"
@@ -137,7 +136,7 @@
                     android:paddingLeft="@dimen/dimens_40"
                     android:paddingRight="@dimen/dimens_40"
                     android:text="≈****CNY"
-                    android:textSize="@dimen/dimens_24"/>
+                    android:textSize="@dimen/dimens_24" />
 
                 <Button
                     android:id="@+id/get_make_collections_code"
@@ -148,12 +147,12 @@
                     android:background="@color/gray_color"
                     android:text="@string/get_make_collections_code"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/dimens_16"/>
+                    android:textSize="@dimen/dimens_16" />
 
                 <View
                     style="?attr/line_style"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_10"/>
+                    android:layout_height="@dimen/dimens_10" />
 
                 <TextView
                     style="?attr/text_one_style"
@@ -162,12 +161,12 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/dimens_20"
                     android:text="@string/make_collections_history"
-                    android:textSize="@dimen/dimens_15"/>
+                    android:textSize="@dimen/dimens_15" />
 
                 <View
+                    style="?attr/line_style"
                     android:layout_width="wrap_content"
-                    android:layout_height="1px"
-                    style="?attr/line_style"/>
+                    android:layout_height="1px" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -178,7 +177,7 @@
                         android:id="@+id/recycle_make_collections_history"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scrollbars="none"/>
+                        android:scrollbars="none" />
                 </RelativeLayout>
             </LinearLayout>
         </com.oraclechain.pocketeos.view.MyScrollview>

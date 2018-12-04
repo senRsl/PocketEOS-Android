@@ -1,6 +1,6 @@
 package com.oraclechain.pocketeos.modules.transaction.makecollections;
 
-import android.content.Context;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.model.Response;
@@ -8,12 +8,12 @@ import com.oraclechain.pocketeos.base.BasePresent;
 import com.oraclechain.pocketeos.base.BaseUrl;
 import com.oraclechain.pocketeos.bean.CoinRateBean;
 import com.oraclechain.pocketeos.bean.PostChainHistoryBean;
+import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
-import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
-import java.util.HashMap;
+import android.content.Context;
 
 /**
  * Created by pocketEos on 2017/12/26.
