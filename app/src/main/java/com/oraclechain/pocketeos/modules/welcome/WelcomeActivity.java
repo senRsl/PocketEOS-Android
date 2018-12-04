@@ -89,6 +89,7 @@ public class WelcomeActivity extends BaseAcitvity<NormalView, NormalPresenter> i
             }
 
         }
+//        goHome();
     }
 
     @Override

@@ -29,10 +29,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="design_width"
-            android:value="375"></meta-data>
+            android:value="375" />
         <meta-data
             android:name="design_height"
-            android:value="667"></meta-data>
+            android:value="667" />
 
         <activity
             android:name=".modules.welcome.WelcomeActivity"
@@ -50,7 +50,7 @@
         <activity
             android:name=".modules.scancode.ScanCodeActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".modules.transaction.transferaccounts.TransferAccountsActivity"
             android:screenOrientation="portrait" />
@@ -65,7 +65,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.transaction.redpacket.continueredpacket.ContinueRdPacketActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.switchusernumber.SwitchUserNumberActivity"
             android:screenOrientation="portrait" />
@@ -122,28 +122,28 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.wallet.importwallet.ImportWalletActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.dapp.paidanswer.paidanswerhome.activity.PaidAnswerActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.dapp.paidanswer.makequestion.MakeQuestionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.news.newsdetails.WebNewsDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.messagecenter.MessageCenterActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.systemsetting.SystemSettingActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.appupdate.AppUpdateActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.seach.SeachActivity"
             android:screenOrientation="portrait"
@@ -160,13 +160,13 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.transaction.transferaccounts.switchfriend.SwitchFriendActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.empty.EmptyActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.appupdate.AppIntroActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <service android:name=".utils.DownLoadServerice" />
 
@@ -192,43 +192,43 @@
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.Translucent"></activity>
+            android:theme="@android:style/Theme.Translucent" />
         <activity
             android:name=".modules.transaction.redpacket.anticipationredpacket.AnticipationRedPacketActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.transaction.redpacket.getredpacketdetails.GetRedPacketDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.dapp.dappdetails.DappDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".modules.blackbox.nowalletlogin.BlackBoxLoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.blackbox.existwalletlogin.ExistBlackBoxLoginActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.blackbox.existwalletlogin.BlackBoxCreatWalletActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.blackbox.BlackBoxMainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.blackbox.blackboxcoindetails.BlackBoxCoinDetailsActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
+            android:screenOrientation="portrait" />
+        <!--<activity
             android:name=".modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />-->
         <activity
             android:name=".modules.account.backupaccount.activity.BackUpAccountActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.leftdrawer.candyintegral.CandyIntegralActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".service.KillSelfService"
@@ -237,31 +237,31 @@
 
         <activity
             android:name=".modules.leftdrawer.systemsetting.LanguageActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.account.mapaccount.MapAccountActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.account.backupaccount.BackUpKeyActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.nodevote.NodeVoteActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.nodevote.agencyvote.AgencyVoteActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.nodevote.gonodevote.GoNodeVoteActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.nodevote.surevote.SureNodeVoteActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.nodevote.NodeVoteDetailsActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".modules.unstake.UnStakeActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
