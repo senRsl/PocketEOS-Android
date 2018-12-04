@@ -44,10 +44,12 @@ public class SideBarView extends View {
     public SideBarView(Context context) {
         this(context, null);
     }
+
     public SideBarView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
         init();
     }
+
     public SideBarView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 

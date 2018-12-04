@@ -44,7 +44,7 @@ public class EosEcUtil {
     public static final String PREFIX_K1 = "K1";
     public static final String PREFIX_R1 = "R1";
 
-//    public static byte[] decodeEosCrypto(String base58Data, RefValue<CurveParam> curveParamRef, RefValue<Long> checksumRef ){
+    //    public static byte[] decodeEosCrypto(String base58Data, RefValue<CurveParam> curveParamRef, RefValue<Long> checksumRef ){
 //
 //        final byte[] retKeyData;
 //

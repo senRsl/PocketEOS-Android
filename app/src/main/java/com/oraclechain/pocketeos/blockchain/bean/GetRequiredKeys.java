@@ -16,6 +16,7 @@ public class GetRequiredKeys {
     private SignedTransaction transaction;
     @Expose
     private List<String> available_keys;
+
     public GetRequiredKeys(SignedTransaction transaction, List<String> keys) {
         this.transaction = transaction;
 

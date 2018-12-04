@@ -56,7 +56,9 @@ public class Base58 {
         }
     }
 
-    /** Encodes the given bytes in base58. No checksum is appended. */
+    /**
+     * Encodes the given bytes in base58. No checksum is appended.
+     */
     public static String encode(byte[] input) {
         if (input.length == 0) {
             return "";

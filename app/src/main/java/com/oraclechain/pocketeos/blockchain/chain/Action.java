@@ -71,6 +71,10 @@ public class Action implements EosType.Packer {
         return authorization;
     }
 
+    public void setAuthorization(TypePermissionLevel[] authorization) {
+        this.authorization.addAll(Arrays.asList(authorization));
+    }
+
     public void setAuthorization(String[] accountWithPermLevel) {
         if (null == accountWithPermLevel) {
             return;
@@ -84,10 +88,6 @@ public class Action implements EosType.Packer {
 
     public void setAuthorization(List<TypePermissionLevel> authorization) {
         this.authorization = authorization;
-    }
-
-    public void setAuthorization(TypePermissionLevel[] authorization) {
-        this.authorization.addAll(Arrays.asList(authorization));
     }
 
     public JsonElement getData() {
