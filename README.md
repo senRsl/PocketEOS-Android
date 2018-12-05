@@ -6,7 +6,7 @@
  - O链：https://github.com/OracleChain/EosProxyServer/blob/master/README-cn.md
 
 所以我们的就是  
-**URL_DOMAIN_CHAIN：https://xxx.xxx.com/apis**
+**URL_DOMAIN_CHAIN：https://eos.xxx.com/apis**
 
 ###  get_info
 
@@ -47,6 +47,7 @@
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### user/add_new_eos
@@ -65,9 +66,9 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
 余额不足
 ```json
 {
-	"code": 3050003,
-	"message": "assertion failure with message: overdrawn balance",
-	"data": null
+  "code": 3050003,
+  "message": "assertion failure with message: overdrawn balance",
+  "data": null
 }
 ```
 
@@ -79,6 +80,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### get_table_rows
@@ -101,6 +103,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
 ```
  - RSP:  
 ```json
+
 ```
 
 ### get_rate
@@ -111,6 +114,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### get_sparklines
@@ -121,6 +125,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### abi_json_to_bin
@@ -131,6 +136,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### get_required_keys
@@ -141,6 +147,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### push_transaction
@@ -151,6 +158,7 @@ ownerKey=EOS6re6s9ARUc4AGuVjQ9peqBhWYeXyXaSE6cB618MzaHe51KXiY5
  - REQ: [GET] URL_DOMAIN_CHAIN/xxx  
  - RSP:  
 ```json
+
 ```
 
 ### get_account
@@ -164,6 +172,7 @@ name=eosiojunglez
 ```
  - RSP:  
 ```json
+
 ```
 
 
