@@ -36,13 +36,14 @@ public class BaseUrl {
 //    public final static String HTTP_ANSWER_ADDRESS = "https://api.pocketeos.top/eosaskanswer30/";
 //    public final static String HTTP_CANDY_ADDRESS = "https://api.pocketeos.top/api_oc_pe_candy_system/";
 
+    public final static String HTTP_PACKETADDRESS = "http://192.168.3.185:8089/api_oc_redpacket/";
+    public final static String HTTP_ADDRESS = "https://api.pocketeos.top/api_oc_personal/v1.0.0/";
+    public final static String HTTP_CHAIN_VOTE_ADDRESS = "https://api.pocketeos.top/voteoraclechain/";
+    //    public final static String HTTP_CHAIN_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN+"api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_CHAIN_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN;
+    public final static String HTTP_ANSWER_ADDRESS = "https://api.pocketeos.top/eosaskanswer30/";
+    public final static String HTTP_CANDY_ADDRESS = "https://api.pocketeos.top/api_oc_pe_candy_system/";
 
-    public final static String HTTP_PACKETADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "api_oc_redpacket/";
-    public final static String HTTP_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "api_oc_personal/v1.0.0/";
-    public final static String HTTP_CHAIN_VOTE_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "voteoraclechain/";
-    public final static String HTTP_CHAIN_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "api_oc_blockchain-v1.3.0/";
-    public final static String HTTP_ANSWER_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "eosaskanswer30/";
-    public final static String HTTP_CANDY_ADDRESS = BuildConfig.URL_DOMAIN_CHAIN + "api_oc_pe_candy_system/";
 
     // 获取关注列表
     public final static String HTTP_Getfollow_list = HTTP_ADDRESS + "follow_list";
