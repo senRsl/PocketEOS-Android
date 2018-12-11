@@ -1,5 +1,16 @@
 # TEST
 
+这个的流程是  注册 pocket的账户，然后把账户备份到公链上。  
+
+这个项目对应的服务端，只开源了面向公链的部分，所以并不能直接调试成功。  
+
+然后，就被废弃掉了。。。。  
+
+现在 搞 [EosCommander](https://github.com/senRsl/EosCommander)  
+
+PocketEos也是基于这个来搞得，而且是直接面向公链，简单省事。  
+
+
 ## 接口
 
  - 原生： https://developers.eos.io/eosio-nodeos/reference#get_info
